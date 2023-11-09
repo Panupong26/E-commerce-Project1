@@ -1,0 +1,9 @@
+.modal-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0px;
+    top: 0px;
+    z-index: 1100;
+}

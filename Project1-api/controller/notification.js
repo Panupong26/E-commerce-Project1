@@ -1,0 +1,67 @@
+const db = require('../models');
+
+const getNotificationByUserId = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const status = req.user.status;
+    
+        if(status === 'user'){
+            const targetNotification = await db.notification.findAll({
+                where: {userId: userId}
+            });
+                
+            return res.status(200).send(targetNotification);
+        } else {
+            return res.status(403).send({message: 'You are not allowed'});
+        }
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal sever error');
+    } 
+}
+
+const getNotificationBySellerId = async (req, res) => {
+    try {
+        const sellerId = req.user.id;
+        const status = req.user.status;
+
+        if(status === 'seller'){
+            const targetNotification = await db.notification.findAll({
+                where: {sellerId: sellerId}
+            });
+            
+            return res.status(200).send(targetNotification);
+        } else {
+            return res.status(403).send({message: 'You are not allowed'});
+        }
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal sever error');
+    } 
+}
+
+const deleteNotification = async (req, res) => {
+    try {
+        const notificationId = req.body.notificationId;
+
+        if(!notificationId) {
+            return res.status(400).send({message: 'Invalid request value'});
+        }
+    
+        await db.notification.destroy({where: {id: notificationId}});
+        
+        return res.status(200).send({message: 'Done'});
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal sever error');
+    } 
+}
+
+module.exports = {
+    getNotificationByUserId,
+    getNotificationBySellerId,
+    deleteNotification
+}

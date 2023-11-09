@@ -1,0 +1,52 @@
+.varificationPage {
+    padding-top: 40px;    
+    width: 100%;
+    height: 100%;
+}
+
+.veMsgBox {
+    box-sizing: border-box;
+    width: 350px;
+    height: max-content;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.veMsgBox .icon{
+    font-size: 100px;
+    margin: 0px;
+    color: yellowgreen;
+    width: max-content;
+    height: max-content;
+}
+
+.veMsgBox .msg{
+    font-size: 14px;
+    margin: auto;
+    word-break: keep-all;
+    color: rgb(60, 60, 60);
+}
+
+.veMsgBox .button {
+    background-color: rgb(178, 215, 106);
+    border-radius: 10px;
+    box-sizing: border-box;
+    width: 50px;
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    padding-top: 6px;
+    margin: 20px auto auto;
+}
+
+.veMsgBox .button:hover {
+    cursor: pointer;
+    background-color: rgb(156, 196, 76);
+}

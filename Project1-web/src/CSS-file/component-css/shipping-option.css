@@ -1,0 +1,134 @@
+.sentOptionBox {
+    position: relative;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sentOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+}
+
+.sentOption {
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 5px;
+    padding: 5px;
+    height: 100px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.sentOption::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sentOption div:hover {
+    cursor: pointer;
+}
+
+.sentOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: rgb(100,100,100);
+}
+
+.sentActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: black;
+}
+
+.sellerSentOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sellerSentOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+    margin-bottom: -19px;
+}
+
+.addProductSentOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.addProductSentOptionButton:hover {
+    color: black;   
+}
+
+
+.sellerSentOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.sellerSentOption div:hover {
+    cursor: pointer;
+}
+
+.sellerSentOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: rgb(100,100,100);
+}
+
+.sellerSentActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: black;
+}

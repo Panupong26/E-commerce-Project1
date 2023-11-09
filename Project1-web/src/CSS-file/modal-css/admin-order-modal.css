@@ -1,0 +1,78 @@
+.orderPanel {
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: max-content;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.adminOrderStatus {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.orderInfo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.orderPanel img {
+    width: 210px;
+    height: 210px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+}
+
+.textHeader {
+    font-size: 20px;
+    color: yellowgreen;
+    text-shadow: 1px 1px 1px rgb(100, 100, 100);
+    text-align: center;
+    margin-top: 0px;
+}
+
+.textBox {
+    padding: 10px;
+    padding-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    color: rgb(60, 60, 60);
+    font-weight: 200;
+}
+
+.link:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px yellowgreen;
+}
+
+.textBox div{
+    margin-bottom: 5px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+}
+
+.adminOrderButton {
+    background-color: rgb(214, 166, 166);
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 10px;
+    margin: 20px auto auto;
+    color: black;
+}
+
+.adminOrderButton:hover {
+    cursor: pointer;
+    background-color: rgb(220, 112, 112);
+}

@@ -1,0 +1,130 @@
+.homeSideBar {
+    position: fixed;
+    box-sizing: border-box;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(200, 200, 200);
+    color: rgb(90, 90, 90);
+    transition: 0.5s;
+}
+
+.homeSidebarShow {
+    background-color: rgba(255, 255, 255, 0);
+    width: 30px;
+    height: 100vh;
+    position: absolute;
+    left: 250px;
+    top: 0px;
+}
+
+.homeSidebarShow div {
+    box-sizing: border-box;
+    width: 30px;
+    height: 180px;
+    background-color: white;
+    margin-top: 200px;
+    padding: 6px;
+    padding-top: 15px;
+    border-radius: 0 5px 5px 0;
+    text-align: center;
+    font-size: 12px;
+    box-shadow: 4px 0px 5px yellowgreen;
+    
+}
+
+.homeSidebarShow:hover {
+    cursor: pointer;
+}
+
+
+
+.homeCategory {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.homeTypeSearch {
+    background-color: rgb(230, 230, 230);
+    box-sizing: border-box;
+    margin: 5px auto;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    border-radius: 10px;
+    width: max-content;
+}
+
+
+.homeTypeSearch input{
+    background-color: rgb(230, 230, 230);
+    border-style: none;
+    text-align: center;
+}
+
+.homeTypeSearch input:focus{
+  outline-style: none;
+}
+
+.homeTypeSearch button{
+    background-color: rgb(230, 230, 230);
+    border-style: none;
+    color: gray;
+}
+
+.homeTypeSearch button:hover{
+   cursor: pointer;
+}
+
+.homeTypeList {
+    margin-top: 10px;
+    padding-top: 2px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100% - 115px);
+
+}
+
+.homeTypeList::-webkit-scrollbar {
+    display: none;
+}
+
+
+.homeTypeButton {
+    list-style: none;
+    background-color: white;
+    position: relative;
+    right: 45px;
+    margin: 0px;
+    width: 250px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    color: rgb(100, 100, 100);
+    margin-bottom: 5px;
+}
+
+.homeTypeButton:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.homeTypeActiveButton {
+    list-style: none;
+    position: relative;
+    right: 45px;
+    margin: 0px;
+    width: 250px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.homeTypeActiveButton:hover {
+    cursor: pointer;
+    color: black;
+}

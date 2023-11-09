@@ -1,0 +1,398 @@
+.sellerAddProductPage {
+    background-color: rgba(255, 255, 255);
+    width: 100%;
+    padding-top: 80px;
+    border-radius: 10px; 
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.sellerAddProductFlex {
+    display: flex;
+    padding-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.sellerAddProductPic {
+    object-fit: contain;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.sellerAddProductSeller {
+    display: flex;
+    position: relative;
+    padding: 5px;
+    margin-bottom: -56px;
+    align-items: center;
+    color: grey;
+}
+
+.sellerAddProductSeller:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.sellerAddProductSeller img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    margin-top: 8px;
+    box-shadow: 0px 0px 5px whitesmoke;
+}
+
+
+.sellerAddProductSeller div {
+    text-shadow: 0px 0px 3px whitesmoke;
+}
+
+
+.sellerAddProductMid {
+    padding: 0;
+    width: 310px;
+    text-align: center;
+}
+    
+
+.sellerAddProductName {
+    text-align: center;
+    margin: 0 auto;
+    width: 265px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
+}
+
+.sellerAddProductType {
+    text-align: center;
+    margin: 10px auto;
+    margin-bottom: 0px;
+    width: 267px;
+    height: 27px;
+    font-size: 15px;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
+    color: rgb(100, 100, 100);
+}
+
+.sellerAddProductDetailBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 432px;
+    width: 430px;
+    margin: 0px;
+    padding: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sellerAddProductDetailHeader {
+    text-align: center;
+    width: 100px;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+}
+
+
+.sellerAddProductDetail {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding: 10px;
+    border-style: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 15px;
+}
+
+.sellerAddProductOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 110px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+}
+
+.sellerAddProductOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    margin-bottom: 10px;
+}
+
+.sellerAddProductOption {
+    text-align: center;
+    margin: 5px auto;
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
+}
+
+.sellerAddSentOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 147px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+}
+
+.sellerAddSentOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    margin-bottom: 10px;
+}
+
+.sellerAddProductSentOption {
+    text-align: center;
+    margin: 5px auto;
+    width: 250px;
+    height: 25px;
+    font-size: 15px;
+    border-radius: 5px;
+    outline: none;
+    border-style: none;
+    background-color: rgb(230, 230, 230);
+}
+
+.sellerAddProductPicBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 110px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    overflow-y: auto;
+    background-color: white;
+    text-align: center;
+}
+
+.sellerAddProductPicHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    margin-bottom: 10px;
+}
+
+.sellerAddProductPicFlex {
+    box-sizing: border-box;
+    height: 75px;
+    padding: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.sellerAddProductPicFlex img {
+    box-sizing: border-box;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.sellerAddProductEditPic {
+    box-sizing: border-box;
+    position: relative;
+    background-color: rgb(100, 100, 100, 0.5);
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    margin: 10px 5px;
+    margin-top: -63px;
+    margin-bottom: 0px;
+    flex-shrink: 0;
+}
+
+.sellerAddProductEditPic div:hover{
+    cursor: pointer;
+    color: rgb(200, 200, 200);
+}
+
+.sellerAddProductEditPicButton {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.sellerAddProductPicButton {
+    box-sizing: border-box;
+    background-color: rgb(220, 220, 220);
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    padding-top: 13px;
+    font-size: 20px;
+    color: rgb(180, 180, 180);
+    margin: 0px 5px;
+    flex-shrink: 0;
+}
+
+.sellerAddProductPicButton:hover {
+    cursor: pointer;
+    color: rgb(100, 100, 100);
+    background-color: rgb(200, 200, 200);
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.sellerAddProductButtonBox {
+    display: flex;
+    margin: 15px auto;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.sellerAddProductButtonBox button:hover {
+   box-shadow: 0px 0px 10px yellowgreen;
+}
+
+.sellerAddProductButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    border-radius: 5px;
+    font-size: 15px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    width: 200px;
+    margin: 5px;
+}
+
+.sellerAddProductCancleButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 15px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: 5px;
+}
+
+.sellerAddEditProductBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.closeSellerProductEdit {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-size: 50px;
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+@media (max-width: 1250px) {
+    .sellerAddProductPage {
+        overflow: hidden;
+    }
+    .sellerAddProductFlex {
+        flex-wrap: wrap;
+    }
+    .sellerAddProductDetailBox {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 830px) {
+    .sellerAddProductFlex {
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .sellerAddProductMid {
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .sellerAddProductDetailBox {
+        margin: auto;
+    }
+
+    .sellerAddProductButtonBox {
+        margin: 20px auto;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 530px) {
+    .sellerAddProductPic {
+        width: 300px;
+        height: 300px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 450px) {
+    .sellerAddProductDetailBox {
+        width: 95vw;
+    }
+    .sellerAddProductButtonBox {
+        width: 95vw;
+    }
+}
+

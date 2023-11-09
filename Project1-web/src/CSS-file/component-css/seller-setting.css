@@ -1,0 +1,378 @@
+.sellerEditInfoPage {
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    min-width: max-content;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.sellerEditInfoPage::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sellerInfoCard {
+    box-sizing: border-box;
+    margin: 10px auto;
+    padding: 20px;
+    width: 1000px;
+    height: max-content;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sellerSettingBox {
+    margin: 10px;
+}
+
+.sellerEditImageButton {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    font-size: 20px;
+    margin-left: -200px;
+    margin-bottom: -100px;
+    bottom: 93px;
+    left: 200px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-style: none;
+    color: rgb(200, 200, 200);
+    opacity: 0;
+}
+
+.sellerEditImageButton:hover {
+    opacity: 1;
+}
+
+.sellerInfoPic {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.sellerNameInput {
+    box-sizing: border-box;
+    padding: 5px;
+    border-style: none;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.sellerInfoHeader {
+    color: rgb(100,100,100);
+    font-size: 14px;
+    margin: auto 5px;
+    width: 150px;
+    flex-shrink: 0;
+}
+
+.sellerEmailBox {
+    display: flex;
+    margin: 10px auto;
+    width: 350px;
+    height: 30px;
+    justify-content: flex-start;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+
+}
+
+.sellerEmailInput {
+    margin: auto 5px;
+    font-size: 15px;
+    border-style: none;
+    width: auto;
+    background-color: rgb(230,230,230);
+}
+
+.sellerPhoneNumberBox {
+    display: flex;
+    margin: 10px auto;
+    width: 350px;
+    height: 30px;
+    justify-content: flex-start;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerPhoneNumberInput {
+    margin: auto 5px;
+    font-size: 15px;
+    border-style: none;
+    width: auto;
+    background-color: rgb(230,230,230);
+}
+
+.sellerAddressBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 350px;
+    height: 100px;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerAddressInput {
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 15px;
+    border-style: none;
+    width: 100%;
+    padding: 5px;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: rgb(230,230,230);
+}
+
+.sellerFacebookBox {
+    display: flex;
+    margin: 10px auto;
+    width: 350px;
+    height: 30px;
+    justify-content: flex-start;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerFacebookInput {
+    margin: auto 5px;
+    font-size: 15px;
+    border-style: none;
+    width: auto;
+    background-color: rgb(230,230,230);
+}
+
+.sellerInstagramBox {
+    display: flex;
+    margin: 10px auto;
+    width: 350px;
+    height: 30px;
+    justify-content: flex-start;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerInstagramInput {
+    margin: auto 5px;
+    font-size: 15px;
+    border-style: none;
+    width: auto;
+    background-color: rgb(230,230,230);
+}
+
+.sellerBankAccountBox {
+    display: flex;
+    margin: 10px auto;
+    width: 350px;
+    height: 30px;
+    justify-content: flex-start;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerBankAccountInput {
+    margin: auto 5px;
+    font-size: 15px;
+    border-style: none;
+    width: 85px;
+    background-color: rgb(230,230,230);
+    flex-shrink: 0;
+}
+
+.sellerBank {
+    width: 60px;
+    margin: auto 10px;
+    outline: none;
+    background-color: rgb(230,230,230);
+    border-style: none;
+}
+
+.sellerWelcomeMessageBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 350px;
+    height: 100px;
+    padding: 5px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerWelcomeMessageInput {
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 15px;
+    border-style: none;
+    width: 100%;
+    padding: 5px;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: rgb(230,230,230);
+}
+
+.sellerShopDescriptionBox {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    width: 350px;
+    height: 200px;
+    padding: 5px;
+    align-items: center;
+    background-color: rgb(230,230,230);
+    border-radius: 10px;
+}
+
+.sellerShopDescriptionInput {
+    box-sizing: border-box;
+    margin: 5px;
+    font-size: 15px;
+    border-style: none;
+    width: 100%;
+    height: 145px;
+    padding: 5px;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: rgb(230,230,230);
+}
+
+.sellerEditButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    position: relative;
+    left: 340px;
+    bottom: 365px;
+    margin-bottom: -35px;
+    color: rgb(100,100,100);
+    width: fit-content;
+}
+
+.sellerEditButton button {
+    border-style: none;
+    background-color: white;
+    font-size: 20px;
+    color: rgb(100,100,100);
+}
+
+
+input {
+    outline: none;
+}
+
+textarea {
+    outline: none;
+}
+
+.shopSettingErrMessage {
+    color: red;
+    position: relative;
+    bottom: 30px;
+    font-size: 14px;
+}
+
+@media (max-width: 1260px) {
+    .sellerInfoCard {
+        flex-direction: column;
+        width: max-content;
+        height: max-content;
+        margin-bottom: 80px;
+    }
+
+    .sellerEditButton {
+        left: 340px;
+        bottom: 950px;
+        margin-bottom: -35px;
+        color: rgb(100,100,100);
+        width: fit-content;
+    }
+}
+
+@media (max-width: 430px) {   
+    .sellerInfoCard {
+        width: max-content;
+        padding: 2px;
+    }
+
+    .sellerEmailBox {
+        width: 315px;
+    }
+
+    .sellerEmailInput {
+        width: 100%;
+    }
+    
+    .sellerPhoneNumberBox {
+        width: 315px;
+    }
+
+    .sellerPhoneNumberInput {
+        width: 100%;
+    }
+    
+    .sellerAddressBox {
+        width: 315px;
+    }
+
+    .sellerFacebookBox {
+        width: 315px;
+    }
+
+    .sellerFacebookInput {
+        width: 100%;
+    }
+
+    .sellerInstagramBox {
+        width: 315px;
+    }
+
+    .sellerInstagramInput {
+        width: 100%;
+    }
+    
+    .sellerBankAccountBox {
+        width: 315px;
+    }
+
+    .sellerBankAccountInput {
+        width: 80px;
+        font-size: 12px;
+        margin: auto 0px;
+    }
+
+    .sellerWelcomeMessageBox {
+        width: 315px;
+    }
+
+    .sellerShopDescriptionBox {
+        width: 315px;
+    }
+
+    .sellerEditButton {
+        left: 295px;
+        bottom: 940px
+    }
+}

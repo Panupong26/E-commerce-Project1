@@ -1,0 +1,360 @@
+
+
+.cartPage {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.cartBox {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: calc(100% - 140px);
+    overflow: hidden;
+    overflow-y: auto;
+    min-width: max-content;
+}
+
+.cartBox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cartCard {
+    box-sizing: border-box;
+    margin: 15px auto;
+    padding: 10px;
+    width: 510px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.cartActiveCard {
+    box-sizing: border-box;
+    margin: 15px auto;
+    padding: 10px;
+    width: 510px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px yellowgreen;
+}
+
+.cartCard:hover {
+    cursor: pointer;
+}
+
+.cartActiveCard:hover {
+    cursor: pointer;
+}
+
+.cartPic {
+    border-radius: 0;
+    border-radius: 5px;
+}
+
+.cartPic:hover {
+   cursor: pointer;
+}
+
+.cartContentBox {
+    margin: auto 20px;
+    width: max-content;
+}
+
+.cartProductName {
+    font-size: 20px;
+}
+
+.cartOption {
+    color: rgb(100, 100, 100);
+}
+
+.cartAmount {
+    color: rgb(100, 100, 100);
+}
+
+.cartSentOption {
+    color: rgb(100, 100, 100);
+    font-size: 12px;
+}
+
+.cartPrice {
+    margin: auto;
+    height: max-content;
+    width: max-content;
+}
+
+.removeButton {
+    margin-top: -5px;
+    margin-right: -5px;
+    margin-left: -20px;
+    color: rgb(200, 200, 200);
+}
+
+.removeButton:hover {
+    color: black;
+}
+
+.orderArea {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 0px;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 5px;
+}
+
+.cartTotalPrice {
+    box-sizing: border-box;
+    background-color: rgb(190, 229, 111);
+    margin: 0;
+    padding: 5px 90px;
+    width: 100%;
+    text-align: end;
+}
+
+.orderOptionBox {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+}
+
+.locationInputBox {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+    display: flex;
+    height: 90px;
+}
+
+.locationInputHeader {
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+}
+
+.locationInput {
+    box-sizing: border-box;
+    margin: 5px;
+    padding: 5px;
+    width: 150px;
+    height: 60px;
+    border-style: none;
+    outline: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: white;
+    font-size: 14px;
+}
+
+.cartReceiveNameInput {
+    box-sizing: border-box;
+    margin: 8px 5px;
+    padding: 5px;
+    width: 130px;
+    height: 20px;
+    border-style: none;
+    outline: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: white;
+    font-size: 14px;
+}
+
+.cartPhoneNumberInput {
+    box-sizing: border-box;
+    margin: 8px 5px;
+    padding: 5px;
+    width: 100px;
+    height: 20px;
+    border-style: none;
+    outline: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    background-color: white;
+    font-size: 14px;
+}
+
+
+.editLocationButton {
+    display: inline-block;
+    position: relative;
+    top: 65px;
+    color: rgb(100, 100, 100);
+}
+
+.editLocationButton:hover {
+    cursor: pointer;
+}
+
+.paymentOptionBox {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+    flex-shrink: 0;
+}
+
+.paymentOptionHeader {
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+}
+
+.paymentOptionButtonBox {
+    overflow-y: auto;
+    margin: 5px 0px;
+    padding: 5px 2px;
+}
+
+.paymentOption {
+    background-color: white;
+    font-size: 12px;
+    padding: 4px;
+    margin: 4px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+    color: rgb(100,100,100);
+}
+
+.paymentActiveOption {
+    background-color:rgb(202, 229, 148);
+    font-size: 12px;
+    padding: 4px;
+    margin: 4px;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+}
+
+.paymentOptionButtonBox div:hover {
+    cursor: pointer;
+}
+
+.checkOutButton {
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+    margin: auto 15px auto 10px;
+    padding: 5px;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    border-style: none;
+    text-align: center;
+    font-size: 12px;
+}
+
+.checkOutButton:hover {
+    box-shadow: 0px 0px 10px yellowgreen;
+}
+
+@media (max-width: 950px) {
+    .orderOptionBox {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 747px) {
+    .cartBox {
+        height: calc(100% - 190px);
+    }
+}
+
+@media (max-width: 601px) {
+    .cartBox {
+        height: calc(100% - 240px);
+    }
+
+    .cartCard {
+        width: 400px;
+    }
+
+    .cartActiveCard {
+        width: 400px;
+    }
+}
+
+@media (max-width: 440px) {
+    .cartCard {
+        width: 330px;
+    }
+
+    .cartActiveCard {
+        width: 330px;
+    }
+
+    .cartProductName {
+        font-size: 12px;
+    }
+    
+    .cartOption {
+        font-size: 12px;
+    }
+    
+    .cartAmount {
+        font-size: 10px;
+    }
+    
+    .cartSentOption {
+        font-size: 10px;
+    }
+    
+    .cartPrice {
+        font-size: 10px;
+    }
+
+    .locationInput {
+        width: 100px;
+        font-size: 10px;
+    }
+    
+    .cartReceiveNameInput {
+        width: 100px;
+        font-size: 10px;
+    }
+    
+    .cartPhoneNumberInput {
+        width: 100px;
+        font-size: 10px;
+    }
+
+    .locationInputHeader {
+        font-size: 10px;
+    }
+    
+    .paymentOptionHeader {
+        font-size: 10px;
+    }
+
+    .paymentOption {
+        font-size: 10px;
+    }
+
+    .cartTotalPrice {
+        font-size: 12px;
+    }
+}

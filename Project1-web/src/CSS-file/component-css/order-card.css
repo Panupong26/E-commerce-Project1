@@ -1,0 +1,282 @@
+.orderCard {
+    background-color: white;
+    display: flex;
+    box-sizing: border-box;
+    margin: 10px auto;
+    padding: 10px;
+    width: 720px;
+    height: 140px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.picBox {
+    height: 120px;
+    padding: 0px;
+    margin: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.orderPic {
+    margin: 0px;
+    padding: 0px;
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.orderPic:hover {
+   cursor: pointer;
+}
+
+.orderContentBox {
+    position: relative;
+    box-sizing: border-box;
+    margin: 0px 10px;
+    flex-shrink: 0;
+    width: 200px;   
+}
+
+.orderContentBox div {
+    margin: 5px;
+}
+
+.orderId {
+    font-size: 12px;
+    color: rgb(100, 100, 100);
+}
+
+.orderTotalPrice {
+    font-size: 15px;
+}
+
+.orderProductName {
+    font-size: 20px;
+}
+
+.customerName {
+    font-size: 14px;
+}
+
+.orderSentTo {
+    font-size: 12px;
+}
+
+.phoneNumber {
+    font-size: 14px;
+}
+
+.orderStatus {
+    font-size: 14px;
+}
+
+.orderSentOption {
+    font-size: 12px;
+    color: rgb(100,100,100);
+    position: relative;
+    right: 5px;
+}
+
+.trackingNumber {
+    background-color: rgb(220,220,220);
+    border-radius: 10px;
+    padding: 0 10px;
+    width: max-content;
+    font-size: 14px;
+}
+
+div .receivedButton {
+    text-align: center;
+    padding: 5px;
+    margin-top: 45px;
+    border-radius: 5px;
+    width: 110px;
+    background-color: rgb(187, 232, 99);
+    font-size: 14px;
+}
+
+.receivedButton:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}
+
+div .cancleButton {
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 110px;
+    background-color: rgb(231, 146, 170);
+    font-size: 14px;
+}
+
+.cancleButton:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}
+
+.sellerEnterTrackingNumberButton {
+    position: absolute;
+    text-align: center;
+    bottom: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 110px;
+    background-color: rgb(191, 228, 117);
+    font-size: 14px;
+}
+
+.sellerEnterTrackingNumberButton:hover {
+    cursor: pointer;
+    background-color: rgb(200, 200, 200);
+}
+
+@media (max-width: 730px) {    
+    .orderCard {
+        width: 600px;
+        height: 140px;
+    }
+    
+    .picBox {
+        height: 120px;
+    }
+    
+    .orderPic {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .orderContentBox {
+        width: 140px;   
+    }
+    
+    .orderId {
+        font-size: 12px;
+    }
+    
+    .orderProductName {
+        font-size: 15px;
+    }
+
+    .orderOption {
+        font-size: 12px;
+    }
+
+    .orderAmount {
+        font-size: 12px;
+    }
+
+    .orderTotalPrice {
+        font-size: 11px;
+    }
+    
+    .customerName {
+        font-size: 10px;
+    }
+    
+    .orderSentTo {
+        font-size: 12px;
+    }
+    
+    .phoneNumber {
+        font-size: 12px;
+    }
+    
+    .orderStatus {
+        font-size: 12px;
+    }
+    
+    .orderSentOption {
+        font-size: 12px;
+    }
+    
+    .trackingNumber {
+        font-size: 12px;
+    }
+    
+    div .receivedButton {
+        margin-top: 45px;
+        width: 110px;
+        font-size: 12px;
+    }
+    
+    div .cancleButton {
+        margin-top: 70px;
+        width: 110px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .orderCard {
+        width: 345px;
+        height: max-content;
+    }
+    
+    .picBox {
+        height: 50px;
+    }
+    
+    .orderPic {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .orderContentBox {
+        width: 140px;   
+    }
+    
+    .orderId {
+        font-size: 9px;
+    }
+    
+    .orderProductName {
+        font-size: 11px;
+    }
+
+    .orderOption {
+        font-size: 11px;
+    }
+
+    .orderAmount {
+        font-size: 12px;
+    }
+
+    .orderTotalPrice {
+        font-size: 11px;
+    }
+
+    .orderReceiver {
+        display: none
+    }
+    
+    .orderStatus {
+        font-size: 10px;
+    }
+
+    .trackingNumber {
+        font-size: 10px;
+    }
+    
+    div .receivedButton {
+        margin-top: 40px;
+        width: 80px;
+        font-size: 10px;
+    }
+    
+    div .cancleButton {
+        margin-top: 60px;
+        width: 80px;
+        font-size: 10px;
+    }
+
+    .sellerEnterTrackingNumberButton {
+        width: 80px;
+        font-size: 10px;
+    }
+}
+
+

@@ -1,0 +1,55 @@
+.addUserReviewBox {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(100,100,100);
+    text-align: center;
+}
+
+.starBox {
+    margin: 5px;
+}
+
+.starBox button {
+   border-style: none;
+   background-color: white;
+   font-size: 20px;
+}
+
+.addUserReviewBox textarea {
+    margin: 5px;
+    padding: 5px;
+    resize: none;
+    border-style: none;
+    border-radius: 5px;
+    background-color: rgb(220,220,220);
+    width: 300px;
+    height: 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+.addUserReviewButtonBox {
+    margin: 5px;
+}
+
+.addUserReviewButtonBox button {
+    margin: 5px;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: white;
+    font-size: 20px;
+}
+
+.addUserReviewButtonBox button:hover {
+    box-shadow: 0px 0px 10px yellowgreen;
+}

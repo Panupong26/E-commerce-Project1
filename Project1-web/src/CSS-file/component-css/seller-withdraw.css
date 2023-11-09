@@ -1,0 +1,496 @@
+.billFilter {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.billFilterButton {
+    margin: 0px 10px;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    width: max-content;
+    text-align: center;
+}
+
+.billFilterButton:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.billFilterActiveButton {
+    margin: 0px 10px;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    width: max-content;
+    text-align: center;
+}
+
+.billFilterActiveButton:hover {
+    cursor: pointer;
+}
+
+.billHeader {
+    background-color: rgb(189, 222, 122);
+    margin: 2px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.billHeader div{
+    margin: 2px 5px;
+    width: 125px;
+    text-align: center;
+    flex-shrink: 0;
+    font-size: 12px;
+}
+
+.billHeader .headerId{
+    padding-left: 5px;
+}
+
+
+.billBox {
+    width: 100%;
+    height: 73vh;
+    overflow-y: scroll;
+}
+
+.billCard {
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px gray;
+    margin: 5px;
+    justify-content: flex-start;
+}
+
+.billCard div {
+    margin: 2px 5px;
+    width: 125px;
+    text-align: center;
+    font-size: 12px;
+    color: rgb(80, 80, 80);
+    flex-shrink: 0;
+}
+
+.billCard .billStatus{
+    font-size: 12px;
+}
+
+.billCard button {
+    margin: 0px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: white;
+    color: black;
+    font-size: 12px;
+}
+
+.billCard button:hover {
+    background-color: yellowgreen;
+}
+
+@media (max-width: 1270px) {
+    .billHeader div{
+       width: 120px;
+    }
+    .billCard div {
+        width: 120px;
+    }
+}
+
+@media (max-width: 1240px) {
+    .billHeader div{
+       width: 115px;
+    }
+    .billCard div {
+        width: 115px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .billHeader div{
+       width: 110px;
+    }
+    .billCard div {
+        width: 110px;
+    }
+}
+
+@media (max-width: 1165px) {
+    .billHeader div{
+       width: 105px;
+    }
+    .billCard div {
+        width: 105px;
+    }
+}
+
+@media (max-width: 1130px) {
+    .billHeader div{
+       width: 100px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 100px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;
+    }
+    .billCard button {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1095px) {
+    .billHeader div{
+       width: 95px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 95px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1055px) {
+    .billHeader div{
+       width: 90px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 90px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1025px) {
+    .billHeader div{
+       width: 85px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 85px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 990px) {
+    .billHeader div{
+       width: 80px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 80px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 8px;  
+    }
+}
+
+@media (max-width: 950px) {
+    .billHeader div{
+       width: 110px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 110px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 920px) {
+    .billHeader div{
+       width: 105px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 105px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 880px) {
+    .billHeader div{
+       width: 100px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 100px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 850px) {
+    .billHeader div{
+       width: 95px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 95px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 810px) {
+    .billHeader div{
+       width: 90px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 90px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 780px) {
+    .billHeader div{
+       width: 85px;
+       font-size: 10px;
+    }
+    .billCard {
+        align-content: center;
+        height: 30px;
+    }
+    .billCard div {
+        width: 85px;
+        font-size: 10px;  
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 740px) {
+    .billHeader div{
+       width: 80px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 80px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 710px) {
+    .billHeader div{
+       width: 75px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 75px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 670px) {
+    .billHeader div{
+       width: 70px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 70px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 640px) {
+    .billHeader div{
+       width: 65px;
+       font-size: 10px;
+    }
+    .billCard div {
+        width: 65px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 600px) {
+    .billHeader div{
+       width: 70px;
+       font-size: 10px;  
+    }
+    .headerOrderId {
+        display: none;
+    }
+    .billOrderId {
+        display: none;
+    }
+    .billCard div {
+        width: 70px;
+        font-size: 10px;   
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+    .billCard button {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 550px) {
+    .billHeader div{
+       width: 65px;
+       font-size: 10px;  
+    }
+    .billCard div {
+        width: 65px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+    .billCard button {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 515px) {
+    .billHeader div{
+       width: 65px;
+       font-size: 10px;  
+    }
+    .billHeaderOption {
+        display: none;
+    }
+    .billOption {
+        display: none;
+    }
+    .billCard div {
+        width: 65px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+    .billCard button {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 440px) {
+    .billHeader div{
+       width: 60px;
+       font-size: 10px;  
+    }
+    .billHeaderOption {
+        display: none;
+    }
+    .billOption {
+        display: none;
+    }
+    .billCard div {
+        width: 60px;
+        font-size: 10px;  
+    }
+    .billCard .billStatus {
+        font-size: 10px;  
+    }
+    .billCard button {
+        font-size: 10px;  
+    }
+}
+
+@media (max-width: 420px) {
+    .billHeader div{
+       width: 55px;
+       font-size: 8px;  
+    }
+    .billHeaderOption {
+        display: none;
+    }
+    .billOption {
+        display: none;
+    }
+    .billCard div {
+        width: 55px;
+        font-size: 8px;  
+    }
+    .billCard .billStatus {
+        font-size: 8px;  
+    }
+    .billCard button {
+        font-size: 8px;  
+    }
+    .billFilterButton {
+        font-size: 12px;
+    }
+    .billFilterActiveButton {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 380px) {
+    .bliiHeader {
+        min-width: 335px;
+    }
+    .billCard {
+        min-width: 335px;
+    }
+    .billHeader div{
+       width: 50px;
+       font-size: 8px;  
+    }
+    .billHeaderOption {
+        display: none;
+    }
+    .billOption {
+        display: none;
+    }
+    .billCard div {
+        width: 50px;
+        font-size: 8px;  
+    }
+    .billCard .billStatus {
+        font-size: 8px;  
+    }
+    .billCard button {
+        font-size: 8px;  
+    }
+    .billFilterButton {
+        font-size: 10px;
+    }
+    .billFilterActiveButton {
+        font-size: 10px;
+    }
+}

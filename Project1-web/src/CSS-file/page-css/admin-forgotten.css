@@ -1,0 +1,135 @@
+:root {
+    --registerBoxShadow: rgba(128, 128, 128, 0.637);
+    --registerBorderColor: rgb(180, 180, 180);
+    --registerInputBg: white;
+    --registerGreyFont: rgb(80, 80, 80);
+    --registerBlackFont: black;
+    --registerButtonHover: rgb(180, 180, 180);
+    --registerBlueButton:  rgba(141, 241, 241, 0.9);
+}
+
+
+.radminForgottenPage {
+    padding-top: 40px;
+}
+
+.adminForgottenBox {
+    background-color: var(--registerPanelBg);
+    position: absolute;
+    padding-top: 10px;
+    width: 400px;
+    height: max-content;
+    left: 50%;
+    top:  50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    box-shadow: 1px 1px 5px var(--registerBoxShadow);
+    z-index: -1;
+}
+
+.input-cover {
+    position: relative;
+}
+
+.adminForgottenBox input {
+    display: block;
+    box-sizing: border-box;
+    border-style: none;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: var(--registerInputBg);
+    color: var(--grayFont);
+    border-bottom: 1px solid var(--registerBorderColor);
+}
+
+.adminForgottenBox input:focus {
+    outline-style: none;
+}
+
+.adminForgottenInputPassword {
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    border-bottom: 1px solid var(--registerBorderColor);
+    
+}
+
+.adminForgottenInputPassword input {
+    display: block;
+    width: 85%;
+    height: 30px;
+    margin: 5px;
+    border-style: none;
+    padding-left: 5px;
+    font-size: 16px;
+    background-color: var(--registerInputBg);
+    color: var(--registerGrayFont);
+}
+
+.adminForgottenInputPassword input:focus {
+    outline-style: none;
+}
+
+.adminForgottenInputPassword button {
+    width: 15%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+}
+
+.adminForgottenInputPassword button:hover {
+    cursor: pointer;
+}
+
+.adminForgottenButtonBox {
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminForgottenButtonBox button{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border-style: none;
+    font-size: 15px;
+}
+
+.adminForgottenButtonBox button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 5px yellowgreen;
+}
+
+.adminForgottenPageButton {
+    background-color: white;
+    color: var(--blackFont);
+}
+
+.adminForgottenErrMessage {
+    color: red;
+    position: absolute;
+    top: 65px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 12px; 
+    width: 100%;
+}

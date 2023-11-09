@@ -1,0 +1,116 @@
+.billPanel {
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: max-content;
+    padding: 20px;
+    padding-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.adminBillStatus {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.billInfo {
+    display: flex;
+    justify-content: space-around;
+}
+
+.billPanel img {
+    width: 210px;
+    height: 210px;
+    border-radius: 10px;
+    object-fit: contain;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+}
+
+.billTextHeader {
+    font-size: 20px;
+    color: yellowgreen;
+    text-shadow: 1px 1px 1px rgb(100, 100, 100);
+    text-align: center;
+    margin-top: 0px;
+}
+
+.billTextBox {
+    padding: 10px;
+    padding-top: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    color: rgb(60, 60, 60);
+    font-weight: 200;
+}
+
+.link:hover {
+    cursor: pointer;
+    box-shadow: 0px 0px 10px yellowgreen;
+}
+
+.billTextBox div{
+    margin-bottom: 5px;
+}
+
+.icon {
+    display: inline-block;
+    width: 20px;
+}
+
+.adminSubmitBillBox {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.paymentRefInput {
+    box-sizing: border-box;
+    margin: 10px;
+    height: 30px;
+    width: 200px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border-style: none;
+    text-align: center;
+    box-shadow: none;
+    background-color: rgb(230, 230, 230);
+}
+
+.paymentRefInput:hover {
+    box-shadow: none;
+}
+
+.adminBillButton {
+    background-color: rgb(181, 210, 122);
+    width: 130px;
+    height: 25px;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 10px;
+    margin: 10px;
+    margin-top: 15px;
+    color: black;
+}
+
+.adminBillButton:hover {
+    cursor: pointer;
+    background-color: yellowgreen;
+}
+
+.billPanelCloseButton {
+    position: relative;
+    left: 96%;
+    width: fit-content;
+    font-size: 50px;
+    color: white;
+}
+
+.billPanelCloseButton:hover {
+    cursor: pointer;
+}

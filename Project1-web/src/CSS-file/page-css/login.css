@@ -1,0 +1,184 @@
+:root {
+    --boxShadow: rgba(128, 128, 128, 0.637);
+    --borderColor: rgb(180, 180, 180);
+    --inputBg: white;
+    --grayFont: rgb(80, 80, 80);
+    --blackFont: black;
+    --buttonHover: rgb(180, 180, 180);
+    --blue:  rgba(116, 182, 200, 0.9);
+    --green:  rgba(173, 252, 170, 0.9);
+}
+
+
+.loginPage {
+    padding-top: 40px;
+}
+
+.loginBox {
+    background-color: var(--panelBg);
+    position: absolute;
+    padding-top: 20px;
+    width: 400px;
+    height: max-content;
+    left: 50%;
+    top:  50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    box-shadow: 1px 1px 5px var(--boxShadow);
+    z-index: -1;
+
+}
+
+.loginBox input {
+    display: block;
+    box-sizing: border-box;
+    border-style: none;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: var(--inputBg);
+    color: var(--grayFont);
+    border-bottom: 1px solid var(--borderColor);
+}
+
+.input-cover {
+    position: relative;
+}
+
+.loginBox input:focus {
+    outline-style: none;
+}
+
+.inputPassword {
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    border-bottom: 1px solid var(--registerBorderColor);   
+}
+
+.inputPassword input {
+    display: block;
+    width: 85%;
+    height: 30px;
+    margin: 5px;
+    border-style: none;
+    padding-left: 5px;
+    font-size: 16px;
+    color: gray;
+}
+
+.inputPassword input:focus {
+    outline-style: none;
+}
+
+.inputPassword button {
+    width: 15%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+}
+
+.inputPassword button:hover {
+    cursor: pointer;
+}
+
+.forgottenLink {
+    color: rgb(124, 124, 124);
+    font-size: 14px;
+}
+
+.forgottenLink:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.buttonBox {
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.adminLoginButtonBox {
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 90%;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.adminLoginButtonBox button{
+    box-sizing: border-box;
+    width: 48%;
+    height: 100%;
+    border-style: none;
+    font-size: 15px;
+}
+
+.adminLoginButtonBox button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 5px yellowgreen;
+}
+
+.buttonBox button{
+    box-sizing: border-box;
+    width: 48%;
+    height: 100%;
+    border-style: none;
+    font-size: 15px;
+}
+
+
+.buttonBox button:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 5px yellowgreen;
+}
+
+.loginButton {
+    background-color: white;
+    color: var(--blackFont);
+}
+
+.registerButton {
+    background-color: white;
+    color: var(--blackFont);
+}
+
+.loginErrMessage {
+    color: red;
+    position: absolute;
+    bottom: 130px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 14px;
+    width: max-content;
+}
+
+
+@media (max-width:420px) {
+    .loginBox {
+        width: 300px;
+    }
+}

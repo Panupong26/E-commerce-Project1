@@ -1,0 +1,1489 @@
+
+.productPage {
+    background-color: rgba(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+    padding-left: 20px;
+    padding-top: 80px;
+    box-shadow: 0px 0px 5px rgb(199, 199, 199);
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.productFlex {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.productPic {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    margin: 0;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.productSeller {
+    display: flex;
+    position: absolute;
+    padding: 5px;
+    align-items: center;
+    color: grey;
+    z-index: 30;
+}
+
+.productSeller:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.productSeller img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    margin-top: 8px;
+    box-shadow: 0px 0px 5px whitesmoke;
+}
+
+
+.productSeller div {
+    text-shadow: 0px 0px 3px whitesmoke;
+}
+
+
+.productMid {
+    padding: 0;
+}
+    
+
+.productName {
+    text-align: center;
+    margin: 0 auto;
+    width: 230px;
+    height: 25px;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.productName:hover {
+    cursor: pointer;
+}
+
+.productFullName {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: -30px;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: white;
+    width: 250px;   
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    z-index: 1;
+}
+
+.reviewButton {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: rgb(236, 206, 107);
+    font-size: 20px;
+}
+
+.reviewButton:hover {
+   color: rgb(200, 200, 200);
+}
+
+.reviewBox {
+   box-sizing: border-box;
+   position: fixed;
+   background-color: white;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   width: 285px;
+   height: 450px;
+   border-radius: 10px;
+   box-shadow: 0px 0px 5px rgb(200, 200, 200);
+   padding: 10px;
+   z-index: 1;
+}
+
+.closeReviewBoxButton {
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -10px;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: gray;
+}
+
+.reviewHeader {
+    text-align: center;
+    font-size: 30px;
+    color: yellowgreen;
+}
+
+.commentBox {
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 93%;
+}
+
+.commentBox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.productComment {
+    background-color: whitesmoke;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.userComment {
+    display: flex;
+    font-size: 12px;
+    align-content: center;
+    color: gray;
+}
+
+.userComment img {
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   margin-right: 10px;
+}
+
+.commentUsername {
+    width: 112px;
+    height: 18px;
+    overflow: hidden;
+ }
+ 
+
+.commentDate {
+    position: absolute;
+    right: 10px;
+    font-size: 12px;
+}
+
+.commentValue {
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 3px;
+    font-size: 14px;
+}
+
+.commentStar {
+    margin-top: 5px;
+    text-align: right;
+    font-size: 10px;
+}
+
+.productFeedbackBox {
+    display: flex;
+    padding: 0;
+    margin: 0px 20px 0px 20px;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.productStar {
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+
+.productSellCount {
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+.productDetailBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 500px;
+    width: 420px;
+    margin-right: 20px;
+    padding: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.productDetailHeader {
+    text-align: center;
+    width: max-content;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+}
+
+.productDetail {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 470px;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+.sellerProductDetailBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 500px;
+    width: 420px;
+    margin: 0px;
+    margin-right: 20px;
+    padding: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sellerProductDetailHeader {
+    text-align: center;
+    width: max-content;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: -19px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+}
+
+.sellerEditProductDetailButton {
+    color: rgb(150,150,150);
+    position: relative;
+    right: -270px;   
+    border-style: none;
+    background-color: white;
+}
+
+.sellerEditProductDetailButton:hover {
+    color: black;
+}
+
+.sellerEditDoneProductDetailButton {
+    color: rgb(150,150,150);
+    position: relative;
+    right: -270px; 
+    border-style: none;
+    background-color: white;
+}
+
+.sellerEditDoneProductDetailButton:hover {
+    color: black;
+}
+
+.sellerProductDetail {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 470px;
+    overflow-y: scroll;
+    padding: 10px;
+    border-style: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 15px;
+}
+
+.addProductOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.productOptionBox {
+    position: relative;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.productOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+}
+
+.productOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.productOption::-webkit-scrollbar {
+    width: 5px;
+}
+
+.productOption div:hover {
+    cursor: pointer;
+}
+
+.productOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: rgb(100, 100, 100);
+}
+
+.productActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: black;
+}
+
+.sentOptionBox {
+    position: relative;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sentOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+}
+
+.sentOption {
+    box-sizing: border-box;
+    margin: 0;
+    margin-top: 5px;
+    padding: 5px;
+    height: 100px;
+    text-align: center;
+    overflow-y: scroll;
+}
+
+.sentOption::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sentOption div:hover {
+    cursor: pointer;
+}
+
+.sentOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: rgb(100,100,100);
+}
+
+.sentActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: black;
+}
+
+.productAmountBox {
+    display: flex;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: 20px;
+    padding: 0px;
+    height: 25px;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 5px;
+    width: 280px;
+}
+
+.productShowAmount {
+   width: 90px;
+   margin: 0;
+   text-align: center;
+   padding-top: 3px;
+   flex-shrink: 0;
+}
+
+.productShowAmountButton {
+    width: 40%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.productShowAmountButton button {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.productShowAmountButton button {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    margin: 0 2px 0 2px;
+    height: 100%;
+}
+
+.productShowAmountButton button:hover {
+   box-shadow: 0px 0px 5px yellowgreen;
+}
+
+.productPrice {
+    display: flex;
+    flex-wrap: nowrap;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: 20px;
+    padding: 0;
+    height: 30px;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 280px;
+}
+
+.productPriceIcon {
+    margin: 0 20px 0 5px;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-left: 10px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.productPriceShow {
+    padding-top: 3px;
+    margin: 0 20px 0 5px;
+    color: rgb(136, 181, 46);
+    flex-shrink: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.productOrderBox {
+    display: flex;
+    margin: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.productOrderBox button:hover {
+   box-shadow: 0px 0px 10px yellowgreen;
+}
+
+.productAddToCartButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    width: max-content;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: auto;
+}
+
+.productBuyNowButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    border-radius: 5px;
+    width: max-content;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: auto;
+}
+
+.sellerProductOrderBox {
+    display: flex;
+    margin: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.sellerProductOrderBox button:hover {
+   box-shadow: 0px 0px 10px yellowgreen;
+}
+
+
+
+.modal-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0px;
+    top: 0px;
+    z-index: 1100;
+}
+
+.buyNowOrderBox {
+    background-color: white;
+    position: fixed;
+    width: 680px;
+    height: 430px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    border-radius: 5px;
+}
+
+.buyNowProduct {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buyNowProduct img {
+    border-radius: 5px;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+}
+
+.buyNowOrderDetail {
+    margin: auto 10px;
+    margin-top: 25px;
+}
+
+.buyNowProductName {
+    font-size: 30px;
+    margin: 5px auto;
+}
+
+.buyNowProductOption {
+    font-size: 20px;
+}
+
+.buyNowProductAmount {
+    font-size: 20px;
+}
+
+.buyNowSentOption {
+    font-size: 15px;
+    margin: 5px auto;
+}
+
+.buyNowTotalPrice {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.buyNowRecieveInfo {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    border-radius: 5px;
+    padding: 10px;
+    padding-right: 50px;
+}
+
+.buyNowRecieveInfo div {
+    margin-right: 10px;
+    margin-left: 10px;
+    width: 150px;
+    text-align: center;
+}
+
+.buyNowInputHeader {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.buyNowRecieveName input {
+    border-style: none;
+    background-color: white;
+    font-size: 15px;
+    text-align: center;
+    width: 100px;
+    position: relative;
+    left: 15px;
+}
+
+.buyNowDestination textarea {
+    border-style: none;
+    background-color: white;
+    height: 50px;
+    font-family:  -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    resize: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+.buyNowPhone input {
+    border-style: none;
+    background-color: white;
+    font-size: 15px;
+    text-align: center;
+    width: 90px;
+    position: relative;
+    left: 15px;
+}
+
+.buyNowEditButton {
+    display: block;
+    position: relative;
+    left: 140px;
+    top: 30px;
+    background-color: white;
+    border-style: none;
+}
+
+.buyNowEditDoneButton {
+    display: block;
+    position: relative;
+    left: 140px;
+    top: 30px;
+    background-color: white;
+    border-style: none;
+}
+
+.buyNowPaymentOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    position: relative;
+    right: 5px;
+}
+
+.buyNowPaymentOptionBox div:hover {
+    cursor: pointer;
+}
+
+div .buyNowPaymentOption {
+    width: 140px;
+    height: 20px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    font-size: 12px;
+    margin: 2px;
+    position: relative;
+    right: 6px;
+    padding-top: 4px;
+    border-radius: 5px;
+}
+
+div .buyNowPaymentActiveOption {
+    width: 140px;
+    height: 20px;
+    background-color:  rgb(190, 229, 111);
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    font-size: 12px;
+    margin: 2px;
+    position: relative;
+    right: 6px;
+    padding-top: 4px;
+    border-radius: 5px;
+}
+
+.buyNowButtonBox {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.buyNowButtonBox button {
+    margin: 5px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: white;
+}
+
+.buyNowButtonBox button:hover {
+    box-shadow: 0px 0px 10px yellowgreen;
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+.sellerProductPage {
+    background-color: rgba(255, 255, 255);
+    width: 100vw;
+    height: 100vh;
+    padding-left: 20px;
+    padding-top: 80px;
+    box-shadow: 0px 0px 5px rgb(199, 199, 199);
+    border-radius: 10px;
+    box-sizing: border-box;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.sellerProductPage::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sellerProductFlex {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.sellerProductPic {
+    object-fit: contain;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.sellerProductSeller {
+    display: flex;
+    position: relative;
+    padding: 5px;
+    margin-bottom: -56px;
+    align-items: center;
+    color: grey;
+}
+
+.sellerProductSeller:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.sellerProductSeller img {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    margin-top: 8px;
+    box-shadow: 0px 0px 5px whitesmoke;
+}
+
+
+.sellerProductSeller div {
+    text-shadow: 0px 0px 3px whitesmoke;
+}
+
+
+.sellerProductdMid {
+    padding: 0;
+}
+    
+
+.sellerProductName {
+    text-align: center;
+    margin: 0;
+    margin-left: 25px;
+    width: 230px;
+    height: 25px;
+    font-size: 20px;
+    overflow: hidden;
+}
+
+.sellerProductName:hover {
+    cursor: pointer;
+}
+
+.sellerProductFullName {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: -30px;
+    margin-left: 30px;
+    padding: 10px;
+    background-color: white;
+    width: 250px;   
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    z-index: 1;
+}
+
+.sellerReviewButton {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: rgb(236, 206, 107);
+    font-size: 20px;
+}
+
+.sellerReviewButton:hover {
+   color: rgb(200, 200, 200);
+}
+
+.sellerReviewBox {
+    box-sizing: border-box;
+    position: fixed;
+    background-color: white;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 285px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    padding: 10px;
+    z-index: 1;
+ }
+
+.sellerCloseReviewBoxButton {
+    position: absolute;
+    margin-left: 250px;
+    margin-top: -10px;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border-style: none;
+    color: gray;
+}
+
+.sellerReviewHeader {
+    text-align: center;
+    font-size: 30px;
+    color: yellowgreen;
+}
+
+.sellerCommentBox {
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 93%;
+}
+
+.sellerProductComment {
+    background-color: whitesmoke;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.sellerUserComment {
+    display: flex;
+    font-size: 12px;
+    align-content: center;
+    color: gray;
+}
+
+.sellerUserComment img {
+   border-radius: 50%;
+   width: 20px;
+   height: 20px;
+   margin-right: 10px;
+}
+
+.sellerCommentUsername {
+    width: 112px;
+    height: 18px;
+    overflow: hidden;
+ }
+
+.sellerCommentDate {
+    position: relative;
+}
+
+.sellerCommentValue {
+    box-sizing: border-box;
+    margin-top: 5px;
+    padding: 3px;
+}
+
+.sellerCommentStar {
+    margin-top: 5px;
+    text-align: right;
+    font-size: 10px;
+}
+
+.sellerProductFeedbackBox {
+    display: flex;
+    padding: 0;
+    margin: 0px 20px 0px 20px;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.sellerProductStar {
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+
+.sellerProductSellCount {
+    margin: 5px;
+    flex-shrink: 0;
+}
+
+.sellerProductDetailBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 500px;
+    width: 420px;
+    margin: 0px;
+    margin-right: 20px;
+    padding: 0;
+    font-size: 15px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.sellerProductDetailHeader {
+    text-align: center;
+    width: max-content;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: -19px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+}
+
+.sellerEditProductDetailButton {
+    color: rgb(150,150,150);
+    position: relative;
+    right: -270px;   
+    border-style: none;
+    background-color: white;
+}
+
+.sellerEditProductDetailButton:hover {
+    color: black;
+}
+
+.sellerEditDoneProductDetailButton {
+    color: rgb(150,150,150);
+    position: relative;
+    right: -270px; 
+    border-style: none;
+    background-color: white;
+}
+
+.sellerEditDoneProductDetailButton:hover {
+    color: black;
+}
+
+.sellerProductDetail {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 470px;
+    overflow-y: scroll;
+    padding: 10px;
+    border-style: none;
+    resize: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    font-size: 15px;
+}
+
+.sellerProductOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sellerProductOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+    margin-bottom: -20px;
+}
+
+.addProductOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.addProductOptionButton:hover {
+    color: black;   
+}
+
+.sellerProductOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.sellerProductOption div:hover {
+    cursor: pointer;
+}
+
+.sellerProductOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: rgb(100, 100, 100);
+}
+
+.sellerProductActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: black;
+}
+
+.sellerSentOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sellerSentOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+    margin-bottom: -19px;
+}
+
+.addProductSentOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.addProductSentOptionButton:hover {
+    color: black;   
+}
+
+
+.sellerSentOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.sellerSentOption div:hover {
+    cursor: pointer;
+}
+
+.sellerSentOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: rgb(100,100,100);
+}
+
+.sellerSentActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 12px;
+    color: black;
+}
+
+.sellerProductAmountBox {
+    display: flex;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: 20px;
+    padding: 0px;
+    height: 25px;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 5px;
+    width: 280px;
+}
+
+.sellerProductShowAmount {
+   width: 90px;
+   margin: 0;
+   text-align: center;
+   padding-top: 3px;
+   flex-shrink: 0;
+}
+
+.sellerProductShowAmountButton {
+    width: 40%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.sellerProductShowAmountButton button {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.sellerProductShowAmountButton button {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    margin: 0 2px 0 2px;
+    height: 100%;
+}
+
+.sellerProductShowAmountButton button:hover {
+   box-shadow: 0px 0px 5px yellowgreen;
+}
+
+.sellerProductPrice {
+    display: flex;
+    flex-wrap: nowrap;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    margin: 20px;
+    padding: 0;
+    height: 30px;
+    justify-content: space-between;
+    align-content: center;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 280px;
+}
+
+.sellerProductPriceIcon {
+    margin: 0 20px 0 5px;
+    font-size: 16px;
+    padding-top: 6px;
+    padding-left: 10px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.sellerProductPriceShow {
+    padding-top: 3px;
+    margin: 0 20px 0 5px;
+    color: rgb(136, 181, 46);
+    flex-shrink: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.sellerProductOrderBox {
+    display: flex;
+    margin: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.sellerProductOrderBox button:hover {
+   box-shadow: 0px 0px 10px yellowgreen;
+}
+
+.sellerProductDeleteButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: rgb(236, 171, 171);
+    color: rgb(0, 0, 0);
+}
+
+.sellerProductMyStoreButton {
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 16px;
+    border-radius: 5px;
+    width: 125px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    color: rgb(100, 100, 100);
+}
+
+.sellerEditProductBox {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 30;
+}
+
+.closeSellerProductEdit {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    color: white;
+    font-size: 50px;
+    border-style: none;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1;
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+@media (max-width: 1230px) {
+    .productPage {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 35px;
+        padding-bottom: 100px;
+        overflow-y: auto;
+    }
+    .productFlex {
+        margin-top: 5px;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .productPic {
+        margin: auto;
+    }
+
+    .productMid {
+        margin: auto;
+    }
+
+    .productName {
+        margin: 20px auto 5px;
+
+    }
+    
+    .productDetailBox {
+        width: 90%;
+        height: 450px;
+        margin: auto;
+    }
+
+    .sellerProductDetailBox {
+        width: 90%;
+        height: 450px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 840px) {
+    .productPage {
+        padding-top: 60px;
+    }
+
+    .reviewBox {
+        left: 50%;
+        top: 100px;
+        transform: translate(-50%, 0%);
+    }
+}
+
+@media (max-width: 530px) {
+    .productPage {
+        padding-top: 80px;
+    }
+
+    .productPic {
+        width: 300px;
+        height: 300px;
+    }
+
+    .productSeller {
+        padding: 5px;
+        align-items: center;
+        color: grey;
+    }
+
+    .productSeller img {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        margin-top: 7px;
+    }
+}
+
+@media (max-width: 1230px) {
+    .sellerProductPage {
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 35px;
+        padding-bottom: 100px;
+        overflow-y: auto;
+    }
+    .sellerProductFlex {
+        margin-top: 5px;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+
+    .sellerProductPic {
+        margin: auto;
+    }
+
+    .sellerProductMid {
+        margin: auto;
+    }
+
+    .sellerProductName {
+        margin: 20px auto 5px;
+
+    }
+    
+    .sellerProductDetailBox {
+        width: 90%;
+        height: 450px;
+        margin: auto;
+    }
+
+    .sellerEditProductDetailButton {
+        left: calc(50% + 50px);
+    }
+
+    .sellerEditDoneProductDetailButton {
+        left: calc(50% + 50px);
+    }
+}
+
+@media (max-width: 840px) {
+    .sellerProductPage {
+        padding-top: 60px;
+    }
+
+    .sellerReviewBox {
+        left: 50%;
+        top: 100px;
+        transform: translate(-50%, 0%);
+    }
+}
+
+@media (max-width: 530px) {
+    .sellerProductPage {
+        padding-top: 80px;
+    }
+
+    .sellerProductPic {
+        width: 300px;
+        height: 300px;
+    }
+
+    .sellerProductSeller {
+        padding: 5px;
+        top: -15px;
+        margin-bottom: -56px;
+        align-items: center;
+        color: grey;
+    }
+
+    .sellerProductSeller img {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        margin-top: 7px;
+    }
+}
+
+
+
+
+

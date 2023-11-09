@@ -1,0 +1,59 @@
+.afterReceivedPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.orderPageFilterBox {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    min-width: 500px;
+}
+
+.orderPageFilterButton {
+    margin: 5px;
+    flex-shrink: 0;
+    color: rgb(100, 100, 100);
+    background-color: white;
+    border-style: none;
+}
+
+.orderPageFilterActiveButton {
+    margin: 5px;
+    flex-shrink: 0;
+    color: black;
+    background-color: white;
+    border-style: none;
+    box-shadow: 0px 8px 5px -5px yellowgreen;
+}
+
+
+.orderPage {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 75vh;
+    width: 100%;
+    min-width: max-content;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.orderPage::-webkit-scrollbar {
+    width: 5px;
+}
+
+@media (max-width: 730px) {
+    .orderPageFilterBox {
+        min-width: 1px;
+    }
+}
+
+
+

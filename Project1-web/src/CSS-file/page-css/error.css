@@ -1,0 +1,32 @@
+.error-page {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-color: white;
+}
+
+.error-content {
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+.error-img {
+    box-shadow: none;
+    border-radius: 0px;
+    width: 50vw;
+    height: 50vh;
+    object-fit: contain;
+}
+
+.error-message {
+    margin: auto;
+    text-align: center;
+}
+
+
+

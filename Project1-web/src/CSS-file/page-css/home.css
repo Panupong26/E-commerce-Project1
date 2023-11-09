@@ -1,0 +1,11 @@
+.homePage {
+    padding-top: 50px;
+    display: flex;
+    min-width: 100vw;
+}
+
+.homeContent {
+    margin-left: 30px;
+    padding: 5px;
+    width: 100%;
+}

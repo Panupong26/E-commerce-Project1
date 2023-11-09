@@ -1,0 +1,274 @@
+.profilePage {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sideInfo {
+    box-sizing: border-box;
+    background-color: white;
+    height: 100%;
+    width: 250px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sideInfo img {
+    width: 160px;
+    height: 160px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.userName {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+
+.deleteAccountButton {
+    position: absolute;
+    top: 570px;
+    left: 75px;
+    padding: 5px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(100, 100, 100);
+}
+
+.deleteAccountButton:hover {
+    color: black;
+}
+
+.userContactPlatform::-webkit-scrollbar {
+    display: none;
+}
+
+.userArea {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: calc(100% - 240px);
+    right: 0;
+    flex-shrink: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.userBar {
+    box-sizing: border-box;
+    display: flex;
+    margin: 0;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 100%;
+    min-width:max-content;
+    justify-content: center;    
+}
+
+.userBar div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px 30px;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.userBar div:hover {
+    box-shadow: 0px 8px 5px -5px yellowgreen;
+    cursor: pointer;
+}
+
+.userAreaContent {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 1px;
+    overflow-y: auto;
+    padding-bottom: 80px;
+}
+
+.sellerProfilePage {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sellerSideInfo {
+    box-sizing: border-box;
+    background-color: white;
+    height: 100%;
+    width: 250px;
+    padding: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sellerSideInfo img {
+    width: 160px;
+    height: 160px;
+    margin-top: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.sellerName {
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+.sellerContact {
+    box-sizing: border-box;
+    margin-top: 15px;
+    padding: 10px;
+    padding-bottom: 10px;
+    text-align: left;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    border-radius: 10px;
+    color: rgb(100, 100, 100);
+    font-size: 15px;
+}
+
+.storeProfileContactPlatform {
+    margin: 5px;
+    display: flex;
+    height: 28px;
+    width: 200px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.storeProfileAddress {
+    margin: 5px;
+    display: flex;
+    height: max-content;
+    word-wrap: break-word;
+}
+
+.storeContactPlatform::-webkit-scrollbar {
+    display: none;
+}
+
+.sellerDeleteAccountButton {
+    position: absolute;
+    top: 570px;
+    left: 75px;
+    padding: 5px;
+    border-style: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(100, 100, 100);
+}
+
+.sellerDeleteAccountButton:hover {
+    color: black;
+}
+
+.sellerArea {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: auto;
+    height: 100%;
+    width: calc(100% - 248px);
+    flex-shrink: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.sellerArea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.sellerBar {
+    box-sizing: border-box;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+    height: 50px;
+    width: 100%;
+    justify-content: center;  
+}
+
+.sellerBar div {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px 30px;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.sellerBar div:hover {
+    box-shadow: 0px 8px 5px -5px yellowgreen;
+    cursor: pointer;
+}
+
+.sellerAreaContent {
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 1px;
+    overflow-y: auto;
+}
+
+.sellerAreaContent::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+
+@media (max-width: 950px) {
+    .sideInfo {
+        display: none;
+    }
+    .userArea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .userBar div {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 25px 15px;
+        font-size: 14px;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 950px) {
+    .sellerSideInfo {
+        display: none;
+    }
+    .sellerArea {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .sellerBar div {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 25px 15px;
+        font-size: 12px;
+        flex-shrink: 0;
+    }
+}
+

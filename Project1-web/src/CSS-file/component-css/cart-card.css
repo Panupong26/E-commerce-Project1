@@ -1,0 +1,119 @@
+.cartCard {
+    box-sizing: border-box;
+    margin: 15px auto;
+    padding: 10px;
+    width: 510px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+}
+
+.cartActiveCard {
+    box-sizing: border-box;
+    margin: 15px auto;
+    padding: 10px;
+    width: 510px;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px yellowgreen;
+}
+
+.cartCard:hover {
+    cursor: pointer;
+}
+
+.cartActiveCard:hover {
+    cursor: pointer;
+}
+
+.cartPic {
+    border-radius: 0;
+    border-radius: 5px;
+}
+
+.cartPic:hover {
+   cursor: pointer;
+}
+
+.cartContentBox {
+    margin: auto 20px;
+    width: max-content;
+}
+
+.cartProductName {
+    font-size: 20px;
+}
+
+.cartOption {
+    color: rgb(100, 100, 100);
+}
+
+.cartAmount {
+    color: rgb(100, 100, 100);
+}
+
+.cartSentOption {
+    color: rgb(100, 100, 100);
+    font-size: 12px;
+}
+
+.cartPrice {
+    margin: auto;
+    height: max-content;
+    width: max-content;
+}
+
+.removeButton {
+    margin-top: -5px;
+    margin-right: -5px;
+    margin-left: -20px;
+    color: rgb(200, 200, 200);
+}
+
+.removeButton:hover {
+    color: black;
+}
+
+@media (max-width: 601px) {
+    .cartCard {
+        width: 400px;
+    }
+
+    .cartActiveCard {
+        width: 400px;
+    }
+}
+
+@media (max-width: 440px) {
+    .cartCard {
+        width: 330px;
+    }
+
+    .cartActiveCard {
+        width: 330px;
+    }
+
+    .cartProductName {
+        font-size: 12px;
+    }
+    
+    .cartOption {
+        font-size: 12px;
+    }
+    
+    .cartAmount {
+        font-size: 10px;
+    }
+    
+    .cartSentOption {
+        font-size: 10px;
+    }
+    
+    .cartPrice {
+        font-size: 10px;
+    }
+}

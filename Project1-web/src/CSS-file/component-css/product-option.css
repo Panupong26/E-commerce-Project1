@@ -1,0 +1,146 @@
+.addProductOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.productOptionBox {
+    position: relative;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.productOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+}
+
+.productOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow-y: scroll;
+}
+
+.productOption::-webkit-scrollbar {
+    width: 5px;
+}
+
+.productOption div:hover {
+    cursor: pointer;
+}
+
+.productOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+
+.productActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: black;
+}
+
+.sellerProductOptionBox {
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    height: 122px;
+    margin: 20px;
+    padding: 0px;
+    font-size: 15px;
+    border-radius: 5px 5px 5px 5px;
+    overflow: hidden;
+    background-color: white;
+    text-align: center;
+    width: 280px;
+}
+
+.sellerProductOptionHeader {
+    text-align: center;
+    margin: auto;
+    margin-top: 5px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    width: 250px;
+    margin-bottom: -20px;
+}
+
+.addProductOptionButton {
+    position: absolute;
+    box-sizing: border-box;
+    border-style: none;
+    background-color: white;
+    right: 1px;
+    top: 5px;
+    margin-bottom: -30px;
+    font-size: 18px;
+    color: rgb(150, 150, 150);   
+}
+
+.addProductOptionButton:hover {
+    color: black;   
+}
+
+.sellerProductOption {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.sellerProductOption div:hover {
+    cursor: pointer;
+}
+
+.sellerProductOptionButton {
+    background-color: rgb(222, 222, 222);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: rgb(100, 100, 100);
+}
+
+.sellerProductActiveOptionButton {
+    background-color: rgb(185, 234, 88);
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    color: black;
+}

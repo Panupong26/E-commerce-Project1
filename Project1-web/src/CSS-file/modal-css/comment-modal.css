@@ -1,0 +1,43 @@
+.reviewBox {
+    box-sizing: border-box;
+    position: fixed;
+    background-color: white;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 285px;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    padding: 10px;
+    z-index: 1;
+ }
+ 
+ .closeReviewBoxButton {
+     position: absolute;
+     margin-left: 250px;
+     margin-top: -10px;
+     font-size: 20px;
+     background-color: rgba(255, 255, 255, 0);
+     border-style: none;
+     color: gray;
+ }
+ 
+ .reviewHeader {
+     text-align: center;
+     font-size: 30px;
+     color: yellowgreen;
+ }
+ 
+ .commentBox {
+     padding: 0px;
+     overflow-x: hidden;
+     overflow-y: scroll;
+     height: 93%;
+ }
+ 
+ .commentBox::-webkit-scrollbar {
+     width: 5px;
+ }
+ 
+ 

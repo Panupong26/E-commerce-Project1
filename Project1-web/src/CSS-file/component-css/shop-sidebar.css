@@ -1,0 +1,349 @@
+.storeSideBar {
+    position: fixed;
+    box-sizing: border-box;
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgb(200, 200, 200);
+    color: rgb(90, 90, 90);
+}
+
+.storeProfile {
+    position: relative;
+    text-align: center;
+    background-color: white;
+    margin: 8px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgb(200, 200, 200);
+}
+
+.storeFavorButton {
+    margin-bottom: 10px;
+    text-align: right;
+    padding-right: 5px;
+    padding-top: 2px;
+    z-index: 2;
+}
+
+.storeFavorButton:hover {
+    cursor: pointer;
+}
+
+.storeProfilePic {
+   border-radius: 50%;
+   object-fit: cover;
+   margin: 0;
+   margin-top: 10px;
+   box-shadow: 0px 0px 5px grey;
+
+}
+
+
+.setStoreDetailButton {
+    position: relative;
+    bottom: 2px;
+    margin: 5px;
+    color: rgb(200, 200, 200);
+}
+
+.setStoreDetailButton:hover {
+    cursor: pointer;
+}
+
+
+.storeNameBox {
+    margin: 5px;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.storeName {
+    margin: 0px 5px;
+}
+
+.storeStar {
+    font-size: 15px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.storeSellCount {
+    font-size: 14px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.storeWelcomeMessege {
+    padding: 10px;
+    font-size: 14px;
+}
+.storeDetail {
+    background-color: white;
+    position: fixed;
+    left: 255px;
+    top: 55px;
+    width: 700px;
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    z-index: 1;
+}
+
+.storeDescription {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px 0px 10px 0px;
+    padding-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    height: 100%;
+}
+
+.storeDescriptionHead {
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    width: 100%;
+    height: 30px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    font-weight: 600;
+}
+
+.storeDescriptionMessage {
+    color: black;
+    font-size: 14px;
+    padding: 10px;
+    padding-top: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 240px;
+    width: 95%;
+    border-style: none;
+    font-size: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    resize: none;
+}
+
+.storeContact {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 0px;
+    width: 40%;
+    height: 100%;
+    text-align: left;
+    background-color: rgb(240, 240, 240);
+}
+
+.icon {
+    width: 30px;
+}
+
+.storeCloseStoreDetail {
+    position: absolute;
+    top: 3px;
+    right: 5px;
+    font-size: 20px;
+    color: black;
+}
+
+.storeCloseStoreDetail:hover {
+    cursor: pointer;
+}
+
+.storeContactHead {
+    box-sizing: border-box;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    color: rgb(127, 171, 41);
+    text-shadow: 1px 1px 2px rgb(200, 200, 200);
+    font-weight: 600;
+}
+
+.storeContactPlatform {
+    box-sizing: border-box;
+    margin: 10px;
+    width: max-content;
+}
+
+.storeAddress {
+    margin-top: 5px;
+    width: 250px;
+}
+
+.storeCategory {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.storeTypeList {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 45%;
+    padding-top: 2px;
+}
+
+.storeTypeList::-webkit-scrollbar {
+    display: none;
+}
+
+
+.storeTypeButton {
+    list-style: none;
+    background-color: white;
+    position: relative;
+    right: 45px;
+    margin: 0px;
+    margin-bottom: 5px;
+    width: 250px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    color: rgb(100, 100, 100);
+}
+
+.storeTypeButton:hover {
+    cursor: pointer;
+    color: black;
+}
+
+.storeTypeActiveButton {
+    list-style: none;
+    position: relative;
+    right: 45px;
+    margin: 0px;
+    width: 250px;
+    text-align: center;
+    height: 20px;
+    padding: 5px;
+    color: black;
+    margin-bottom: 5px;
+}
+
+.storeTypeActiveButton:hover {
+    cursor: pointer;
+    color: black;
+}
+
+::-webkit-scrollbar {
+    background-color: white;
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+@media (max-width: 955px) {
+    .storeDetail {
+        width: 600px;
+    }
+    .storeDescription {
+        width: 400px;
+    }
+}
+
+@media (max-width: 860px) {
+    .storeDetail {
+        flex-direction: column;
+        width: 400px;
+        height: max-content;
+    }
+
+    .storeContact {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .storeSideBar {
+        display: flex;
+        width: 100%;
+        height: max-content;
+        justify-content: center;
+        position: relative;
+    }
+
+    .storeName {
+       font-size: 20px;
+    }
+
+    .storeCategory {
+        width: auto;
+        text-align: center;
+    }
+
+    .categoryBox {
+        width: auto;
+        height: max-content;
+        text-align: center;
+    }
+
+    .storeTypeList{
+        height: 150px;
+        text-align: center;
+    }
+
+    .storeTypeButtonBox {
+        margin: 0px;
+        width: max-content;
+        height: max-content;
+    }
+
+    .storeTypeButton{
+        width: 100%;
+        right: 25px;
+        margin: auto;
+    }
+
+    .storeTypeActiveButton{
+        width: 100%;
+        right: 25px;
+        margin: auto;
+    }
+
+    .storeDescription {
+        width: 40%;
+    }
+
+    .storeDetail {
+        left: 0px;
+        top: 300px;
+        width: 100vw;
+        height: 300px;
+        z-index: 1;
+    }
+
+    .storeDescription {
+        width: 100%;
+        height: 60%;
+    }
+
+    .storeContact {
+        height: 70%;
+    }
+
+    .setStoreDetailButton {
+        rotate: 90deg;
+ 
+    }
+}
+
+@media (max-width: 340px) {
+    .storeSideBar {
+        width: 120%;
+    }
+}
+

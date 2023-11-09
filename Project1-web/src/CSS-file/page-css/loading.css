@@ -1,0 +1,25 @@
+.loadingPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    left: 0px;
+    top: 0px;
+    z-index: 3000;
+}
+
+.circleBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+}
+
+.circleBox .icon {
+    font-size: 15px;
+    color: rgb(202, 235, 137);
+    margin: 10px;
+}
