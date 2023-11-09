@@ -9,7 +9,7 @@ export default function StoreDropdown({ shopData, setOpen }) {
          <div className='storeDetail'>
             <div className='storeDescription'>
                     <div className='storeDescriptionHead'>Description</div>  
-                    <textarea className='storeDescriptionMessage' style={{pointerEvents: 'none'}} value = {shopData?.storeDescription}></textarea>
+                    <div className='storeDescriptionMessage'>{shopData?.storeDescription}</div>
             </div>
             <div className='storeContact'>
                 <div className='storeContactHead'>Contact</div>

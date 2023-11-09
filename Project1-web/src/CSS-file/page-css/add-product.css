@@ -99,7 +99,7 @@
 
 .sellerAddProductDetailHeader {
     text-align: center;
-    width: 100px;
+    width: max-content;
     margin: auto;
     margin-top: 5px;
     color: rgb(127, 171, 41);

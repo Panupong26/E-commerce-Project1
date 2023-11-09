@@ -600,7 +600,7 @@ function ShopDashboard() {
             <div className="chartBox">
                 <div>
                     <div className="totalStaticBox">
-                        {staticShow?.map(e => <div className="stick" style={{height: call(() => {return e.amount === 0 ? '1px' : `${((e.amount/totalStaticBoxMaxHeight)*100)}%` })}} 
+                        {staticShow?.map(e => <div key={`${Math.random()}`.slice(3,9)} className="stick" style={{height: call(() => {return e.amount === 0 ? '1px' : `${((e.amount/totalStaticBoxMaxHeight)*100)}%` })}} 
                         onMouseOver = {() => {
                             setAmount(e.amount);
                             setIncome(e.income);
@@ -626,7 +626,7 @@ function ShopDashboard() {
                 </div>
                 <div className="productStaticBox">
                     {productShow?.map(e => 
-                        <div className="productStickBox" style={{width: `${((e.amount/productStickMaxWidth)*100) - 10}%`}} onClick = {() => window.location.href = `${FONTEND_URL}/product/${e.productId}`}>
+                        <div key={e} className="productStickBox" style={{width: `${((e.amount/productStickMaxWidth)*100) - 10}%`}} onClick = {() => window.location.href = `${FONTEND_URL}/product/${e.productId}`}>
                             <div>
                                 <img src = {e.picture} alt = 'productPic'/>
                                 <div className="product">{e.product}</div>

@@ -37,7 +37,7 @@ function AdminOrderPanel(props) {
 
     function goToStorePage() {
         if(Object.keys(sellerData).length !== 0) {
-            window.open(`${FONTEND_URL}/${sellerData.storeName}`, '_Blank')
+            window.open(`${FONTEND_URL}/shop/${sellerData.storeName}`, '_Blank')
         }; 
     };
 

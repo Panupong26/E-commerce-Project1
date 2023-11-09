@@ -75,24 +75,20 @@ const createUser = async (req,res) => {
     try {
         const ref = req.body.ref;
         const targetRef = await db.verify.findOne({where: {ref: ref, status: 'user'}});
+        const unique = `${new Date().getTime()}`.slice(8, 12) + `${Math.random()}`.slice(3,6);
 
         if(targetRef) {
             await db.user.create({
                 email: targetRef.email,
                 password: targetRef.password, 
+                profileName: "USER" + unique,
                 phoneNumber: '',
                 receiveName: '',
                 address: '',
                 bankName: '',
                 bankAccountNumber: ''
             })
-            .then(async (data) => {
-                await db.user.update({
-                    profileName: `User #${data.id}`
-                },
-                {
-                    where: {id: data.id}
-                });
+            .then(async () => {
 
                 await db.verify.destroy({where: {ref: ref}})
             });

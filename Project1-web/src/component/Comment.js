@@ -46,9 +46,9 @@ export default function Comment({ data }) {
             <div className='commentStar'>
             {[1,2,3,4,5].map(star => {
                 if(star <= data.reviewStar) {
-                    return <FontAwesomeIcon icon={faStar} style={{color: "#00bfff",}} />
+                    return <span key={star} ><FontAwesomeIcon icon={faStar} style={{color: "#00bfff",}} /></span>
                 } else {
-                    return <FontAwesomeIcon icon={faStar} style={{color: "#b7b9bd",}} />
+                    return <span key={star}><FontAwesomeIcon icon={faStar} style={{color: "#b7b9bd",}} /></span>
                 }
             })} 
             </div>

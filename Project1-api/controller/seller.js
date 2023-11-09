@@ -72,11 +72,13 @@ const createSeller = async (req,res) => {
     try {
         const ref = req.body.ref;
         const targetRef = await db.verify.findOne({where: {ref: ref, status: 'seller'}});
-
+        const unique = `${new Date().getTime()}`.slice(8, 12) + `${Math.random()}`.slice(3,6); 
+       
         if(targetRef) {
             await db.seller.create({
                 email: targetRef.email,
                 password: targetRef.password,
+                storeName: "STORE" + unique,
                 totalSellCount: 0,
                 storePicture: '',
                 phoneNumber: '',
@@ -85,13 +87,7 @@ const createSeller = async (req,res) => {
                 address: '',
                 bankName: '',
                 bankAccountNumber: ''
-            }).then(async (data) => {
-                await db.seller.update({
-                    storeName: `STORE #${data.id}`
-                },
-                {
-                    where: {id: data.id}
-                });
+            }).then(async () => {
 
                 await db.verify.destroy({where: {ref: ref}});
                 

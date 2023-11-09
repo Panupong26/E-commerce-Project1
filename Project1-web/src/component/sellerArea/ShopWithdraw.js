@@ -133,7 +133,7 @@ function ShopWithdraw() {
                 </div>
                 <div className='billBox'>
                     {bill?.map(e => 
-                        <div className='billCard'>
+                        <div key={e.id} className='billCard'>
                             <div className='billId'>{e.id}</div>
                             <div className='billOrderId'>{e.orderId}</div>
                             <div className='billProductName'>{e.productName}</div>
