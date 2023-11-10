@@ -77,7 +77,7 @@ function ProductSentOptionAdd(props) {
                 
                 <div className='editSentOptionHeader'>Option</div>
                 <input type='text'
-                    value={newSentOption} 
+                    value={newSentOption || ''} 
                     style={{color: `${validateOk ? '' : 'red'}`}} 
                     onChange = {e => setNewSentOption(e.target.value)}
                 />
@@ -85,7 +85,7 @@ function ProductSentOptionAdd(props) {
                 <div className='editSentOptionPriceHeader'>Price</div>
                 <input 
                     type='text' 
-                    value={newSentOptionPrice} 
+                    value={newSentOptionPrice || ''} 
                     onChange = {e => {
                         if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
                             setNewSentOptionPrice('0');
@@ -98,7 +98,7 @@ function ProductSentOptionAdd(props) {
                 <div className='editSentOptionPriceHeader'>Amount</div>
                 <input 
                     type='text' 
-                    value={newSentOptionAmount}  
+                    value={newSentOptionAmount || ''}  
                     onChange = {e => {
                         if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
                             setNewSentOptionAmount('0');
