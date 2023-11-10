@@ -66,7 +66,7 @@ export default function ShippingOptionBox({ productSentOption, setSentPrice, set
                         setSentPrice(e.price);
                         setSentAmount(e.amount);
                         setOptionActive({...defaultOptionActive, [e.optionName]: true});
-                    }}>{e.optionName} {e.price} ฿/{e.amount} piece
+                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.amount.toLocaleString()} piece
                         {status === 'seller' &&
                         <>&nbsp;&nbsp;&nbsp;&nbsp;
                         <div style={{display: 'inline-block'}}>
@@ -86,7 +86,7 @@ export default function ShippingOptionBox({ productSentOption, setSentPrice, set
                         setSentPrice(0);
                         setSentAmount(0);
                         setOptionActive({...defaultOptionActive, [e.optionName]: false});
-                    }}>{e.optionName} {e.price} ฿/{e.amount} piece
+                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.amount.toLocaleString()} piece
                         {status === 'seller' &&
                         <>&nbsp;&nbsp;&nbsp;&nbsp;
                         <div style={{display: 'inline-block'}}>
