@@ -63,8 +63,11 @@ const editShippingOption = async (req, res) => {
             {
                 where: {id: optionId}
             })
-            .then(data => {
-                return res.status(200).send(data); 
+            .then(() => {
+                targetOption.price = price;
+                targetOption.amount = amount;
+                
+                return res.status(200).send(targetOption); 
             })    
         } else {
             return res.status(403).send({message: 'You are not allowed'});
