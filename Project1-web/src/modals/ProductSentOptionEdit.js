@@ -23,8 +23,8 @@ function ProductSentOptionEdit({ data, setProductModal, productSentOption, setPr
 
         await axios.patch(`/shippingoption/updateshippingoption`, {
             optionId: sentOption.id,
-            price: editSentOptionPrice,
-            amount: editSentOptionAmount
+            price: +(editSentOptionPrice.replaceAll(',','')),
+            amount: +(editSentOptionAmount.replaceAll(',',''))
         })
         .then(res => {
            const index = productSentOption.findIndex(el => el.id === res.data.id);
