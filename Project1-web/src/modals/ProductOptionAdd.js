@@ -66,7 +66,7 @@ function ProductOptionAdd(props) {
                 
                 <input 
                     type='text' 
-                    value={newOption} 
+                    value={newOption || ''} 
                     style={{color: `${validateOk ? '' : 'red'}`}} 
                     onChange = {(e) => setNewOption(e.target.value)}
                 />
@@ -74,7 +74,7 @@ function ProductOptionAdd(props) {
                 <div className='addOptionPriceHeader'>Price</div>
                 
                 <input 
-                    type='text' value={newOptionPrice}  
+                    type='text' value={newOptionPrice || ''}  
                     onChange = {(e) => {
                         if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
                             setNewOptionPrice('0');
