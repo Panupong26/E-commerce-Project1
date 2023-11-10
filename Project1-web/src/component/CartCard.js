@@ -60,7 +60,7 @@ export default function CartCard({ data, setCartSelected, cartSelected, deleteCa
                 </div>
             </div>
             <div className='cartPrice'>
-                total price: {data.totalPrice.toLocaleString()} THB         
+                Total Price: {data.totalPrice.toLocaleString()} THB         
             </div>
             <div className='removeButton' onClick={() => deleteCart(data.id)}>
                     <FontAwesomeIcon icon={faXmark} /> 

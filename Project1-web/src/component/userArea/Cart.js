@@ -31,6 +31,8 @@ export default function Cart({ userData, cartData, setCartData }) {
         setIsLoading(true);
         await axios.delete(`/cart/deletecart`, {data: {cartId: cartId}})
         .then(() => {
+            const newCartSelected = [...cartSelected].filter(el => el.id !== cartId);
+            setCartSelected([...newCartSelected]);
             const newCartData = [...cartData].filter(el => el.id !== cartId);
             setCartData([...newCartData]);
         })
@@ -54,6 +56,7 @@ export default function Cart({ userData, cartData, setCartData }) {
             const newCartData = [...cartData];
             cartSelected.forEach(e => newCartData.splice(newCartData.findIndex(i => i.id === e.id), 1));
             setCartData([...newCartData]);
+            setCartSelected([]);
         })
         .catch(err => {
            handleErr(err);

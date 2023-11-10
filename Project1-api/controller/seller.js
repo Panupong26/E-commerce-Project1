@@ -5,6 +5,7 @@ const fs = require('fs');
 const nodeMailer = require('nodemailer');
 const { registerValidator, userValidator } = require('../validator/validator');
 const htmlCreator = require('../create-email/htmlCreator');
+const findFileByName = require('../findFile/findFileByName');
 require('dotenv').config();
 
 const createVerification = async (req, res) => {
@@ -433,7 +434,10 @@ const deleteSeller = async (req,res) => {
             const targetSeller = await db.seller.findOne({where: {id: sellerId}});
            
             if(targetSeller.storePicture) {
-                fs.unlinkSync(`./Upload/sellerprofilepic/${targetSeller.storePicture}`);
+                const found = await findFileByName('Upload/sellerprofilepic/', targetSeller.storePicture);
+                if(found) {
+                    fs.unlinkSync(`./Upload/sellerprofilepic/${targetSeller.storePicture}`);
+                }
             };
     
             const targetProduct = await db.product.findAll({where: {sellerId: sellerId}});
@@ -448,7 +452,11 @@ const deleteSeller = async (req,res) => {
                     
                     if(targetOptionPic.length !== 0) {
                         for (let p of targetOptionPic) {
-                            fs.unlinkSync(`./Upload/optionpic/${p.picture}`);
+                            const found = await findFileByName('Upload/optionpic/', p.picture);
+                            if(found) {
+                                fs.unlinkSync(`./Upload/optionpic/${p.picture}`);
+                            }
+                            
                             await db.optionPicture.destroy({where: {id: p.id}});
                         };
                     };
@@ -458,7 +466,11 @@ const deleteSeller = async (req,res) => {
                 const targetProductPic = await db.productPicture.findAll({where: {productId: e.id}});
     
                 for(let pp of targetProductPic) {
-                    fs.unlinkSync(`./Upload/productpic/${pp.picture}`);
+                    const found = await findFileByName('Upload/productpic/', pp.picture);
+                    if(found) {
+                        fs.unlinkSync(`./Upload/productpic/${pp.picture}`);
+                    }
+                    
                     await db.productPicture.destroy({where: {id: pp.id}});
                 }
                 

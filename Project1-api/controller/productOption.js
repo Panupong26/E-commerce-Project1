@@ -1,6 +1,7 @@
 const db = require('../models');
 const fs = require('fs');
 const { productValidator } = require('../validator/validator');
+const findFileByName = require('../findFile/findFileByName');
 
 
 const createProductOption = async (req, res) => {
@@ -137,7 +138,11 @@ const deleteProductOption = async (req, res) => {
         if(status === 'seller' && targetProduct && targetProduct.sellerId === sellerId) {
 
             for (let e of targetPic) {
-                fs.unlinkSync(`Upload/optionpic/${e.picture}`);
+                const found = await findFileByName('Upload/optionpic/', e.picture);
+                if(found) {
+                    fs.unlinkSync(`Upload/optionpic/${e.picture}`);
+                }
+               
                 await db.optionPicture.destroy({where: {id: e.id}});  
             };
             
@@ -197,7 +202,11 @@ const editOptionPic = async (req, res) => {
         for(let el of pictureId) {
             const targetPic = await db.optionPicture.findOne({where: {id: el}});
             const index = pictureId.findIndex(e => e === el);
-            fs.unlinkSync(`Upload/optionpic/${targetPic.picture}`);
+            
+            const found = await findFileByName('Upload/optionpic/', targetPic.picture);
+            if(found) {
+                fs.unlinkSync(`Upload/optionpic/${targetPic.picture}`);
+            }
 
             await db.optionPicture.update({
                 picture: file[index].filename
@@ -231,7 +240,10 @@ const deleteOptionPic = async (req, res) => {
             const targetProduct = await db.product.findOne({where: {id: targetOption.productId}});
             
             if(status === 'seller' && targetProduct && targetProduct.sellerId === sellerId) { 
-                fs.unlinkSync(`Upload/optionpic/${targetPic.picture}`);
+                const found = await findFileByName('Upload/optionpic/', targetPic.picture);
+                if(found) {
+                    fs.unlinkSync(`Upload/optionpic/${targetPic.picture}`);
+                }
                 
                 await db.optionPicture.destroy({
                     where: {id: el}

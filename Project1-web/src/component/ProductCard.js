@@ -43,7 +43,7 @@ function ProductCard({ data }) {
                     {data?.productName.length > 16 ? data.productName.slice(0,15) + '...' : data.productName}
                 </div>
                 <div className='productDetailOnCard'> 
-                    {data?.productDetail.length > 16 ? data.productDetail.slice(0,15) + '...' : data.productDetail}
+                    {data?.productDetail.length > 52 ? data.productDetail.slice(0,51) + '...' : data.productDetail}
                 </div>
                 <div className='productCardSellCount'>
                     <FontAwesomeIcon icon={faCircleCheck} style={{color: "yellowgreen",}}/>&nbsp;

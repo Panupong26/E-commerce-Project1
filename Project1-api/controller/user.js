@@ -7,6 +7,7 @@ const fs = require('fs');
 const { Op } = require('sequelize');
 const { registerValidator, userValidator } = require("../validator/validator");
 const htmlCreator = require('../create-email/htmlCreator');
+const findFileByName = require('../findFile/findFileByName');
 
 const createVerification = async (req, res) => {
     try {
@@ -438,7 +439,10 @@ const deleteUser = async (req,res) => {
         if(status === 'user' && targetOrder.length === 0) {
             const targetUser = await db.user.findOne({where: {id: userId}})
             if(targetUser.profilePicture) {
-                fs.unlinkSync(`./Upload/userprofilepic/${targetUser.profilePicture}`);
+                const found = await findFileByName('Upload/userprofilepic/', targetUser.profilePicture );
+                if(found) {
+                    fs.unlinkSync(`./Upload/userprofilepic/${targetUser.profilePicture}`);
+                }
             }
     
             await db.notification.destroy({where: {id: userId}});

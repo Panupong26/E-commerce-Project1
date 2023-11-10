@@ -120,18 +120,15 @@ function ProductOptionEdit({ data, setProductModal }) {
             EditForm.append('idArr', JSON.stringify(editId));
         }
 
-        const reqAdd = addFile.length > 0 ? await axios.post('/productoption/addpicture', AddForm, {headers: {'Content-Type': "multipart/form-data"}}) : Promise.resolve() ;
-        const reqEdit = editFile.length > 0 ? await axios.post('/productoption/editpicture', EditForm, {headers: {'Content-Type': "multipart/form-data"}}) : Promise.resolve() ;
-        const reqDelete = deleteFile.length > 0 ? await axios.delete('/productoption/deletepicture', {data: {deleteArr: deleteFile}}) : Promise.resolve() ;
+        const reqAdd = addFile.length > 0 ? await axios.post('/productoption/addpicture', AddForm, {headers: {'Content-Type': "multipart/form-data"}}).catch((err) => handleErr(err)) : Promise.resolve() ;
+        const reqEdit = editFile.length > 0 ? await axios.post('/productoption/editpicture', EditForm, {headers: {'Content-Type': "multipart/form-data"}}).catch((err) => handleErr(err)) : Promise.resolve() ;
+        const reqDelete = deleteFile.length > 0 ? await axios.delete('/productoption/deletepicture', {data: {deleteArr: deleteFile}}).catch((err) => handleErr(err)) : Promise.resolve() ;
         const updatePrice = await axios.patch('/productoption/updateprice', {id: optionData.id, price: editPrice.replaceAll(',','')});
         
         
         Promise.all([reqAdd, reqEdit, reqDelete, updatePrice])
         .then(() => {
             window.location.href = `${FONTEND_URL}/product/${data.productId}`;
-        })
-        .catch(err => {
-            handleErr(err);
         })
         .finally(() => {
             setIsLoading(false);
@@ -212,7 +209,7 @@ function ProductOptionEdit({ data, setProductModal }) {
                     
                     <div className='productEditPicCardBox'>
                         {productEditShowPic?.map(e => 
-                            <div className='productEditPicCard'>
+                            <div key={e.id} className='productEditPicCard'>
                                 <img 
                                     src={e.picture.includes('http')? e.picture : `${API_URL}/optionpic/${e.picture}`} alt='Option'
                                     onMouseOver={() => setOpenEditPicButton({...openEditPicButton, [e.id]: true})}

@@ -14,10 +14,12 @@ import { handleErr } from '../handle-err/HandleErr';
 
 
 function Profile() {
-    let {page} = useParams();
+    // eslint-disable-next-line
+    const [page, setPage] = useState(useParams().page);
     const { authUser, status } = useContext(authContext);
     const [userAreaPage, setUserAreaPage] = useState();
     const { setIsLoading } = useContext(loadingContext);
+
 
 
     async function deleteUser() {

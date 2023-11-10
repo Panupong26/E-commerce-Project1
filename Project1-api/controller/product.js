@@ -2,6 +2,7 @@ const db = require('../models');
 const fs = require('fs');
 const Sequelize = require('sequelize');const { resolve } = require('path');
 const { productValidator } = require('../validator/validator');
+const findFileByName = require("../findFile/findFileByName");
 
 const Op = Sequelize.Op;
 
@@ -278,7 +279,11 @@ const deleteProduct = async (req,res) => {
                     const targetPic = await db.optionPicture.findAll({where: {optionId: e.id}});
 
                     for (let p of targetPic) {
-                        fs.unlinkSync(`Upload/optionpic/${p.picture}`);
+                        const found = await findFileByName('Upload/optionpic/', p.picture);
+                        if(found) {
+                            fs.unlinkSync(`Upload/optionpic/${p.picture}`);
+                        }
+                        
                         await db.optionPicture.destroy({where: {id: e.id}}); 
                     };
 
@@ -288,7 +293,11 @@ const deleteProduct = async (req,res) => {
                 const targetProductPic = await db.productPicture.findAll({where: {productId: productId}});
         
                 for (let e of targetProductPic) {
-                    fs.unlinkSync(`Upload/productpic/${e.picture}`);
+                    const found = await findFileByName('Upload/productpic/', e.picture);
+                    if(found) {
+                        fs.unlinkSync(`Upload/productpic/${e.picture}`);
+                    }
+                
                     await db.productPicture.destroy({where: {id: e.id}}); 
                 };
         
@@ -345,7 +354,11 @@ const adminDeleteProduct = async (req,res) => {
                 const targetPic = await db.optionPicture.findAll({where: {optionId: e.id}});
     
                 for (let p of targetPic) {
-                    fs.unlinkSync(`Upload/optionpic/${p.picture}`);
+                    const found = await findFileByName('Upload/optionpic/', p.picture);
+                    if(found) {
+                        fs.unlinkSync(`Upload/optionpic/${p.picture}`);
+                    }
+                   
                     await db.optionPicture.destroy({where: {id: e.id}}); 
                 };
     
@@ -355,7 +368,11 @@ const adminDeleteProduct = async (req,res) => {
             const targetProductPic = await db.productPicture.findAll({where: {productId: productId}});
     
             for (let e of targetProductPic) {
-                fs.unlinkSync(`Upload/productpic/${e.picture}`);
+                const found = await findFileByName('Upload/productpic/', e.picture);
+                if(found) {
+                    fs.unlinkSync(`Upload/productpic/${e.picture}`);
+                }
+                
                 await db.productPicture.destroy({where: {id: e.id}}); 
             };
     

@@ -52,8 +52,6 @@ function SellerAddProduct() {
      
     function editFile(data, e) {
         if(e.target.files[0]) {
-            console.log(data);
-            console.log(file);
             const type = e.target.files[0].type.split('/')[1];
             const newName = data.id + '.' + type;
             const newFile = new File(e.target.files, newName, {type: e.target.files[0].type});
