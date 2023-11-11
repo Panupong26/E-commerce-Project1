@@ -5,25 +5,25 @@ import { useState, useEffect } from 'react';
 
 function Loading() {
     const [circle, setCircle] = useState([]);
-    const [amount, setAmount] = useState(1);
+    const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         setTimeout(() => {
-            if(amount < 5) {
-                setAmount(amount + 1);
+            if(quantity < 5) {
+                setQuantity(quantity + 1);
             } else {
-                setAmount(1);
+                setQuantity(1);
             }
         }, 500);
-    }, [circle, amount]);
+    }, [circle, quantity]);
 
     useEffect(() => {
         let preArr = [];
-        for(let i = 1 ; i <= amount ; i++) {
+        for(let i = 1 ; i <= quantity ; i++) {
             preArr.push(i);
         };
         setCircle([...preArr]);
-    }, [amount]);
+    }, [quantity]);
 
 
     return (

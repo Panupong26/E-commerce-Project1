@@ -11,7 +11,6 @@ router.use(express.json());
 router.use(express.urlencoded({extended: false}));
 
 router.post('/createfavorite', authentication, favorite.createFavorite);
-router.post('/getfavoritebysellerid', favorite.sellerGetFavorite);
-router.delete('/deletefavorite', authentication, favorite.deleteFavorite);
+router.delete('/deletefavorite/:sellerId', authentication, favorite.deleteFavorite);
 
 module.exports = router;

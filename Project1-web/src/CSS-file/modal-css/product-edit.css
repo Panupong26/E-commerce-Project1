@@ -108,7 +108,7 @@
     box-sizing: border-box;
     margin: 10px auto;
     padding: 5px;
-    width: fit-content;
+    width: 100%;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(200,200,200);
 }
@@ -139,13 +139,52 @@
     color: black;
 }
 
+.optionOutOfStock {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 10px auto;
+    padding: 5px;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(200,200,200);
+}
+
+.optionOutOfStockHeader {
+    color: rgb(130, 174, 43);
+    text-shadow: 0px 0px 5px rgb(200,200,200);
+    font-size: 20px;
+    margin: 5px;
+}
+
+.optionOutOfStock button {
+    margin: auto 5px;
+    border: none;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+}
+
+.non-active-button {
+    background-color: rgb(240, 240, 240);
+    color: rgb(100, 100, 100);
+}
+
+.non-active-button:hover {
+    background-color: rgb(190, 227, 116);
+    color: rgb(0, 0, 0);
+}
+
+.active-button {
+    background-color: rgb(190, 227, 116);
+}
+
 .productEditPicCardBox {
     box-sizing: border-box;
     border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(200,200,200);
     width: 450px;
     height: 120px;
-    margin: 40px 10px;
+    margin: 10px 10px;
     padding: 5px;
     display: flex;
     overflow-x: auto;
@@ -226,7 +265,7 @@
 }
 
 .productEditButtonBox {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .productEditDoneButton {

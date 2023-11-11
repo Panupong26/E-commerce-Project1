@@ -38,7 +38,7 @@ function Reset() {
         setIsLoading(true);
 
         if(status === 'admin') {
-            await axios.put(`/admin/adminreset`, {
+            await axios.patch(`/admin/adminreset`, {
                 ref:  searchParams.get('ref'),
                 password: password
             })
@@ -50,7 +50,7 @@ function Reset() {
                 handleErr(err);
             });
         } else if(status === 'user') {
-            await axios.put(`/user/userreset`, {
+            await axios.patch(`/user/userreset`, {
                 ref: searchParams.get('ref'),
                 password: password
             })
@@ -62,7 +62,7 @@ function Reset() {
                 handleErr(err);
             });
         } else if(status === 'seller') {
-            await axios.put(`/seller/sellerreset`, {
+            await axios.patch(`/seller/sellerreset`, {
                 ref: searchParams.get('ref'),
                 password: password
             })

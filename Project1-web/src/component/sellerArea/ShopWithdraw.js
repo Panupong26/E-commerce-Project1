@@ -40,7 +40,7 @@ function ShopWithdraw() {
    
 
     async function submitBill(billId) {
-        await axios.put(`/bill/sellerupdatebill`, {
+        await axios.patch(`/bill/sellerupdatebill`, {
             billId: billId
         })
         .then(() => {
@@ -127,7 +127,7 @@ function ShopWithdraw() {
                     <div className='headerOrderId'>Order ID</div>
                     <div className='headerProductName'>Product</div>
                     <div className='billHeaderOption'>Option</div>
-                    <div className='headerAmount'>Amount</div>
+                    <div className='headerQuantity'>Quantity</div>
                     <div className='headerIncome'>Income</div>
                     <div className='headerIncome'>Status</div>
                 </div>
@@ -138,7 +138,7 @@ function ShopWithdraw() {
                             <div className='billOrderId'>{e.orderId}</div>
                             <div className='billProductName'>{e.productName}</div>
                             <div className='billOption'>{e.productOption}</div>
-                            <div className='billAmount'>{e.amount}</div>
+                            <div className='billQuantity'>{e.quantity}</div>
                             <div className='billIncome'>{e.totalIncome.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
                             <div className='billStatus'>{billStatus[e.status]}</div>
                             

@@ -12,6 +12,6 @@ router.use(express.urlencoded({extended: false}));
 
 router.post('/createshippingoption', authentication, shippingOption.createShippingOption);
 router.patch('/updateshippingoption', authentication, shippingOption.editShippingOption);
-router.delete('/deleteshippingoption', authentication, shippingOption.deleteShippingOption);
+router.delete('/deleteshippingoption/:optionId', authentication, shippingOption.deleteShippingOption);
 
 module.exports = router;

@@ -29,7 +29,7 @@ const createProductOption = async (req, res) => {
                 return res.status(201).send(data); 
             })     
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -39,54 +39,13 @@ const createProductOption = async (req, res) => {
 }
 
 
-const getProductOptionByOptionId = async (req, res) => {
-    try {
-        const optionId = req.body.optionId;
-
-        const targetOption = await db.productOption.findOne({
-            where: {
-                id: optionId
-            },
-            include: [
-                {
-                    model: db.optionPicture
-                }
-            ]
-        });
-    
-        return res.status(200).send(targetOption);  
-    
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error');
-    }  
-}
-
-const getProductOptionByProductId = async (req, res) => {
-    try {
-        const productId = req.body.productId;
-
-        const targetOption = await db.productOption.findOne({
-            where: {
-                id: productId
-            }
-        });
-    
-        return res.status(200).send(targetOption);  
-    
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error');
-    }  
-}
-
-
-const updatePrice = async (req, res) => {
+const updateOption = async (req, res) => {
     try {
         const sellerId = req.user.id;
         const status = req.user.status;
         const optionId = req.body.id;
         const price = req.body.price;
+        const outOfStock = req.body.outOfStock;
 
         if(!optionId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -99,7 +58,8 @@ const updatePrice = async (req, res) => {
             
             if(price) {
                 await db.productOption.update({
-                    price: price
+                    price: price,
+                    outOfStock: outOfStock
                 },
                 {
                     where: {id: optionId}
@@ -108,7 +68,7 @@ const updatePrice = async (req, res) => {
             return res.status(201).send({message: 'Done'});
             
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -151,7 +111,7 @@ const deleteProductOption = async (req, res) => {
             
             return res.status(200).send({message: 'Deleted'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -182,7 +142,7 @@ const addOptionPic = async (req, res) => {
             }  
             return res.status(201).send({message: 'Done'});  
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -249,7 +209,7 @@ const deleteOptionPic = async (req, res) => {
                     where: {id: el}
                 });
             } else {
-                return res.status(403).send({message: 'You are not allowed'});
+                return res.status(403).send({message: "You don't have permission to access"});
             } 
         }
     
@@ -264,9 +224,7 @@ const deleteOptionPic = async (req, res) => {
 
 module.exports = {
     createProductOption,
-    getProductOptionByOptionId,
-    getProductOptionByProductId,
-    updatePrice,
+    updateOption,
     deleteProductOption,
     addOptionPic,
     editOptionPic,

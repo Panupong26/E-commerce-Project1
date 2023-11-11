@@ -12,7 +12,7 @@ function EnterTrackingNumber({ orderId, setOpenTrackingInput, orderData, setOrde
     async function addTrackingNumber() {
         setIsLoading(true);
 
-        await axios.put(`/order/sellerupdateorder`, {
+        await axios.patch(`/order/sellerupdateorder`, {
             orderId: orderId,
             trackingNumber: trackingNumber
         })

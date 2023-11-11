@@ -13,7 +13,7 @@ function ProductSentOptionAdd(props) {
 
     const [newSentOption,setNewSentOption] = useState(); 
     const [newSentOptionPrice,setNewSentOptionPrice] = useState();  
-    const [newSentOptionAmount,setNewSentOptionAmount] = useState(); 
+    const [newSentOptionQuantity,setNewSentOptionQuantity] = useState(); 
     
     const [newSentOptionAddButtonDisable, setNewSentOptionAddButtonDisable] = useState('none');
 
@@ -29,7 +29,7 @@ function ProductSentOptionAdd(props) {
             productId: props.productId,
             optionName: newSentOption,
             price: +(newSentOptionPrice.replaceAll(',','')),
-            amount: +(newSentOptionAmount.replaceAll(',',''))
+            quantity: +(newSentOptionQuantity.replaceAll(',',''))
         })
         .then(res => {
             props.setProductSentOption([...props.productSentOption, res.data]);
@@ -66,9 +66,9 @@ function ProductSentOptionAdd(props) {
             setValidateOk(true);
         } 
 
-        let result = ( (newSentOption && `${+newSentOption}` === 'NaN' && sameSentOption && !sameSentOption[0]) && (newSentOptionPrice && +(newSentOptionPrice.replaceAll(',','')) > 0) && (newSentOptionAmount && +(newSentOptionAmount.replaceAll(',','')) > 0))? '' : 'none' ;
+        let result = ( (newSentOption && `${+newSentOption}` === 'NaN' && sameSentOption && !sameSentOption[0]) && (newSentOptionPrice && +(newSentOptionPrice.replaceAll(',','')) > 0) && (newSentOptionQuantity && +(newSentOptionQuantity.replaceAll(',','')) > 0))? '' : 'none' ;
             setNewSentOptionAddButtonDisable(result);
-    }, [newSentOption, newSentOptionPrice, newSentOptionAmount, sentOption])
+    }, [newSentOption, newSentOptionPrice, newSentOptionQuantity, sentOption])
 
 
     return <>
@@ -95,15 +95,15 @@ function ProductSentOptionAdd(props) {
                     }}
                 />
                 
-                <div className='editSentOptionPriceHeader'>Amount</div>
+                <div className='editSentOptionPriceHeader'>Quantity</div>
                 <input 
                     type='text' 
-                    value={newSentOptionAmount || ''}  
+                    value={newSentOptionQuantity || ''}  
                     onChange = {e => {
                         if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
-                            setNewSentOptionAmount('0');
+                            setNewSentOptionQuantity('0');
                         } else {
-                            setNewSentOptionAmount((+e.target.value.replaceAll(',','')).toLocaleString());
+                            setNewSentOptionQuantity((+e.target.value.replaceAll(',','')).toLocaleString());
                         }
                     }}
                 />

@@ -49,7 +49,10 @@ function AdminProductPage() {
    function getPrice(e) {
         let data = e.productOptions.sort((a, b) => a.price - b.price);
         if(data && data.length > 1) {
-            return `${data[0].price.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})} - ${data[data.length - 1].price.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}` ;
+            let arr = [...data]
+            let startShow = arr[0].price >= 1000000? (arr[0].price / 1000000).toFixed(2) + 'M' : arr[0].price.toLocaleString();
+            let endShow =  arr[arr.length - 1].price >= 1000000? (arr[arr.length - 1].price / 1000000).toFixed(2) + 'M' :  arr[arr.length - 1].price.toLocaleString();
+            return startShow + '-' + endShow;
         } else if(data && data.length === 1) {
             return data[0].price.toLocaleString('th-TH', {style: 'currency', currency: 'THB'});
         };
@@ -364,7 +367,7 @@ function AdminProductPage() {
                     <div className='headerProductRow'>
                             <div className='adminProductRowId'> Id </div>
                             <div className='adminProductName'> Product </div>
-                            <div className='adminProductOption'> Option Amount</div>
+                            <div className='adminProductOption'> Option Quantity</div>
                             <div className='adminProductPrice'> Price </div>
                             <div className='adminProductTotalSold'> Total Sold </div>
                     </div>

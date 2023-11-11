@@ -3,7 +3,7 @@ import { FONTEND_URL } from "../env";
 import AddUserReviewModal from "../modals/AddUserReviewModal";
 import EnterTrackingNumber from "../modals/EnterTrackingNumber";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle, faCheck, faXmark, faLocationDot, faPhone, faTruckFast } from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faCheck, faXmark, faLocationDot, faPhone, faTruckFast, faCommentsDollar } from '@fortawesome/free-solid-svg-icons';
 import axios from "../config/Axios";
 import { authContext } from "../context/AuthContextProvider";
 import { loadingContext } from "../context/LoadingContextProvider";
@@ -14,7 +14,24 @@ const orderStatus = {
     PREPARE_SHIPPING: 'Prepare Shipping',
     ON_DELIVERY: 'On Delivery',
     RECEIVED: 'Received',
-    CANCLE: 'Cancle'
+    CANCLE: 'Cancle',
+    PENDING_REFUND: 'Pending Refund',
+    REFUNDED: 'Refunded'
+}
+
+const sellerOrderStatus = {
+    PREPARE_SHIPPING: 'Prepare Shipping',
+    ON_DELIVERY: 'On Delivery',
+    RECEIVED: 'Received',
+    CANCLE: 'Cancle',
+    PENDING_REFUND: 'Cancle',
+    REFUNDED: 'Cancle'
+}
+
+const paymentOption = {
+    COD: 'Cash on delivery',
+    CARD: 'Card',
+    QR: 'QR code'
 }
 
 
@@ -26,12 +43,12 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
 
     async function cancleOrder() {
         setIsLoading(true);
-        await axios.put(`/order/usercancleorder`, {
+        await axios.patch(`/order/usercancleorder`, {
             orderId: data.id
         })
         .then(() => {
             let updatedOrder = [...orderData].find(el => el.id === data.id);
-            updatedOrder.status = 'CANCLE';
+            updatedOrder.status = updatedOrder.paymentOption === 'COD' ? 'CANCLE' : 'PENDING_REFUND';
             const newArr = [...orderData];
             const index = [...orderData].findIndex(el => el.id === data.id);
             newArr[index] = updatedOrder; 
@@ -47,7 +64,7 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
 
     async function sellerCancleOrder() {
         setIsLoading(true);
-        await axios.put(`/order/sellercancleorder`, {
+        await axios.patch(`/order/sellercancleorder`, {
             orderId: data.id
         })
         .then(() => {
@@ -85,11 +102,11 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
             <div className='orderOption'>
                 {data.productOption}
             </div>
-            <div className='orderAmount'>
-                amount: {data.amount}
+            <div className='orderQuantity'>
+                quantity: {data.quantity}
             </div>
             <div className='orderTotalPrice'>
-                total price: {data.totalPrice.toLocaleString()} THB
+                total price: {data.totalPrice > 1000000? (data.totalPrice / 1000000).toFixed(2) + 'M' : data.totalPrice.toLocaleString()} THB       
             </div>
         </div>
         <div className='orderContentBox orderReceiver'>          
@@ -105,6 +122,9 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
             <div className='orderSentOption'>
                 <FontAwesomeIcon icon={faTruckFast} /> {data.shippingOption}
             </div>  
+            <div className='orderSentOption'>
+                <FontAwesomeIcon icon={faCommentsDollar} /> {paymentOption[data.paymentOption]}
+            </div>  
         </div>
         <div className='orderContentBox'>  
             <div className='orderStatus'>
@@ -112,8 +132,10 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
                 {data.status === 'ON_DELIVERY' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fddea", fontSize: '10px'}} />}
                 {data.status === 'RECEIVED' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fea2d", fontSize: '10px'}} />}
                 {data.status === 'CANCLE' && <FontAwesomeIcon icon={faCircle} style={{color: "#EC0D0D", fontSize: '10px'}} />}  
+                {data.status === 'PENDING_REFUND' && <FontAwesomeIcon icon={faCircle} style={{color: "#EC0D0D", fontSize: '10px'}} />} 
+                {data.status === 'REFUNDED' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fea2d", fontSize: '10px'}} />} 
                 
-                {' '}{orderStatus[data.status]}
+                {' '}{status !== 'seller'? orderStatus[data.status] : sellerOrderStatus[data.status]}
             </div>
             <div className='trackingNumber'>
                 {data.trackingNumber}

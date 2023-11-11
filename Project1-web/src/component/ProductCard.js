@@ -9,14 +9,14 @@ function ProductCard({ data }) {
 
     const showPrice = () => {
         if(data && data.productOptions && data.productOptions.length > 0) {
-            if(data.productOptions.length === 1) {
-                return data.productOptions[0].price.toLocaleString();
-            } else {
+            if(data.productOptions.length > 1) {
                 let arr = [...data.productOptions]
                 arr.sort((a,b) => a.price-b.price);
-                let startShow = arr[0].price.toLocaleString();
-                let endShow = arr[arr.length - 1].price.toLocaleString();
+                let startShow = arr[0].price >= 1000000? (arr[0].price / 1000000).toFixed(0) + 'M' : arr[0].price.toLocaleString();
+                let endShow =  arr[arr.length - 1].price >= 1000000? (arr[arr.length - 1].price / 1000000).toFixed(0) + 'M' :  arr[arr.length - 1].price.toLocaleString();
                 return startShow + '-' + endShow;
+            } else {
+                return data.productOptions[0].price.toLocaleString();
             }
         }
     }
@@ -42,13 +42,16 @@ function ProductCard({ data }) {
                 <div className='productNameOnCard'> 
                     {data?.productName.length > 16 ? data.productName.slice(0,15) + '...' : data.productName}
                 </div>
+                
                 <div className='productDetailOnCard'> 
-                    {data?.productDetail.length > 52 ? data.productDetail.slice(0,51) + '...' : data.productDetail}
+                    {data?.productDetail.length > 50 ? data.productDetail.slice(0,49) + '...' : data.productDetail}
                 </div>
+                
                 <div className='productCardSellCount'>
                     <FontAwesomeIcon icon={faCircleCheck} style={{color: "yellowgreen",}}/>&nbsp;
                     {data?.productSellCount.toLocaleString()}
                 </div>
+                
                 <div className='productPriceOnCard'> 
                     {showPrice()} THB  
                 </div>

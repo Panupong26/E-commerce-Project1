@@ -10,7 +10,7 @@ function ProductSentOptionEdit({ data, setProductModal, productSentOption, setPr
     const [sentOption, setSentOption] = useState();
     
     const [editSentOptionPrice,setEditSentOptionPrice] = useState(); 
-    const [editSentOptionAmount,setEditSentOptionAmount] = useState(); 
+    const [editSentOptionQuantity,setEditSentOptionQuantity] = useState(); 
     
     const [editSentOptionDoneButtonDisable, setEditSentOptionDoneButtonDisable] = useState('none');
     
@@ -24,7 +24,7 @@ function ProductSentOptionEdit({ data, setProductModal, productSentOption, setPr
         await axios.patch(`/shippingoption/updateshippingoption`, {
             optionId: sentOption.id,
             price: +(editSentOptionPrice.replaceAll(',','')),
-            amount: +(editSentOptionAmount.replaceAll(',',''))
+            quantity: +(editSentOptionQuantity.replaceAll(',',''))
         })
         .then(res => {
            const index = productSentOption.findIndex(el => el.id === res.data.id);
@@ -50,14 +50,14 @@ function ProductSentOptionEdit({ data, setProductModal, productSentOption, setPr
     useEffect(() => {
         if(sentOption) {
             setEditSentOptionPrice(sentOption.price.toLocaleString());
-            setEditSentOptionAmount(sentOption.amount.toLocaleString());
+            setEditSentOptionQuantity(sentOption.quantity.toLocaleString());
         }
     }, [sentOption]);
 
     useEffect(() => {
-        let result = ( (editSentOptionPrice && +(editSentOptionPrice.replaceAll(',','')) > 0 && +(editSentOptionPrice.replaceAll(',','')) !== sentOption.price) || (editSentOptionAmount && +(editSentOptionAmount.replaceAll(',','')) > 0 && +(editSentOptionAmount.replaceAll(',','')) !== sentOption.amount))? '' : 'none' ;
+        let result = ( (editSentOptionPrice && +(editSentOptionPrice.replaceAll(',','')) > 0 && +(editSentOptionPrice.replaceAll(',','')) !== sentOption.price) || (editSentOptionQuantity && +(editSentOptionQuantity.replaceAll(',','')) > 0 && +(editSentOptionQuantity.replaceAll(',','')) !== sentOption.quantity))? '' : 'none' ;
         setEditSentOptionDoneButtonDisable(result);
-    }, [editSentOptionPrice, editSentOptionAmount, sentOption])
+    }, [editSentOptionPrice, editSentOptionQuantity, sentOption])
 
    
     return <>
@@ -80,16 +80,16 @@ function ProductSentOptionEdit({ data, setProductModal, productSentOption, setPr
                     }}
                 />
                 
-                <div className='editSentOptionPriceHeader'>Amount</div>
+                <div className='editSentOptionPriceHeader'>Quantity</div>
                 <input 
                     type='text' 
-                    value={editSentOptionAmount || ''} 
-                    placeholder = {sentOption?.amount} 
+                    value={editSentOptionQuantity || ''} 
+                    placeholder = {sentOption?.quantity} 
                     onChange = {(e) => {
                         if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
-                            setEditSentOptionAmount('0');
+                            setEditSentOptionQuantity('0');
                         } else {
-                            setEditSentOptionAmount((+e.target.value.replaceAll(',','')).toLocaleString());
+                            setEditSentOptionQuantity((+e.target.value.replaceAll(',','')).toLocaleString());
                         }
                     }}
                 />

@@ -15,10 +15,11 @@ router.post('/createmultiorders', authentication, order.createMultiOrders);
 router.get('/getallorder', authentication, order.getAllOrder);
 router.get('/getorderbysellerid', authentication, order.getOrderBySellerId);
 router.get('/getorderbyuserid', authentication, order.getOrderByUserId);
-router.put('/sellercancleorder', authentication, order.sellerCancleOrder);
-router.put('/usercancleorder', authentication, order.userCancleOrder);
-router.put('/sellerupdateorder', authentication, order.sellerUpdateOrder);
-router.put('/userupdateorder', authentication, order.userUpdateOrder);
-router.delete('/deleteorder', authentication, order.deleteOrder);
+router.patch('/sellercancleorder', authentication, order.sellerCancleOrder);
+router.patch('/usercancleorder', authentication, order.userCancleOrder);
+router.patch('/sellerupdateorder', authentication, order.sellerUpdateOrder);
+router.patch('/userupdateorder', authentication, order.userUpdateOrder);
+router.patch('/adminupdateorder', authentication, order.adminUpdateOrder);
+router.patch('/refundorder', authentication, order.refundOrder);
 
 module.exports = router;

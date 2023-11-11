@@ -20,28 +20,6 @@ module.exports = (type, username, link) => {
                             -moz-osx-font-smoothing: grayscale;
                         }
 
-                        .container {
-                            width: 100%;
-                            height: 100%;
-                        }
-
-                        .content-box {
-                            position: absolute;
-                            box-sizing: border-box;
-                            text-align: center;
-                            width: 450px;
-                            height: max-content;
-                            margin: auto;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            padding: 20px;
-                        }
-
-                        h3 {
-                            text-align: center;
-                        }
-
                         a {
                             text-decoration: none;
                             color: black;
@@ -70,12 +48,10 @@ module.exports = (type, username, link) => {
                     </style>
                 </head>
                 <body>
-                    <div class="container">
-                        <div class="content-box">
-                            <h3>WELCOME TO PROJECT 1</h3>
-                            <div>Thanks to signing up! We just need you to verify your email address to complete setting up your account </div>
-                            <a href=${link}><div role="button">Verify My Email</div></a>
-                        </div>
+                    <div style=" box-sizing: border-box; text-align: center; margin: auto; padding: 20px; background-color: rgb(250, 250, 250);">
+                        <h3 style="text-align: center;">WELCOME TO PROJECT 1</h3>
+                        <div>Thanks to signing up! We just need you to verify your email address to complete setting up your account </div>
+                        <a href=${link}><div role="button">Verify My Email</div></a>
                     </div>
                 </body>
             </html>      
@@ -100,29 +76,6 @@ module.exports = (type, username, link) => {
                             -moz-osx-font-smoothing: grayscale;
                         }
 
-                        .container {
-                            width: 100%;
-                            height: 100%;
-                        }
-
-                        .content-box {
-                            position: absolute;
-                            box-sizing: border-box;
-                            text-align: center;
-                            width: 450px;
-                            height: max-content;
-                            box-shadow: 0px 0px 2px 3px rgb(240, 240, 240);
-                            margin: auto;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                            padding: 20px;
-                        }
-
-                        h3 {
-                            text-align: center;
-                        }
-
                         a {
                             text-decoration: none;
                             color: black;
@@ -151,12 +104,10 @@ module.exports = (type, username, link) => {
                     </style>
                 </head>
                 <body>
-                    <div class="container">
-                        <div class="content-box">
-                            <h3>Hi ${username}, </h3>
-                            <div> We are sending you this email because yor requested a password reset. Click on this link to create a new password </div>
-                            <a href=${link}><div role="button">Set a new password</div></a>
-                        </div>
+                    <div style=" box-sizing: border-box; text-align: center; margin: auto; padding: 20px; background-color: rgb(250, 250, 250);">
+                        <h3 style="text-align: center;">Hi ${username}, </h3>
+                        <div> We are sending you this email because you requested a password reset. Click on this link to create a new password </div>
+                        <a href=${link}><div role="button">Set a new password</div></a>
                     </div>
                 </body>
             </html>      

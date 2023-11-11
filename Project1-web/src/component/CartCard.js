@@ -22,15 +22,15 @@ export default function CartCard({ data, setCartSelected, cartSelected, deleteCa
                 <div className='cartOption'>
                     {data.productOption}
                 </div>
-                <div className='cartAmount'>
-                    amount: {data.amount}
+                <div className='cartQuantity'>
+                    quantity: {data.quantity}
                 </div>
                 <div className='cartSentOption'>
                     <FontAwesomeIcon icon={faTruckFast} /> {data.shippingOption}
                 </div>
             </div>
             <div className='cartPrice'>
-                Total Price: {data.totalPrice.toLocaleString()} THB
+                Total Price: {data.totalPrice > 1000000? (data.totalPrice / 1000000).toFixed(2) + 'M' : data.totalPrice.toLocaleString()} THB
             </div>
             <div className='removeButton' onClick={() => deleteCart(data.id)}>
                     <FontAwesomeIcon icon={faXmark} /> 
@@ -52,15 +52,15 @@ export default function CartCard({ data, setCartSelected, cartSelected, deleteCa
                 <div className='cartOption'>
                     {data.productOption}
                 </div>
-                <div className='cartAmount'>
-                    amount: {data.amount}
+                <div className='cartQuantity'>
+                    quantity: {data.quantity}
                 </div>
                 <div className='cartSentOption'>
                     <FontAwesomeIcon icon={faTruckFast} /> {data.shippingOption}
                 </div>
             </div>
             <div className='cartPrice'>
-                Total Price: {data.totalPrice.toLocaleString()} THB         
+                Total Price: {data.totalPrice > 1000000? (data.totalPrice / 1000000).toFixed(2) + 'M' : data.totalPrice.toLocaleString()} THB       
             </div>
             <div className='removeButton' onClick={() => deleteCart(data.id)}>
                     <FontAwesomeIcon icon={faXmark} /> 

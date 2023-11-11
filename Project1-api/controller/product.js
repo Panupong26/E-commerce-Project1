@@ -19,13 +19,14 @@ const createProduct = async (req,res) => {
         const productOptionPrice = input.productOptionPrice;
         const sentOption = input.sentOption;
         const sentOptionPrice = input.sentOptionPrice;
-        const sentAmount = input.sentAmount;
+        const sentQuantity = input.sentQuantity;
+        const acceptCod = input.acceptCod;
         const pictureFile = req.files;
 
 
         const time = new Date();
 
-        const err = productValidator(productOptionPrice, sentOptionPrice, sentAmount);
+        const err = productValidator(productOptionPrice, sentOptionPrice, sentQuantity);
 
         if(err || !productName || !productType || !productDetail || !productOption || !sentOption) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -37,6 +38,7 @@ const createProduct = async (req,res) => {
                 productName: productName,
                 productType: productType,
                 productDetail: productDetail,
+                acceptCod: acceptCod,
                 sellerId: sellerId,
                 date: time.getDate(),
                 month: time.getMonth() + 1,
@@ -58,7 +60,7 @@ const createProduct = async (req,res) => {
                 const b = await db.shippingOption.create({
                             optionName: sentOption,
                             price: sentOptionPrice,
-                            amount: sentAmount,
+                            quantity: sentQuantity,
                             productId: pdata.id
                         })
                 
@@ -73,7 +75,7 @@ const createProduct = async (req,res) => {
                 })
             })   
         } else {
-           return res.status(403).send({message: 'You are not allowed'});
+           return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -121,7 +123,7 @@ const getAllProduct = async (req,res) => {
 
 const getProductBySellerId = async (req,res) => {
     try {
-        const sellerId = req.body.sellerId;
+        const { sellerId } = req.params;
 
         if(!sellerId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -165,7 +167,7 @@ const getProductBySellerId = async (req,res) => {
 
 const getProductByProductId = async (req,res) => {
     try {
-        const productId = req.body.productId;
+        const { productId } = req.params;
 
         if(!productId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -246,7 +248,7 @@ const editProduct = async (req,res) => {
             
             return res.status(201).send({message: 'Done'});  
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -257,7 +259,7 @@ const editProduct = async (req,res) => {
 
 const deleteProduct = async (req,res) => {
     try {
-        const productId = req.body.productId
+        const { productId } = req.params;
         const sellerId = req.user.id;
         const status = req.user.status;
 
@@ -307,7 +309,7 @@ const deleteProduct = async (req,res) => {
         
                 return res.status(200).send({message: 'Done'});
             } else {
-                return res.status(403).send({message: 'You are not allowed'});
+                return res.status(403).send({message: "You don't have permission to access"});
             };
         } else {
             return res.status(400).send({message: 'There are still orders to prepare'});
@@ -397,7 +399,7 @@ const adminDeleteProduct = async (req,res) => {
     
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
     } catch (err) {
         console.log(err);

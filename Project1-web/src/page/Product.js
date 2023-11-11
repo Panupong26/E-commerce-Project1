@@ -36,10 +36,10 @@ function Product(props) {
     const [priceShow, setPriceShow] = useState();
     const [productPrice, setProductPrice] = useState();
     const [sentPrice, setSentPrice] = useState(0);  
-    const [sentAmount, setSentAmount] = useState(0);
+    const [sentQuantity, setSentQuantity] = useState(0);
     const [optionSelected, setOptionSelected] = useState();
     const [totalOrderPrice, setTotalOrderPrice] = useState();
-    const [amount,setAmount] = useState();
+    const [quantity,setQuantity] = useState();
     const [sentOptionSelected, setSentOptionSelected] = useState();
     
    
@@ -47,7 +47,7 @@ function Product(props) {
     const [openModal, setOpenModal] = useState(false);
     const [productModal, setProductModal] = useState();
     const [openComment, setOpenComment] = useState(false);
-    const [amountButtonDisable,setAmountButtonDisable] = useState();
+    const [quantityButtonDisable,setQuantityButtonDisable] = useState();
     const [isEdit, setIsEdit] = useState(false);
 
     const { setIsLoading } = useContext(loadingContext);
@@ -72,7 +72,7 @@ function Product(props) {
     async function deleteProduct() {
         setIsLoading(true);
 
-        await axios.delete(`/product/deleteproduct`, {data: {productId: +id}})
+        await axios.delete(`/product/deleteproduct/${+id}`)
         .then(() => {
             window.location.replace(`${FONTEND_URL}/mystore`);
         })
@@ -94,7 +94,7 @@ function Product(props) {
             cartPicture: cartPic,
             productOption: optionSelected,
             shippingOption: sentOptionSelected,
-            amount: amount,
+            quantity: quantity,
             totalPrice: totalOrderPrice,
             productId: productData.id
         }                                   
@@ -133,7 +133,7 @@ function Product(props) {
 
     useEffect(() => {
         async function getProductData() {
-            await axios.post(`/product/getproductbyproductid`, {productId: +id})
+            await axios.get(`/product/getproductbyproductid/${+id}`)
             .then(res => {
                 setProductDefaultData({...res.data});
                 setProductData({...res.data});
@@ -169,11 +169,11 @@ function Product(props) {
 
     useEffect(() => {
         if(productOption) {
-            if(productOption.length === 1) {
+            if(productOption.length === 1 && !(productOption[0].outOfStock)) {
                 setProductPrice(productOption[0].price);
                 setProductShowPic(productOption[0].optionPictures[0]? productOption[0].optionPictures : productData.productPictures);
                 setOptionSelected(productOption[0].optionName);
-                setAmount(1);
+                setQuantity(1);
             }
 
             if(option) {
@@ -188,9 +188,9 @@ function Product(props) {
 
    
     useEffect(() => {
-        setAmountButtonDisable(() => {
+        setQuantityButtonDisable(() => {
             if(optionSelected) {
-                if(amount === 1) {
+                if(quantity === 1) {
                     return {increase: false, reduce: true, reset: false };
                 } else {
                     return {increase: false, reduce: false, reset: false};
@@ -199,10 +199,10 @@ function Product(props) {
                 return {increase: true, reduce: true, reset: true};
             }
         });
-        setAmount(() => {
+        setQuantity(() => {
             if(optionSelected) {
-                if(amount) {
-                    return amount;
+                if(quantity) {
+                    return quantity;
                 } else {
                     return 1;
                 };
@@ -211,12 +211,12 @@ function Product(props) {
             }});
 
 
-    }, [optionSelected, sentOptionSelected, amount]);
+    }, [optionSelected, sentOptionSelected, quantity]);
 
     useEffect(() => {
-        setAmountButtonDisable(() => {
-            if(amount) {
-                if(amount === 1) {
+        setQuantityButtonDisable(() => {
+            if(quantity) {
+                if(quantity === 1) {
                     return {increase: false, reduce: true, reset: false };
                 } else {
                     return {increase: false, reduce: false, reset: false};
@@ -229,10 +229,10 @@ function Product(props) {
         setPriceShow(() => {
             if(optionSelected) {
                 if(sentOptionSelected) {
-                    let totalPriceShow = ((productPrice * amount)+(sentPrice * Math.ceil(amount/sentAmount)));
+                    let totalPriceShow = ((productPrice * quantity)+(sentPrice * Math.ceil(quantity/sentQuantity)));
                     return  totalPriceShow.toLocaleString() + ' ฿';
                 } else {
-                    let totalPriceShow = productPrice * amount;
+                    let totalPriceShow = productPrice * quantity;
                     return  totalPriceShow.toLocaleString() + ' ฿';
                 }  
             } else {
@@ -240,10 +240,10 @@ function Product(props) {
             }
         })
         
-        setTotalOrderPrice((productPrice * amount)+(sentPrice * Math.ceil(amount/sentAmount)));
+        setTotalOrderPrice((productPrice * quantity)+(sentPrice * Math.ceil(quantity/sentQuantity)));
 
 
-    }, [amount, sentPrice, productPrice, optionSelected, sentAmount, sentOptionSelected]);
+    }, [quantity, sentPrice, productPrice, optionSelected, sentQuantity, sentOptionSelected]);
 
 
 
@@ -255,7 +255,7 @@ function Product(props) {
                 productData = {productData} 
                 optionSelected = {optionSelected}
                 sentOptionSelected = {sentOptionSelected}
-                amount = {amount}
+                quantity = {quantity}
                 totalOrderPrice = {totalOrderPrice}
                 sellerData = {sellerData}
                 setOpenModal = {setOpenModal}
@@ -308,6 +308,7 @@ function Product(props) {
                         productOption = {productOption} 
                         setProductOption = {setProductOption}
                         setProductShowPic = {setProductShowPic} 
+                        optionSelected = {optionSelected}
                         setOptionSelected = {setOptionSelected} 
                         setProductPrice = {setProductPrice}
                         productData = {productData}
@@ -319,18 +320,18 @@ function Product(props) {
                         setProductSentOption = {setProductSentOption}
                         setSentPrice = {setSentPrice}
                         setSentOptionSelected = {setSentOptionSelected}
-                        setSentAmount = {setSentAmount}
+                        setSentQuantity = {setSentQuantity}
                         productData = {productData}
                         setProductModal = {setProductModal}
                     />
                     
-                    <div className = 'productAmountBox'>
-                        <div className='productShowAmount'>Amount</div>
-                        {amount && <div className='productShowAmount'>{amount}</div>}
-                        <div className='productShowAmountButton'>
-                            <button disabled = {amountButtonDisable?.increase} onClick={() => setAmount(amount + 1)}><FontAwesomeIcon icon={faPlus} /></button>
-                            <button disabled = {amountButtonDisable?.reduce} onClick={() => setAmount(amount - 1)}><FontAwesomeIcon icon={faMinus} /></button>
-                            <button disabled = {amountButtonDisable?.reset} onClick={() => setAmount(1)}><FontAwesomeIcon icon={faArrowRotateLeft} /></button>
+                    <div className = 'productQuantityBox'>
+                        <div className='productShowQuantity'>Quantity</div>
+                        {quantity && <div className='productShowQuantity'>{quantity}</div>}
+                        <div className='productShowQuantityButton'>
+                            <button disabled = {quantityButtonDisable?.increase} onClick={() => setQuantity(quantity + 1)}><FontAwesomeIcon icon={faPlus} /></button>
+                            <button disabled = {quantityButtonDisable?.reduce} onClick={() => setQuantity(quantity - 1)}><FontAwesomeIcon icon={faMinus} /></button>
+                            <button disabled = {quantityButtonDisable?.reset} onClick={() => setQuantity(1)}><FontAwesomeIcon icon={faArrowRotateLeft} /></button>
                         </div>
                     </div>
                     

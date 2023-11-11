@@ -8,24 +8,28 @@ const createOrder = async (req, res) => {
         const orderPicture = req.body.orderPicture;
         const productOption = req.body.productOption;
         const shippingOption = req.body.shippingOption;
-        const amount = req.body.amount;
+        const quantity = req.body.quantity;
         const totalPrice = req.body.totalPrice;
+        const paymentOption = req.body.paymentOption;
         const destination =  req.body.destination;
         const receiver = req.body.receiver;
         const phoneNumber = req.body.phoneNumber;
         const time = new Date();
         const sellerId = req.body.sellerId;
         const productId = req.body.productId;
+
+        console.log(paymentOption);
     
         if(!productId || 
             !productName || 
             !orderPicture ||
             !productOption || 
             !shippingOption || 
-            !amount || 
-            typeof amount !== 'number' || 
+            !quantity || 
+            typeof quantity !== 'number' || 
             !totalPrice || 
             typeof totalPrice !== 'number' ||
+            !paymentOption ||
             !destination ||
             !receiver ||
             !phoneNumber ||
@@ -41,9 +45,10 @@ const createOrder = async (req, res) => {
                 orderPicture: orderPicture,
                 productOption: productOption,
                 shippingOption: shippingOption,
-                amount: amount,
+                quantity: quantity,
                 trackingNumber: '',
                 totalPrice: totalPrice,
+                paymentOption: paymentOption,
                 destination: destination,
                 receiver: receiver,
                 phoneNumber: phoneNumber,
@@ -73,7 +78,7 @@ const createOrder = async (req, res) => {
                 return res.status(201).send({message: 'Done'});   
             });
         } else {
-            return res.status(403).send({message: 'You are not allowed'})
+            return res.status(403).send({message: "You don't have permission to access"})
         }
     } catch (err) {
         console.log(err);
@@ -87,12 +92,14 @@ const createMultiOrders = async (req, res) => {
         const cartArr = req.body.cartArr;
         const receiver = req.body.receiver;
         const phoneNumber = req.body.phoneNumber;
-        const destination = req.body.destination
+        const destination = req.body.destination;
+        const paymentOption = req.body.paymentOption;
         const time = new Date();
 
         if( !destination ||
             !receiver ||
             !phoneNumber ||
+            !paymentOption ||
             !cartArr 
          ) {
              return res.status(400).send({message: 'Invalid request value'});
@@ -108,8 +115,8 @@ const createMultiOrders = async (req, res) => {
                 !el.cartPicture ||
                 !el.productOption || 
                 !el.shippingOption || 
-                !el.amount || 
-                typeof el.amount !== 'number' || 
+                !el.quantity || 
+                typeof el.quantity !== 'number' || 
                 !el.totalPrice || 
                 typeof el.totalPrice !== 'number' 
             ) {
@@ -121,9 +128,10 @@ const createMultiOrders = async (req, res) => {
                 orderPicture: el.cartPicture,
                 productOption: el.productOption,
                 shippingOption: el.shippingOption,
-                amount: el.amount,
+                quantity: el.quantity,
                 trackingNumber: '',
                 totalPrice: el.totalPrice,
+                paymentOption: paymentOption,
                 destination: destination,
                 receiver: receiver,
                 phoneNumber: phoneNumber,
@@ -154,6 +162,7 @@ const createMultiOrders = async (req, res) => {
             })   
         }
         return res.status(200).send('Done!');
+    
     } catch (err) {
         console.log(err);
         return res.status(500).send('Internal server error');
@@ -173,7 +182,7 @@ const getOrderByUserId = async (req, res) => {
             
             return res.status(200).send(targetOrder);
         } else {
-            return res.status(403).send({message: 'You are not allowed'})
+            return res.status(403).send({message: "You don't have permission to access"})
         };
 
     } catch (err) {
@@ -194,7 +203,7 @@ const getOrderBySellerId = async (req, res) => {
                 
             return res.status(200).send(targetOrder);
         } else {
-            return res.status(403).send({message: 'You are not allowed'})
+            return res.status(403).send({message: "You don't have permission to access"})
         };
 
     } catch (err) {
@@ -221,6 +230,12 @@ const getAllOrder = async (req, res) => {
                         attributes: {
                             exclude: ['password']
                         }
+                    },
+                    {
+                        model: db.admin,
+                        attributes: {
+                            exclude: ['password', 'email']
+                        }
                     }
                     
                 ]
@@ -228,7 +243,7 @@ const getAllOrder = async (req, res) => {
             
            return  res.status(200).send(targetOrder);   
         } else {
-           return res.status(403).send({message: 'You are not allowed'})
+           return res.status(403).send({message: "You don't have permission to access"})
         }
 
     } catch (err) {
@@ -252,11 +267,11 @@ const userCancleOrder = async (req, res) => {
 
         if(status === 'user' && targetOrder.status === 'PREPARE_SHIPPING' && targetOrder.userId === userId) {
             await db.order.update({
-                status: 'CANCLE'
+                status: targetOrder.paymentOption === 'COD'? 'CANCLE' : 'PENDING_REFUND'
             },
             {
                 where: {id: orderId}
-            }).then(async (done) => {
+            }).then(async () => {
                 await db.notification.create({
                     message: `(order: ${orderId}) ${targetOrder.productName} order has been cancled`,
                     notificationPicture: targetOrder.orderPicture,
@@ -273,7 +288,7 @@ const userCancleOrder = async (req, res) => {
                 return res.status(200).send({message: 'Order cancled'});
             });
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -296,7 +311,7 @@ const sellerCancleOrder = async (req, res) => {
 
         if(status === 'seller' && targetOrder.status === 'PREPARE_SHIPPING' && targetOrder.sellerId === sellerId) {
             await db.order.update({
-                status: 'CANCLE'
+                status: targetOrder.paymentOption === 'COD'? 'CANCLE' : 'PENDING_REFUND'
             },
             {
                 where: {id: orderId}
@@ -317,7 +332,7 @@ const sellerCancleOrder = async (req, res) => {
                 return res.status(200).send({message: 'Order cancled'});    
             });
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -368,7 +383,7 @@ const sellerUpdateOrder = async (req, res) => {
                 return res.status(200).send({message: 'Order update'});
             });
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -405,21 +420,23 @@ const userUpdateOrder = async (req, res) => {
             {
                 where: {id: orderId}
             });
-    
-            await db.bill.create({
-                status: 'NOT_YET_SUBMITTED',
-                date: time.getDate(),
-                month: time.getMonth() + 1,
-                year: time.getFullYear(),
-                hour: time.getHours(),
-                minute: time.getMinutes(),
-                sellerId: targetOrder.sellerId,
-                orderId: orderId,
-                productName: targetOrder.productName,
-                productOption: targetOrder.productOption,
-                amount: targetOrder.amount,
-                totalIncome: targetOrder.totalPrice
-            })
+
+            if(targetOrder.paymentOption !== 'COD') {
+                await db.bill.create({
+                    status: 'NOT_YET_SUBMITTED',
+                    date: time.getDate(),
+                    month: time.getMonth() + 1,
+                    year: time.getFullYear(),
+                    hour: time.getHours(),
+                    minute: time.getMinutes(),
+                    sellerId: targetOrder.sellerId,
+                    orderId: orderId,
+                    productName: targetOrder.productName,
+                    productOption: targetOrder.productOption,
+                    quantity: targetOrder.quantity,
+                    totalIncome: targetOrder.totalPrice
+                })
+            }
     
             await db.notification.create({
                 message: `(order: ${orderId}) ${targetOrder.productName} has been received by buyer`,
@@ -435,7 +452,7 @@ const userUpdateOrder = async (req, res) => {
             })
     
             await db.product.update({
-                productSellCount: targetProduct.productSellCount + targetOrder.amount
+                productSellCount: targetProduct.productSellCount + targetOrder.quantity
             },
             {
                 where: {id: targetProduct.id}
@@ -450,28 +467,123 @@ const userUpdateOrder = async (req, res) => {
     
             return res.status(200).send({message: 'Order updated'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
+
     } catch (err) {
         console.log(err);
         return res.status(500).send('Internal server error');
     }  
 }
 
-const deleteOrder = async (req, res) => {
+const adminUpdateOrder = async (req, res) => {
+    try {
+        const adminId = req.user.id;
+        const status = req.user.status;
+        const orderId = req.body.orderId;
+        const time = new Date();
+    
+        if(!orderId) {
+            return res.status(400).send({message: 'Invalid request value'});
+        }
+    
+        const targetOrder = await db.order.findOne({where: {id: orderId}});
+        const targetProduct = await db.product.findOne({where: {id: targetOrder.productId}});
+        const targetSeller = await db.seller.findOne({where: {id: targetProduct.sellerId}});
+    
+        if(status === 'admin' && targetOrder.status === 'ON_DELIVERY') {
+            await db.order.update({
+                status: 'RECEIVED',
+                adminId: adminId,
+                date: time.getDate(),
+                month: time.getMonth() + 1,
+                year: time.getFullYear(),
+                hour: time.getHours(),
+                minute: time.getMinutes()
+            },
+            {
+                where: {id: orderId}
+            });
+
+            if(targetOrder.paymentOption !== 'COD') {
+                await db.bill.create({
+                    status: 'NOT_YET_SUBMITTED',
+                    date: time.getDate(),
+                    month: time.getMonth() + 1,
+                    year: time.getFullYear(),
+                    hour: time.getHours(),
+                    minute: time.getMinutes(),
+                    sellerId: targetOrder.sellerId,
+                    orderId: orderId,
+                    productName: targetOrder.productName,
+                    productOption: targetOrder.productOption,
+                    quantity: targetOrder.quantity,
+                    totalIncome: targetOrder.totalPrice
+                })
+            }
+    
+            await db.notification.create({
+                message: `(order: ${orderId}) ${targetOrder.productName} has been force updated by admin`,
+                notificationPicture: targetOrder.orderPicture,
+                notificationType: 'TO_SELLER_ORDER',
+                status: 'UNREAD',
+                date: time.getDate(),
+                month: time.getMonth() + 1,
+                year: time.getFullYear(),
+                hour: time.getHours(),
+                minute: time.getMinutes(),
+                sellerId: targetOrder.sellerId,
+            })
+    
+            await db.product.update({
+                productSellCount: targetProduct.productSellCount + targetOrder.quantity
+            },
+            {
+                where: {id: targetProduct.id}
+            })
+    
+            await db.seller.update({
+                totalSellCount: targetSeller.totalSellCount + 1
+            },
+            {
+                where: {id: targetSeller.id}
+            })
+    
+            return res.status(200).send({message: 'Order updated'});
+        } else {
+            return res.status(403).send({message: "You don't have permission to access"});
+        }
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal server error');
+    }  
+}
+
+const refundOrder = async (req, res) => {
     try {
         const status = req.user.status;
-        const orderId = req.body.orderId
+        const adminId = req.user.id;
+        const orderId = req.body.orderId;
+        const ref = req.body.ref;
 
         if(!orderId) {
             return res.status(400).send({message: 'Invalid request value'});
         }
 
         if(status === 'admin') {
-            await db.order.destroy({where: {id: orderId}});
+            await db.order.update({
+                ref: ref,
+                status: 'REFUNDED',
+                adminId: adminId
+            },
+            {
+                where: {id: orderId}
+            })
+            
             return res.status(200).send({message: 'Done'});   
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -490,5 +602,6 @@ module.exports = {
     sellerCancleOrder,
     sellerUpdateOrder,
     userUpdateOrder,
-    deleteOrder
+    adminUpdateOrder,
+    refundOrder
 }

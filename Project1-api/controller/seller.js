@@ -150,7 +150,7 @@ const getMyData = async (req,res) => {
             
             return res.status(200).send(targetSeller);   
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -160,7 +160,7 @@ const getMyData = async (req,res) => {
 
 const getShopData = async (req,res) => {
     try {
-        const shopId = req.body.sellerId;
+        const { shopId } = req.params;
 
         if(!shopId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -185,7 +185,8 @@ const getShopData = async (req,res) => {
 
 const getShopDataByName = async (req,res) => {
     try {
-        const shopName = req.body.shopName || ' ';
+        const shopName = req.params.shopName || ' ';
+        
         const targetShop = await db.seller.findOne({
             where: {storeName: shopName}, 
             attributes: {exclude: ['password', 'bankName', 'bankAccountNumber']}
@@ -218,7 +219,7 @@ const getAllShopData = async (req,res) => {
 const adminGetShopData = async (req,res) => {
     try {
         const status = req.user.status;
-        const sellerId = req.body.sellerId;
+        const { sellerId } = req.params;
 
         if(!sellerId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -232,7 +233,7 @@ const adminGetShopData = async (req,res) => {
             
             return res.status(200).send(targetShop);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -486,7 +487,7 @@ const deleteSeller = async (req,res) => {
             
             return res.status(200).send({message: 'Done'});   
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(400).send({message: 'Cannot delete account because of you still have "Prepare Shipping" order or "On Delivery" order'});
         }
 
     } catch (err) {

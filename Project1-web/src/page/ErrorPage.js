@@ -9,7 +9,7 @@ import "../CSS-file/page-css/error.css";
 
 
 export default function ErrorPage() {
-    const { code } = useParams();
+    const { code, msg } = useParams();
 
     return <>
         <div className='error-page'>
@@ -35,7 +35,7 @@ export default function ErrorPage() {
                 {code === '403' && 
                 <>
                     <img className="error-img" src={angryCat} alt='error'/>
-                    <div className="error-message">403 FORBIDDEN...</div>
+                    <div className="error-message">403 FORBIDDEN... {msg? msg : ''}</div>
                 </>
                 }
                 {code !== '403' && code !== '500' && code !== '404' && code !== 'network' &&

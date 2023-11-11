@@ -33,11 +33,33 @@ export default function ProductOptionBox({ productOption, setProductOption, setP
         }
     };
 
+    function handleClickButton(e) {
+        if(e.outOfStock) {
+            return
+        }
+
+        if(e.optionPictures && e.optionPictures[0]) {
+            setProductShowPic([...e.optionPictures]);
+        } else {
+            setProductShowPic([...productData.productPictures]); 
+        }
+        setOptionSelected(e.optionName);
+        setProductPrice(e.price);
+        setOptionActive({...defaultOptionActive, [e.optionName]: true});
+    }
+
+    function handleClickActiveButton(e) {
+        setOptionSelected('')
+        setProductPrice('');
+        setProductShowPic([...productData.productPictures]); 
+        setOptionActive({...defaultOptionActive, [e.optionName]: false});
+    }
+
     useEffect(() => {
         if(productOption) {
             let preOptionActive = {};
             productOption.forEach(e => {
-                if(productOption.length === 1) {
+                if(productOption.length === 1 && !e.outOfStock) {
                     preOptionActive[e.optionName] = true;
                 } else {
                     preOptionActive[e.optionName] = false;
@@ -62,23 +84,25 @@ export default function ProductOptionBox({ productOption, setProductOption, setP
             {optionActive && productOption?.map(e => 
                 <div key={e.id}>
                     {!optionActive[e.optionName] &&
-                    <div className='productOptionButton' onClick={() => {
-                        if(e.optionPictures && e.optionPictures[0]) {
-                            setProductShowPic([...e.optionPictures]);
-                        } else {
-                            setProductShowPic([...productData.productPictures]); 
+                    <div className='productOptionButton' onClick={() => handleClickButton(e)}>
+                        {e.optionName}
+
+                        {e.outOfStock && 
+                        <div className="optionAlert">
+                            OUT OF STOCK
+                        </div>
                         }
-                        setOptionSelected(e.optionName);
-                        setProductPrice(e.price);
-                        setOptionActive({...defaultOptionActive, [e.optionName]: true});
-                    }}>{e.optionName}
+
                         {status === 'seller' &&
                         <>&nbsp;&nbsp;&nbsp;&nbsp;
                         <div style={{display: 'inline-block'}}>
+                           
                             <FontAwesomeIcon icon={faPenToSquare} onClick = {() =>  {
                                 setProductModal(<ProductOptionEdit data = {e}  setProductModal = {setProductModal} />);
                             }} style = {{fontSize: '12px', marginBottom: '2px'}}/>&nbsp;&nbsp;&nbsp;&nbsp;
+                            
                             <FontAwesomeIcon icon={faXmark} onClick = {() => deleteProductOption(e.id)} style = {{fontSize: '14px'}}/>
+
                         </div>
                         </>
                         }
@@ -86,22 +110,25 @@ export default function ProductOptionBox({ productOption, setProductOption, setP
                     }
 
                     {optionActive[e.optionName] &&
-                    <div className='productActiveOptionButton' onClick={() => {
-                        setOptionSelected('')
-                        setProductPrice('');
-                        setProductShowPic([...productData.productPictures]); 
-                        setOptionActive({...defaultOptionActive, [e.optionName]: false});
-                    }}>{e.optionName}
-                     {status === 'seller' &&
-                        <>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <div style={{display: 'inline-block'}}>
-                            <FontAwesomeIcon icon={faPenToSquare} onClick = {() =>  {
-                                setProductModal(<ProductOptionEdit data = {e}  setProductModal = {setProductModal} />);
-                            }} style = {{fontSize: '12px', marginBottom: '2px'}}/>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <FontAwesomeIcon icon={faXmark} onClick = {() => deleteProductOption(e.id)} style = {{fontSize: '14px'}}/>
-                        </div>    
-                        </>
-                    }
+                    <div className='productActiveOptionButton' onClick={() => handleClickActiveButton(e)}>
+                        {e.optionName}
+
+                        {e.outOfStock && 
+                        <div className="optionAlert">
+                            OUT OF STOCK
+                        </div>
+                        }
+
+                        {status === 'seller' &&
+                            <>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <div style={{display: 'inline-block'}}>
+                                <FontAwesomeIcon icon={faPenToSquare} onClick = {() =>  {
+                                    setProductModal(<ProductOptionEdit data = {e}  setProductModal = {setProductModal} />);
+                                }} style = {{fontSize: '12px', marginBottom: '2px'}}/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <FontAwesomeIcon icon={faXmark} onClick = {() => deleteProductOption(e.id)} style = {{fontSize: '14px'}}/>
+                            </div>    
+                            </>
+                        }
                     </div> 
                     }
                 </div>  

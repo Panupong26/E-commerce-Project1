@@ -12,6 +12,6 @@ router.use(express.urlencoded({extended: false}));
 
 router.post('/createcart', authentication, cart.createCart);
 router.get('/getcart', authentication, cart.getCart);
-router.delete('/deletecart', authentication, cart.deleteCartByCartId);
+router.delete('/deletecart/:cartId', authentication, cart.deleteCartByCartId);
 
 module.exports = router;

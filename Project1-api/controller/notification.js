@@ -12,7 +12,7 @@ const getNotificationByUserId = async (req, res) => {
                 
             return res.status(200).send(targetNotification);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -33,7 +33,7 @@ const getNotificationBySellerId = async (req, res) => {
             
             return res.status(200).send(targetNotification);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -44,7 +44,7 @@ const getNotificationBySellerId = async (req, res) => {
 
 const deleteNotification = async (req, res) => {
     try {
-        const notificationId = req.body.notificationId;
+        const { notificationId } = req.params;
 
         if(!notificationId) {
             return res.status(400).send({message: 'Invalid request value'});

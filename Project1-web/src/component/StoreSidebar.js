@@ -36,7 +36,7 @@ function StoreSidebar({ shopData, productData, searchParams, sentData }) {
     }
 
     async function unLikeStore() {
-            await axios.delete(`/favorite/deletefavorite`, {data: {sellerId: shopData.id}})
+            await axios.delete(`/favorite/deletefavorite/${shopData.id}`)
             .then(() => {
                setIsLiked(false)
             })

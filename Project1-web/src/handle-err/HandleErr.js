@@ -36,7 +36,7 @@ export const handleErr = (err) => {
         } else if(err.response.status === 500) {
             window.location.replace(`${FONTEND_URL}/error/500`);
         } else {
-            window.location.replace(`${FONTEND_URL}/error/${err.response.status}`);
+            window.location.replace(`${FONTEND_URL}/error/${err.response.status}/${err.response.data.message}`);
         }
     } else {
         window.location.replace(`${FONTEND_URL}/error/network`);

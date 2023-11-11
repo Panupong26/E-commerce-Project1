@@ -9,11 +9,17 @@ import { loadingContext } from "../context/LoadingContextProvider";
 import { handleErr } from "../handle-err/HandleErr";
 import "../CSS-file/modal-css/order-modal.css";
 
+const defaultActivePaymentButton = {
+    cod: false,
+    card: false,
+    qr: false
+}
 
-export default function OrderModal({ productShowPic, productData, optionSelected, sentOptionSelected, amount, totalOrderPrice, sellerData, setOpenModal, priceShow }) {
+
+export default function OrderModal({ productShowPic, productData, optionSelected, sentOptionSelected, quantity, totalOrderPrice, sellerData, setOpenModal, priceShow }) {
     const { authUser } = useContext(authContext);
     const [buyNowInputDisable, setBuyNowInputDisable] = useState(true);   
-    const [activePaymentButton, setActivePaymentButton] = useState(false);
+    const [activePaymentButton, setActivePaymentButton] = useState(defaultActivePaymentButton);
     const [isEdit, setIsEdit] = useState(false)
     const [receiveName, setReceiveName] = useState(authUser.receiveName);
     const [destination, setDestination] = useState(authUser.address);
@@ -32,8 +38,9 @@ export default function OrderModal({ productShowPic, productData, optionSelected
             orderPicture: orderPic,
             productOption: optionSelected,
             shippingOption: sentOptionSelected,
-            amount: amount,
+            quantity: quantity,
             totalPrice: totalOrderPrice,
+            paymentOption: paymentOptionSelected,
             destination: destination,
             receiver: receiveName,
             phoneNumber: phoneNumber,
@@ -56,12 +63,24 @@ export default function OrderModal({ productShowPic, productData, optionSelected
     return <>
         <div className="modal-bg" onClick = {() => setOpenModal(false)} >
             <div className='buyNowOrderBox' onClick={e => e.stopPropagation()}>
+                {!isEdit &&
+                <button className='buyNowEditButton' onClick = {() => {
+                    setIsEdit(true);
+                    setBuyNowInputDisable(false);
+                }}><FontAwesomeIcon icon={faPenToSquare} /></button>
+                }
+                {isEdit &&
+                <button className='buyNowEditDoneButton' onClick = {() => {
+                    setIsEdit(false)
+                    setBuyNowInputDisable(true);
+                }}><FontAwesomeIcon icon={faCheck} /></button>
+                }
                 <div className='buyNowProduct'>
                     <img src={ productShowPic[0].productId? `${API_URL}/productpic/${productShowPic[0].picture}` : `${API_URL}/optionpic/${productShowPic[0].picture}`} alt = 'product'/>
                     <div className='buyNowOrderDetail'>
                         <div className='buyNowProductName'>{productData.productName}</div>
                         <div className='buyNowProductOption'>{optionSelected}</div>
-                        <div className='buyNowProductAmount'>amount: {amount}</div>
+                        <div className='buyNowProductQuantity'>quantity: {quantity}</div>
                         <div className='buyNowSentOption'><FontAwesomeIcon icon={faTruckFast} /> {sentOptionSelected}</div>
                         <div className='buyNowTotalPrice'>
                             Total Price: {priceShow}
@@ -69,51 +88,78 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                     </div>
                 </div>
                 <div className='buyNowRecieveInfo'>
+
                     <div className='buyNowRecieveName'>
                         <div className='buyNowInputHeader'><FontAwesomeIcon icon={faUser} /> Receive Name</div>
-                        <input disabled = {buyNowInputDisable} value = {receiveName} onChange = {(e) => setReceiveName(e.target.value)}/>
+                        <input disabled = {buyNowInputDisable} value = {receiveName || ''} onChange = {(e) => setReceiveName(e.target.value)}/>
                     </div>
+
                     <div className='buyNowDestination'>
                         <div className='buyNowInputHeader'><FontAwesomeIcon icon={faLocationDot} /> Address</div>
-                        <textarea disabled = {buyNowInputDisable} value = {destination} onChange = {(e) => setDestination(e.target.value)}/>
+                        <textarea disabled = {buyNowInputDisable} value = {destination || ''} onChange = {(e) => setDestination(e.target.value)}/>
                     </div>
+
                     <div className='buyNowPhone'>
                         <div className='buyNowInputHeader'><FontAwesomeIcon icon={faPhone} /> Phone</div>
-                        <input disabled = {buyNowInputDisable} value = {phoneNumber} onChange = {(e) => setPhoneNumber(e.target.value)}/>
-                        {!isEdit &&
-                        <button className='buyNowEditButton' onClick = {() => {
-                            setIsEdit(true);
-                            setBuyNowInputDisable(false);
-                        }}><FontAwesomeIcon icon={faPenToSquare} /></button>
-                        }
-                        {isEdit &&
-                        <button className='buyNowEditDoneButton' onClick = {() => {
-                            setIsEdit(false)
-                            setBuyNowInputDisable(true);
-                        }}><FontAwesomeIcon icon={faCheck} /></button>
-                        }
+                        <input disabled = {buyNowInputDisable} value = {phoneNumber || ''} onChange = {(e) => setPhoneNumber(e.target.value)}/>
                     </div>
+
                     <div className='buyNowPayment'>
-                    <div className='buyNowInputHeader'><FontAwesomeIcon icon={faCreditCard} /> Payment Option</div>
-                        <div className = 'buyNowPaymentOptionBox'>
-                            <div>
-                                {!activePaymentButton &&
-                                    <div className='buyNowPaymentOption' onClick = {() => {
-                                    setActivePaymentButton(true);
-                                    setPaymentOptionSelected('Cash on delivery');
-                                }}>Cash on delivery</div>
-                                }
+                        <div className='buyNowInputHeader'><FontAwesomeIcon icon={faCreditCard} /> Payment Option</div>
+                            <div className = 'buyNowPaymentOptionBox'>
                                 
-                                {activePaymentButton &&
-                                <div className='buyNowPaymentActiveOption' onClick = {() => {
-                                    setActivePaymentButton(false);
-                                    setPaymentOptionSelected('');
-                                }}>Cash on delivery</div>
+                                {productData.acceptCod === 'TRUE' &&
+                                <div>
+                                    {!activePaymentButton.cod &&
+                                        <div className='buyNowPaymentOption' onClick = {() => {
+                                        setPaymentOptionSelected('COD');
+                                        setActivePaymentButton({...defaultActivePaymentButton, cod: true});
+                                    }}>Cash on delivery</div>
+                                    }
+                                    
+                                    {activePaymentButton.cod && 
+                                    <div className='buyNowPaymentActiveOption' onClick = {() => {
+                                        setPaymentOptionSelected();
+                                        setActivePaymentButton({...defaultActivePaymentButton});
+                                    }}>Cash on delivery</div>
+                                    }
+                                </div>
                                 }
+
+                                <div>
+                                    {!activePaymentButton.card &&
+                                        <div className='buyNowPaymentOption' onClick = {() => {
+                                        setPaymentOptionSelected('CARD');
+                                        setActivePaymentButton({...defaultActivePaymentButton, card: true});
+                                    }}>Card</div>
+                                    }
+                                    
+                                    {activePaymentButton.card && 
+                                    <div className='buyNowPaymentActiveOption' onClick = {() => {
+                                        setPaymentOptionSelected();
+                                        setActivePaymentButton({...defaultActivePaymentButton});
+                                    }}>Card</div>
+                                    }
+                                </div>
+                               
+                                <div>
+                                    {!activePaymentButton.qr &&
+                                        <div className='buyNowPaymentOption' onClick = {() => {
+                                        setPaymentOptionSelected('QR');
+                                        setActivePaymentButton({...defaultActivePaymentButton, qr: true});
+                                    }}>OR code</div>
+                                    }
+                                    
+                                    {activePaymentButton.qr && 
+                                    <div className='buyNowPaymentActiveOption' onClick = {() => {
+                                        setPaymentOptionSelected();
+                                        setActivePaymentButton({...defaultActivePaymentButton});
+                                    }}>OR code</div>
+                                    }
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <div className='buyNowButtonBox'>
                     <button className='buyNowCheckOutButton' disabled = {!receiveName || !destination || !phoneNumber || !paymentOptionSelected || isEdit} onClick={() => createOrders()}>Check Out</button>
                     <button className='buyNowCancleButton' onClick={() => {setOpenModal(false)}}>Cancle</button>

@@ -18,7 +18,7 @@ const createFavorite = async (req, res) => {
                 
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -28,31 +28,11 @@ const createFavorite = async (req, res) => {
 }
 
 
-const sellerGetFavorite = async (req, res) => {
-    try {
-        const sellerId = req.body.sellerId;
-
-        if(!sellerId) {
-            return res.status(400).send({message: 'Invalid request value'});
-        }
-    
-        const targetFavorite = await db.favorite.findAll({
-            where: {sellerId: sellerId}
-        });
-    
-        return res.status(200).send(targetFavorite);
-
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error');
-    } 
-}
-
 const deleteFavorite = async (req, res) => {
     try {
         const userId = req.user.id;
         const status = req.user.status;
-        const sellerId = req.body.sellerId;
+        const { sellerId } = req.params;
     
         if(!sellerId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -67,7 +47,7 @@ const deleteFavorite = async (req, res) => {
                 
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {
@@ -78,6 +58,5 @@ const deleteFavorite = async (req, res) => {
 
 module.exports = {
     createFavorite,
-    sellerGetFavorite,
     deleteFavorite
 }

@@ -25,14 +25,14 @@ router.post('/createverification', seller.createVerification);
 router.post('/createseller', seller.createSeller);
 router.post('/login', seller.login);
 router.get('/getmydata', authentication, seller.getMyData);
-router.post('/getshopdatabyadmin', authentication, seller.adminGetShopData);
-router.post('/getshopdata',  seller.getShopData);
-router.post('/getshopdatabyname', seller.getShopDataByName);
+router.get('/getshopdatabyadmin/:sellerId', authentication, seller.adminGetShopData);
+router.get('/getshopdata/:shopId',  seller.getShopData);
+router.get('/getshopdatabyname/:shopName', seller.getShopDataByName);
 router.get('/getallshopdata',  seller.getAllShopData);
-router.patch('/updatedata', authentication, upload.single('storePicture'), seller.updateShopData);
-router.get('/sellercreatereset', authentication, seller.sellerCreateReset);
+router.put('/updatedata', authentication, upload.single('storePicture'), seller.updateShopData);
+router.post('/sellercreatereset', authentication, seller.sellerCreateReset);
 router.post('/guestcreatereset', seller.guestCreateReset);
-router.put('/sellerreset', seller.sellerReset);
+router.patch('/sellerreset', seller.sellerReset);
 router.delete('/deleteseller', authentication, seller.deleteSeller);
 
 

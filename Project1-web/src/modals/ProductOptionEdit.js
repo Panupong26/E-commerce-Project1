@@ -9,6 +9,7 @@ import { loadingContext } from '../context/LoadingContextProvider';
 import { handleErr } from '../handle-err/HandleErr';
 
 
+
 function ProductOptionEdit({ data, setProductModal }) {
     const [optionData, setOptionData]= useState();
     const [productEditShowPic, setProductEditShowPic] = useState();
@@ -16,6 +17,8 @@ function ProductOptionEdit({ data, setProductModal }) {
 
 
     const [editPrice, setEditPrice] = useState();
+    const [outOfStock, setOutOfStock] = useState();
+   
     const [editId, setEditId] = useState([]);
     const [editFile, setEditFile] = useState([]);
     const [addFile, setAddFile] = useState([]);
@@ -123,7 +126,7 @@ function ProductOptionEdit({ data, setProductModal }) {
         const reqAdd = addFile.length > 0 ? await axios.post('/productoption/addpicture', AddForm, {headers: {'Content-Type': "multipart/form-data"}}).catch((err) => handleErr(err)) : Promise.resolve() ;
         const reqEdit = editFile.length > 0 ? await axios.post('/productoption/editpicture', EditForm, {headers: {'Content-Type': "multipart/form-data"}}).catch((err) => handleErr(err)) : Promise.resolve() ;
         const reqDelete = deleteFile.length > 0 ? await axios.delete('/productoption/deletepicture', {data: {deleteArr: deleteFile}}).catch((err) => handleErr(err)) : Promise.resolve() ;
-        const updatePrice = await axios.patch('/productoption/updateprice', {id: optionData.id, price: editPrice.replaceAll(',','')});
+        const updatePrice = await axios.patch('/productoption/updateoption', {id: optionData.id, price: editPrice.replaceAll(',',''), outOfStock: outOfStock});
         
         
         Promise.all([reqAdd, reqEdit, reqDelete, updatePrice])
@@ -140,6 +143,7 @@ function ProductOptionEdit({ data, setProductModal }) {
         if(data) {
             setOptionData(data);
             setEditPrice(data.price.toLocaleString());
+            setOutOfStock(data.outOfStock);
             setProductEditShowPic([...data.optionPictures]);
         }
     }, [data])
@@ -159,13 +163,20 @@ function ProductOptionEdit({ data, setProductModal }) {
 
 
     useEffect(() => { 
-        if( (editFile[0] || addFile[0] || deleteFile[0] || editPrice  !== data.price.toLocaleString()) && (!isEditPrice && editPrice !== '0')) {   
+        if( (editFile[0] || 
+             addFile[0] || 
+             deleteFile[0] || 
+             editPrice  !== data.price.toLocaleString() || 
+             outOfStock !== data.outOfStock
+            ) && 
+            (!isEditPrice && editPrice !== '0'))
+         {   
             setProductEditDoneButtonDisable(''); 
         } else {
             setProductEditDoneButtonDisable('none');
         }
        
-    }, [editPrice, editFile, addFile, deleteFile, isEditPrice, data]);
+    }, [editPrice, editFile, addFile, deleteFile, isEditPrice, data, outOfStock]);
 
     
     return <>
@@ -176,9 +187,10 @@ function ProductOptionEdit({ data, setProductModal }) {
                 </div>
                 <div className='productOptionEditArea'>
                     <div className='optionName'>{optionData?.optionName}</div>
-                    <div className='optionPrice'>
-                        
+                    
+                    <div className='optionPrice'>    
                         <div className='optionPriceHeader'>Price</div>
+                        
                         <input  
                             type='text' 
                             value={editPrice || ''}
@@ -204,7 +216,15 @@ function ProductOptionEdit({ data, setProductModal }) {
                             setIsEditPrice(false);
                         }}><FontAwesomeIcon icon={faCheck}/></button>
                         }
-                    
+                    </div>
+
+                    <div className='optionOutOfStock'>    
+                        <div className='optionOutOfStockHeader'>Out of stock</div>
+                        
+                        {!outOfStock && <button className='non-active-button' onClick={() => setOutOfStock(true)}>Yes</button>}
+                        {outOfStock && <button className='active-button'>Yes</button>}
+                        {outOfStock && <button className='non-active-button'onClick={() => setOutOfStock(false)}>No</button>}
+                        {!outOfStock && <button className='active-button'>No</button>}
                     </div>
                     
                     <div className='productEditPicCardBox'>

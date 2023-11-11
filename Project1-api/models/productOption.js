@@ -14,6 +14,10 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true
             }
         },
+        outOfStock: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
     },
     {   
         tableName: 'productOption',

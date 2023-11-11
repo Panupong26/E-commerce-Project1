@@ -228,7 +228,7 @@ const adminCreateAdminReset = async (req, res) => {
                 });
             })
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
     } catch (err) {
         console.log(err);

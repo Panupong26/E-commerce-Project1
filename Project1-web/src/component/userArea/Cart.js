@@ -8,6 +8,10 @@ import CartCard from '../../component/CartCard';
 import { loadingContext } from '../../context/LoadingContextProvider';
 import { handleErr } from '../../handle-err/HandleErr';
 
+const defaultPaymentOptionButton = {
+    card: false,
+    qr: false
+}
 
 
 
@@ -16,20 +20,20 @@ export default function Cart({ userData, cartData, setCartData }) {
     const [address,setAddress] = useState(userData?.address || '');
     const [phoneNumber,setPhoneNumber] = useState(userData?.phoneNumber || '');
     const [receiveName, setReceiveName] = useState(userData?.receiveName || '');
-    const [paymentOption, setPaymentOption] = useState('');
+    const [paymentOption, setPaymentOption] = useState();
 
 
     
     //event
     const [isEdit, setIsEdit] = useState(false);
-    const [activePaymentOption, setActivePaymentOption] = useState(false);
+    const [activePaymentOption, setActivePaymentOption] = useState(defaultPaymentOptionButton);
     const { setIsLoading } = useContext(loadingContext);
 
 
 
     async function deleteCart(cartId) {
         setIsLoading(true);
-        await axios.delete(`/cart/deletecart`, {data: {cartId: cartId}})
+        await axios.delete(`/cart/deletecart/${cartId}`)
         .then(() => {
             const newCartSelected = [...cartSelected].filter(el => el.id !== cartId);
             setCartSelected([...newCartSelected]);
@@ -50,7 +54,8 @@ export default function Cart({ userData, cartData, setCartData }) {
             cartArr: cartSelected,
             destination: address,
             phoneNumber: phoneNumber,
-            receiver: receiveName
+            receiver: receiveName,
+            paymentOption: paymentOption
         })
         .then(() => {
             const newCartData = [...cartData];
@@ -140,23 +145,41 @@ export default function Cart({ userData, cartData, setCartData }) {
                     <div className='paymentOptionBox'>
                         <div className='paymentOptionHeader'><FontAwesomeIcon icon={faCreditCard} /> Payment Option </div>
                         <div className='paymentOptionButtonBox'>
+                           
                             <div>
-                                {!activePaymentOption &&
+                                {!activePaymentOption.card &&
                                 <div className='paymentOption' 
                                     onClick={() => {
-                                        setActivePaymentOption(true); 
-                                        setPaymentOption('On delivery'); 
-                                }}>Cash on delivery</div>
+                                        setPaymentOption('CARD'); 
+                                        setActivePaymentOption({...defaultPaymentOptionButton, card: true}); 
+                                }}>Card</div>
                                 } 
 
-                                {activePaymentOption &&
+                                {activePaymentOption.card &&
                                 <div className='paymentActiveOption'    
-                                    onClick={() => {setPaymentOption(); 
-                                        setActivePaymentOption(false); 
+                                    onClick={() => {
                                         setPaymentOption();
-                                }}>Cash on delivery</div>
+                                        setActivePaymentOption({...defaultPaymentOptionButton}); 
+                                }}>Card</div>
                                 }
+                            </div> 
 
+                            <div>
+                                {!activePaymentOption.qr &&
+                                <div className='paymentOption' 
+                                    onClick={() => {
+                                        setPaymentOption('QR'); 
+                                        setActivePaymentOption({...defaultPaymentOptionButton, qr: true}); 
+                                }}>QR code</div>
+                                } 
+
+                                {activePaymentOption.qr &&
+                                <div className='paymentActiveOption'    
+                                    onClick={() => {
+                                        setPaymentOption();
+                                        setActivePaymentOption({...defaultPaymentOptionButton}); 
+                                }}>QR code</div>
+                                }
                             </div> 
                         </div> 
                     </div>

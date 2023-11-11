@@ -165,7 +165,7 @@ div .cancleButton {
         font-size: 12px;
     }
 
-    .orderAmount {
+    .orderQuantity {
         font-size: 12px;
     }
 
@@ -211,18 +211,21 @@ div .cancleButton {
 }
 
 @media (max-width: 600px) {
+
     .orderCard {
         width: 345px;
         height: max-content;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     
     .picBox {
-        height: 50px;
+        height: 100px;
     }
     
     .orderPic {
-        width: 50px;
-        height: 50px;
+        width: 100px;
+        height: 100px;
     }
     
     .orderContentBox {
@@ -241,7 +244,7 @@ div .cancleButton {
         font-size: 11px;
     }
 
-    .orderAmount {
+    .orderQuantity {
         font-size: 12px;
     }
 
@@ -250,7 +253,7 @@ div .cancleButton {
     }
 
     .orderReceiver {
-        display: none
+        font-size: 11px;
     }
     
     .orderStatus {

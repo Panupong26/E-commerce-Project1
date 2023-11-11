@@ -10,8 +10,8 @@ function ShopDashboard() {
     const [staticData, setStaticData] = useState();
     const [staticShow, setStaticShow] = useState();
     const [productShow, setProductShow] = useState();
-    const [amount, setAmount] = useState();
-    const [totalAmount, setTotalAmount] = useState();
+    const [quantity, setQuantity] = useState();
+    const [totalQuantity, setTotalQuantity] = useState();
     const [income, setIncome] = useState();
     const [totalIncome, setTotalIncome] = useState();
     const [date, setDate] = useState();
@@ -99,7 +99,7 @@ function ShopDashboard() {
     
         while (i <= dateMax) {
             data[i] = {
-                amount: 0,
+                quantity: 0,
                 income: 0
             };
 
@@ -161,24 +161,24 @@ function ShopDashboard() {
             if(`${e.date}`.length > 1) {
                 if(`${e.month}`.length > 1) {
                     data[`${e.year}${e.month}${e.date}`] = {
-                        amount: data[`${e.year}${e.month}${e.date}`].amount + e.amount,
+                        quantity: data[`${e.year}${e.month}${e.date}`].quantity + e.quantity,
                         income: data[`${e.year}${e.month}${e.date}`].income + e.totalPrice  
                     };    
                 } else {
                     data[`${e.year}0${e.month}${e.date}`] = {
-                        amount: data[`${e.year}0${e.month}${e.date}`].amount + e.amount,
+                        quantity: data[`${e.year}0${e.month}${e.date}`].quantity + e.quantity,
                         income: data[`${e.year}0${e.month}${e.date}`].income + e.totalPrice
                     };
                 };
             } else {
                 if(`${e.month}`.length > 1) {
                     data[`${e.year}${e.month}0${e.date}`] = {
-                        amount: data[`${e.year}${e.month}0${e.date}`].amount + e.amount,
+                        quantity: data[`${e.year}${e.month}0${e.date}`].quantity + e.quantity,
                         income: data[`${e.year}${e.month}0${e.date}`].income + e.totalPrice  
                     };    
                 } else {
                     data[`${e.year}0${e.month}0${e.date}`] = {
-                        amount: data[`${e.year}0${e.month}0${e.date}`].amount + e.amount,
+                        quantity: data[`${e.year}0${e.month}0${e.date}`].quantity + e.quantity,
                         income: data[`${e.year}0${e.month}0${e.date}`].income + e.totalPrice
                     };
                 };
@@ -190,7 +190,7 @@ function ShopDashboard() {
         for(let keys in data) {
             let preData = {};
             preData.date = +keys;
-            preData.amount = data[keys].amount;
+            preData.quantity = data[keys].quantity;
             preData.income = data[keys].income;
             dataShow.push(preData);
         };
@@ -205,14 +205,14 @@ function ShopDashboard() {
         dataFiltered.forEach(e => {
             if(productData[e.productName + '(' + e.productOption + ')']) {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: productData[e.productName + '(' + e.productOption + ')'].amount + e.amount,
+                    quantity: productData[e.productName + '(' + e.productOption + ')'].quantity + e.quantity,
                     income: productData[e.productName + '(' + e.productOption + ')'].income + e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
                 };
             } else {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: e.amount,
+                    quantity: e.quantity,
                     income: e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
@@ -226,7 +226,7 @@ function ShopDashboard() {
         for(let keys in productData) {
             let preProduct = {};
             preProduct.product = keys;
-            preProduct.amount = productData[keys].amount;
+            preProduct.quantity = productData[keys].quantity;
             preProduct.income = productData[keys].income;
             preProduct.picture = productData[keys].picture;
             preProduct.productId = productData[keys].productId;
@@ -234,7 +234,7 @@ function ShopDashboard() {
             product.push(preProduct);
         }
 
-        product.sort((a, b) => b.amount - a.amount);
+        product.sort((a, b) => b.quantity - a.quantity);
 
         setProductShow([...product]);
     };
@@ -244,7 +244,7 @@ function ShopDashboard() {
         let i = +(`${dateMin}`.slice(0, 6));
         while (i <= +(`${dateMax}`.slice(0, 6))) {
             data[i] = {
-                amount: 0,
+                quantity: 0,
                 income: 0
             };
 
@@ -296,12 +296,12 @@ function ShopDashboard() {
         dataFiltered.forEach(e => {
             if(`${e.month}`.length > 1) {
                 data[`${e.year}${e.month}`] = {
-                    amount: data[`${e.year}${e.month}`].amount + e.amount,
+                    quantity: data[`${e.year}${e.month}`].quantity + e.quantity,
                     income: data[`${e.year}${e.month}`].income + e.totalPrice  
                 };    
             } else {
                 data[`${e.year}0${e.month}`] = {
-                    amount: data[`${e.year}0${e.month}`].amount + e.amount,
+                    quantity: data[`${e.year}0${e.month}`].quantity + e.quantity,
                     income: data[`${e.year}0${e.month}`].income + e.totalPrice
                 };
             };    
@@ -310,7 +310,7 @@ function ShopDashboard() {
         for(let keys in data) {
             let preData = {};
             preData.date = +keys;
-            preData.amount = data[keys].amount;
+            preData.quantity = data[keys].quantity;
             preData.income = data[keys].income;
             dataShow.push(preData);
         };
@@ -325,14 +325,14 @@ function ShopDashboard() {
         dataFiltered.forEach(e => {
             if(productData[e.productName + '(' + e.productOption + ')']) {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: productData[e.productName + '(' + e.productOption + ')'].amount + e.amount,
+                    quantity: productData[e.productName + '(' + e.productOption + ')'].quantity + e.quantity,
                     income: productData[e.productName + '(' + e.productOption + ')'].income + e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
                 };
             } else {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: e.amount,
+                    quantity: e.quantity,
                     income: e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
@@ -345,7 +345,7 @@ function ShopDashboard() {
         for(let keys in productData) {
             let preProduct = {};
             preProduct.product = keys;
-            preProduct.amount = productData[keys].amount;
+            preProduct.quantity = productData[keys].quantity;
             preProduct.income = productData[keys].income;
             preProduct.picture = productData[keys].picture;
             preProduct.productId = productData[keys].productId;
@@ -353,7 +353,7 @@ function ShopDashboard() {
             product.push(preProduct);
         }
 
-        product.sort((a, b) => b.amount - a.amount);
+        product.sort((a, b) => b.quantity - a.quantity);
 
         setProductShow([...product]);
     };
@@ -363,8 +363,8 @@ function ShopDashboard() {
         let i = +(`${dateMin}`.slice(0, 4));
         while (i <= +(`${dateMax}`.slice(0, 4))) {
             data[i] = {
-                amount: 0,
-                income: 0
+                quantity: 0,
+                quantity: 0
             };
 
             let date = new Date(+(`${i}`.slice(0, 4)), +(`${dateMin}`.slice(4, 6)) - 1, +(`${dateMin}`.slice(6, 8)));
@@ -410,7 +410,7 @@ function ShopDashboard() {
 
         dataFiltered.forEach(e => {
             data[e.year] = {
-                amount: data[e.year].amount + e.amount,
+                quantity: data[e.year].quantity + e.quantity,
                 income: data[e.year].income + e.totalPrice  
             };       
         });
@@ -418,7 +418,7 @@ function ShopDashboard() {
         for(let keys in data) {
             let preData = {};
             preData.date = +keys;
-            preData.amount = data[keys].amount;
+            preData.quantity = data[keys].quantity;
             preData.income = data[keys].income;
             dataShow.push(preData);
         };
@@ -433,14 +433,14 @@ function ShopDashboard() {
         dataFiltered.forEach(e => {
             if(productData[e.productName + '(' + e.productOption + ')']) {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: productData[e.productName + '(' + e.productOption + ')'].amount + e.amount,
+                    quantity: productData[e.productName + '(' + e.productOption + ')'].quantity + e.quantity,
                     income: productData[e.productName + '(' + e.productOption + ')'].income + e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
                 };
             } else {
                 productData[e.productName + '(' + e.productOption + ')'] = {
-                    amount: e.amount,
+                    quantity: e.quantity,
                     income: e.totalPrice,
                     picture: e.orderPicture,
                     productId: e.productId
@@ -453,7 +453,7 @@ function ShopDashboard() {
         for(let keys in productData) {
             let preProduct = {};
             preProduct.product = keys;
-            preProduct.amount = productData[keys].amount;
+            preProduct.quantity = productData[keys].quantity;
             preProduct.income = productData[keys].income;
             preProduct.picture = productData[keys].picture;
             preProduct.productId = productData[keys].productId;
@@ -461,7 +461,7 @@ function ShopDashboard() {
             product.push(preProduct);
         }
 
-        product.sort((a, b) => b.amount - a.amount);
+        product.sort((a, b) => b.quantity - a.quantity);
 
         setProductShow([...product]);
     };
@@ -498,20 +498,20 @@ function ShopDashboard() {
     useEffect(() => {
         if(staticShow && staticShow[0]) {
             let data = [...staticShow];
-            data.sort((a, b) => a.amount - b.amount);
-            let maxHeight = data[data.length - 1].amount;
+            data.sort((a, b) => a.quantity - b.quantity);
+            let maxHeight = data[data.length - 1].quantity;
             setTotalStaticBoxMaxHeight(maxHeight);
 
-            let preAmount = 0;
+            let preQuantity = 0;
             let preIncome = 0;
             data.forEach(e => {
-                preAmount += e.amount;
+                preQuantity += e.quantity;
                 preIncome += e.income;
             });
 
-            setAmount(preAmount);
+            setQuantity(preQuantity);
             setIncome(preIncome);
-            setTotalAmount(preAmount);
+            setTotalQuantity(preQuantity);
             setTotalIncome(preIncome);
         };
     }, [staticShow]);
@@ -519,8 +519,8 @@ function ShopDashboard() {
     useEffect(() => {
         if(productShow && productShow[0]) {
             let data = [...productShow];
-            data.sort((a, b) => a.amount - b.amount);
-            let maxWidth = data[data.length - 1].amount
+            data.sort((a, b) => a.quantity - b.quantity);
+            let maxWidth = data[data.length - 1].quantity
             setProductStickMaxWidth(maxWidth);
         };
     }, [productShow]);
@@ -600,9 +600,9 @@ function ShopDashboard() {
             <div className="chartBox">
                 <div>
                     <div className="totalStaticBox">
-                        {staticShow?.map(e => <div key={`${Math.random()}`.slice(3,9)} className="stick" style={{height: call(() => {return e.amount === 0 ? '1px' : `${((e.amount/totalStaticBoxMaxHeight)*100)}%` })}} 
+                        {staticShow?.map(e => <div key={new Date().getTime() + Math.random()} className="stick" style={{height: call(() => {return e.quantity === 0 ? '1px' : `${((e.quantity/totalStaticBoxMaxHeight)*100)}%` })}} 
                         onMouseOver = {() => {
-                            setAmount(e.amount);
+                            setQuantity(e.quantity);
                             setIncome(e.income);
                             if(chartFilter === 'day') {
                                 setDate(`${e.date}`.slice(6, 8) + '/' + `${e.date}`.slice(4, 6) + '/' + `${e.date}`.slice(0, 4));
@@ -614,25 +614,25 @@ function ShopDashboard() {
                         }}
                         onMouseLeave = {() => {
                             setDate(defaultDate);
-                            setAmount(totalAmount);
+                            setQuantity(totalQuantity);
                             setIncome(totalIncome);
                         }}></div>)}
                     </div>
                     <div className="totalValueBox">
                         <div><FontAwesomeIcon icon={faCalendar} /> &nbsp;{date}</div>
-                        <div> Amount: {amount?.toLocaleString()}</div>
+                        <div> Quantity: {quantity?.toLocaleString()}</div>
                         <div> Income: {income?.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
                     </div>
                 </div>
                 <div className="productStaticBox">
                     {productShow?.map(e => 
-                        <div key={e} className="productStickBox" style={{width: `${((e.amount/productStickMaxWidth)*100) - 10}%`}} onClick = {() => window.location.href = `${FONTEND_URL}/product/${e.productId}`}>
+                        <div key={new Date().getTime() + Math.random()} className="productStickBox" style={{width: `${((e.quantity/productStickMaxWidth)*100) - 10}%`}} onClick = {() => window.location.href = `${FONTEND_URL}/product/${e.productId}`}>
                             <div>
                                 <img src = {e.picture} alt = 'productPic'/>
                                 <div className="product">{e.product}</div>
                             </div>
                             <div>
-                                <div className="stickAmount">amount {e.amount.toLocaleString()}</div>
+                                <div className="stickQuantity">quantity {e.quantity.toLocaleString()}</div>
                                 <div className="stickIncome">{e.income.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
                             </div>
                         </div>    

@@ -8,7 +8,7 @@ export default function AlertBox ({ open, setOpen, notification }) {
 
     const acceptNotification = async (id, type) => {
         if(type === 'TO_USER_ORDER') {
-            await axios.delete(`/notification/deletenotification`, {data: {notificationId: id}})
+            await axios.delete(`/notification/deletenotification/${id}`)
             .then(() => {
                 window.location.href = `${FONTEND_URL}/profile/myorders`; 
             })
@@ -17,7 +17,7 @@ export default function AlertBox ({ open, setOpen, notification }) {
             })
         }
         if(type === 'TO_SELLER_ORDER') {
-            await axios.delete(`/notification/deletenotification`, {data: {notificationId: id}})
+            await axios.delete(`/notification/deletenotification/${id}`)
             .then(() => {
                 window.location.href = `${FONTEND_URL}/profile/myorders`;
             })

@@ -21,7 +21,7 @@ function UserPanel() {
     async function adminResetPassword() {
         setIsLoading(true);
 
-        await axios.get(`/admin/admincreatereset`)
+        await axios.post(`/admin/admincreatereset`)
         .then(() => {
             localStorage.removeToken();
             window.location.replace(`${FONTEND_URL}/checkemail?event=resetpassword`);
@@ -37,7 +37,7 @@ function UserPanel() {
     async function userResetPassword() {
         setIsLoading(true);
 
-        await axios.get(`/user/usercreatereset`)
+        await axios.post(`/user/usercreatereset`)
         .then(() => {
             localStorage.removeToken();
             window.location.replace(`${FONTEND_URL}/checkemail?event=resetpassword`);
@@ -53,7 +53,7 @@ function UserPanel() {
     async function sellerResetPassword() {
         setIsLoading(true);
 
-        await axios.get(`/seller/sellercreatereset`)
+        await axios.post(`/seller/sellercreatereset`)
         .then(() => {
             localStorage.removeToken();
             window.location.replace(`${FONTEND_URL}/checkemail?event=resetpassword`);

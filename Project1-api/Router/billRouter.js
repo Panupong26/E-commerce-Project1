@@ -12,7 +12,7 @@ router.use(express.urlencoded({extended: false}));
 
 router.get('/getallbill', authentication, bill.getAllBill);
 router.get('/getbillbysellerid', authentication, bill.getBillBySellerId);
-router.put('/adminupdatebill', authentication, bill.adminUpdateBill);
-router.put('/sellerupdatebill', authentication, bill.sellerUpdateBill);
+router.patch('/adminupdatebill', authentication, bill.adminUpdateBill);
+router.patch('/sellerupdatebill', authentication, bill.sellerUpdateBill);
 
 module.exports = router;

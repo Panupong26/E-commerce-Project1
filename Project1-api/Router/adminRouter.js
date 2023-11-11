@@ -16,9 +16,9 @@ router.post('/login', admin.adminLogin);
 router.post('/verificationadmin', admin.createAdminVerification);
 router.post('/createadmin', admin.createAdmin);
 router.get('/getadmin', authentication, admin.getAdmin);
-router.get('/admincreatereset', authentication, admin.adminCreateAdminReset);
+router.post('/admincreatereset', authentication, admin.adminCreateAdminReset);
 router.post('/guestcreatereset', admin.guestCreateAdminReset);
-router.put('/adminreset', admin.adminReset);
+router.patch('/adminreset', admin.adminReset);
 router.delete('/deleteadmin', authentication, admin.deleteAdmin);
 
 

@@ -17,13 +17,29 @@ function AdminOrderPanel(props) {
     const [orderData, setOrderData] = useState(props.orderData);
     const [userData, setUserData] =  useState();
     const [sellerData, setSellerData] =  useState();
+    const [paymentRef, setPaymentRef] = useState();
     const { setIsLoading } = useContext(loadingContext);
 
 
-    async function deleteOrder() {
+    async function refundOrder() {
         setIsLoading(true);
 
-        await axios.delete(`/order/deleteorder`, {data: {orderId: orderData.id}})
+        await axios.patch(`/order/refundorder`, {orderId: orderData.id, ref: paymentRef})
+        .then(() => {
+            window.location.reload();
+        })
+        .catch(err => {
+            handleErr(err);
+        })
+        .finally(() => {
+            setIsLoading(false);
+        })
+    };
+
+    async function updateOrder() {
+        setIsLoading(true);
+
+        await axios.patch(`/order/adminupdateorder`, {orderId: orderData.id})
         .then(() => {
             window.location.reload();
         })
@@ -77,8 +93,14 @@ function AdminOrderPanel(props) {
                         <div className="adminOrderText">Product: {orderData?.productName}</div>
                         <div className="adminOrderText">Option: {orderData?.productOption}</div>
                         <div className="adminOrderText">Shipping Option: {orderData?.shippingOption}</div>
-                        <div className="adminOrderText">Amount: {orderData?.amount}</div>
+                        <div className="adminOrderText">Quantity: {orderData?.quantity}</div>
                         <div className="adminOrderText">Total Price: {orderData?.totalPrice.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
+                        <div className="adminOrderText">Payment Option: {orderData?.paymentOption}</div>
+                        {orderData?.ref && <>
+                        <div className="adminOrderText">Refund Ref.: {orderData?.ref}</div>
+                        <div className="adminOrderText">Admin: {orderData?.admin? orderData.admin.username : `[Delete Accoumt]`}</div>
+                        </>
+                        }
                         <div className="adminOrderText">Last Update: {getOrderDate()}</div>
                     </div>
                     <div className="textBox link" onClick={() => goToStorePage()}>
@@ -99,7 +121,17 @@ function AdminOrderPanel(props) {
                         <div className="adminOrderText"><div className="icon"><FontAwesomeIcon icon={faMoneyCheck} /></div> {userData?.bankAccountNumber}</div>
                     </div>
                 </div>
-                <div className="adminOrderButton" onClick={() => deleteOrder()}>Delete Order</div>
+                { orderData?.status === 'PENDING_REFUND' &&
+                <div className="adminSubmitRefundBox">
+                    <input className="paymentRefInput" placeholder="Payment's Ref" value={paymentRef} onChange = {e => setPaymentRef(e.target.value)}/>
+                    <div className="adminOrderButton" style={{pointerEvents: paymentRef? '' : 'none'}} onClick = {() => refundOrder()} > Submit </div>
+                </div>
+                }
+                { orderData?.status === 'ON_DELIVERY' &&
+                <div className="adminSubmitRefundBox">
+                    <div className="adminOrderButton" onClick = {() => updateOrder()} > Force Receive ! </div>
+                </div>
+                }
             </div>
         </div>
      </>

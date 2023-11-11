@@ -79,7 +79,7 @@ function ShopSetting(props) {
         form.append('storePicture', file);
         form.append('input', JSON.stringify(input));
 
-        await axios.patch('/seller/updatedata', form, {headers: {'Content-Type': 'multipart-formdata'}})
+        await axios.put('/seller/updatedata', form, {headers: {'Content-Type': 'multipart-formdata'}})
         .then(() => {
             window.location.reload();
         })

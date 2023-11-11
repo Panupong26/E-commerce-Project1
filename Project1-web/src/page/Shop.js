@@ -36,7 +36,7 @@ function Shop(props) {
 
     useEffect(() => {
         async function getShopData() {
-            await axios.post(`/seller/getshopdatabyname`, {shopName: shopName})
+            await axios.get(`/seller/getshopdatabyname/${shopName}`)
             .then(res => {
                 setShopData({...res.data});
             })
@@ -61,7 +61,7 @@ function Shop(props) {
     
     useEffect(() => {
         async function getAllProductData() {
-            await axios.post(`/product/getproductbysellerid`, {sellerId: shopData.id})
+            await axios.get(`/product/getproductbysellerid/${shopData.id}`)
             .then(res => {
                 setAllTypeProductData([...res.data]);
                 setProductData([...res.data]);

@@ -24,10 +24,10 @@ router.use(express.urlencoded({extended: false}));
 
 router.post('/createproduct', authentication, upload.any('productPicture'), product.createProduct);
 router.get('/getallproduct', product.getAllProduct);
-router.post('/getproductbysellerid', product.getProductBySellerId);
-router.post('/getproductbyproductid', product.getProductByProductId);
+router.get('/getproductbysellerid/:sellerId', product.getProductBySellerId);
+router.get('/getproductbyproductid/:productId', product.getProductByProductId);
 router.patch('/updateproduct', authentication, product.editProduct);
-router.delete('/deleteproduct', authentication, product.deleteProduct);
+router.delete('/deleteproduct/:productId', authentication, product.deleteProduct);
 router.delete('/admindeleteproduct', authentication, product.adminDeleteProduct);
 
 module.exports = router;

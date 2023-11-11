@@ -8,11 +8,11 @@ const createShippingOption = async (req, res) => {
         const productId = req.body.productId;
         const optionName = req.body.optionName;
         const price = req.body.price;
-        const amount = req.body.amount;
+        const quantity = req.body.quantity;
     
-        const err = productValidator('', price, amount);
+        const err = productValidator('', price, quantity);
     
-        if(err.sentPrice || err.sentAmount || !productId || !optionName) {
+        if(err.sentPrice || err.sentQuantity || !productId || !optionName) {
             return res.status(400).send({message: 'Invalid request value'});
         }
     
@@ -22,14 +22,14 @@ const createShippingOption = async (req, res) => {
             await db.shippingOption.create({
                 optionName: optionName,
                 price: price,
-                amount: amount,
+                quantity: quantity,
                 productId: productId
             })
             .then(data => {
                 return res.status(201).send(data); 
             })   
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -44,11 +44,11 @@ const editShippingOption = async (req, res) => {
         const status = req.user.status;
         const optionId = req.body.optionId;
         const price = req.body.price;
-        const amount = req.body.amount;
+        const quantity = req.body.quantity;
     
-        const err = productValidator('', price, amount);
+        const err = productValidator('', price, quantity);
     
-        if(err.sentPrice || err.sentAmount || !optionId) {
+        if(err.sentPrice || err.sentQuantity || !optionId) {
             return res.status(400).send({message: 'Invalid request value'});
         }
     
@@ -58,19 +58,19 @@ const editShippingOption = async (req, res) => {
         if(status === 'seller' && targetProduct && targetProduct.sellerId === sellerId) {
             await db.shippingOption.update({
                 price: price,
-                amount: amount
+                quantity: quantity
             },
             {
                 where: {id: optionId}
             })
             .then(() => {
                 targetOption.price = price;
-                targetOption.amount = amount;
+                targetOption.quantity = quantity;
                 
                 return res.status(200).send(targetOption); 
             })    
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -82,7 +82,7 @@ const deleteShippingOption = async (req, res) => {
     try {
         const sellerId = req.user.id;
         const status = req.user.status;
-        const optionId = req.body.optionId;
+        const { optionId } = req.params;
 
         if(!optionId) {
             return res.status(400).send({message: 'Invalid request value'});
@@ -102,7 +102,7 @@ const deleteShippingOption = async (req, res) => {
                 
             return res.status(200).send({message: 'Done'});       
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {

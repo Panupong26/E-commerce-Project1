@@ -189,56 +189,6 @@ const getMyData = async (req,res) => {
     }
 };
 
-const getUserData = async (req,res) => {
-    try {
-        const userId = req.body.userId;
-
-        if(!userId) {
-            return res.status(400).send({message: 'Invalid request value'});
-        }
-
-        const targetUser = await db.user.findOne({
-            where: {id: userId},
-            attributes: {exclude: ['password', 'receiveName', 'email', 'phoneNumber', 'address', 'bankName', 'bankAccountNumber']}
-        });
-
-        if(targetUser) {
-            return res.status(200).send(targetUser);
-        } else {
-            return res.status(404).send('Not found');
-        }  
-        
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error')
-    }
-};
-
-const getUserDataByAdmin = async (req,res) => {
-    try {
-        const userId = req.body.userId;
-        const status = req.user.status;
-
-        if(!userId) {
-            return res.status(400).send({message: 'Invalid request value'});
-        }
-    
-        if(status === 'admin') {
-            const targetUser = await db.user.findOne({
-                where: {id: userId},
-                attributes: {exclude: ['password']}
-            });
-        
-            return res.status(200).send(targetUser);   
-        } else {
-            return res.status(403).send({message: 'You are not allowed'});  
-        } 
-
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error')
-    }
-};
 
 
 const updateUserData = async (req,res) => {
@@ -453,7 +403,7 @@ const deleteUser = async (req,res) => {
             
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(400).send({message: 'Cannot delete account because of you still have "Prepare Shipping" order or "On Delivery" order'});
         }   
 
     } catch (err) {
@@ -467,11 +417,9 @@ module.exports = {
     createUser,
     login,
     getMyData,
-    getUserData,
     updateUserData,
     userCreateReset,
     guestCreateReset,
     userReset,
     deleteUser,
-    getUserDataByAdmin
 }

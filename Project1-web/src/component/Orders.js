@@ -107,7 +107,7 @@ function Orders() {
                     {!activeFilterButton.cancle &&
                     <button className='orderPageFilterButton' onClick={() => {
                         setActiveFilterButton({...defaultActive, cancle: true});
-                        setOrderData(allOrder.filter(e => e.status === 'CANCLE'));
+                        setOrderData(allOrder.filter(e => e.status === 'CANCLE' || e.status === 'PENDING_REFUND' || e.status === 'REFUNDED'));
                     }}>Cancle</button>
                     }
                     {activeFilterButton.cancle &&

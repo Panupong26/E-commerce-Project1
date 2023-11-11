@@ -10,7 +10,7 @@ import { loadingContext } from "../context/LoadingContextProvider";
 import { handleErr } from "../handle-err/HandleErr";
 
 
-export default function ShippingOptionBox({ productSentOption, setSentPrice, setSentOptionSelected, setSentAmount, setProductSentOption, productData, setProductModal }) {
+export default function ShippingOptionBox({ productSentOption, setSentPrice, setSentOptionSelected, setSentQuantity, setProductSentOption, productData, setProductModal }) {
     const { status } = useContext(authContext);
     const [defaultOptionActive, setDefaultOptionActive] = useState();
     const [optionActive, setOptionActive] = useState();
@@ -21,7 +21,7 @@ export default function ShippingOptionBox({ productSentOption, setSentPrice, set
         if(productSentOption.length !== 1) {
             setIsLoading(true);
 
-            await axios.delete(`/shippingoption/deleteshippingoption`, {data:{optionId: id}})
+            await axios.delete(`/shippingoption/deleteshippingoption/${id}`)
             .then(() => {
                 const newArr = productSentOption.filter(e => e.id !== id);
                 setProductSentOption([...newArr]);
@@ -64,9 +64,9 @@ export default function ShippingOptionBox({ productSentOption, setSentPrice, set
                     <div className='sentOptionButton' onClick={() => {
                         setSentOptionSelected(e.optionName)
                         setSentPrice(e.price);
-                        setSentAmount(e.amount);
+                        setSentQuantity(e.quantity);
                         setOptionActive({...defaultOptionActive, [e.optionName]: true});
-                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.amount.toLocaleString()} piece
+                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.quantity.toLocaleString()} piece
                         {status === 'seller' &&
                         <>&nbsp;&nbsp;&nbsp;&nbsp;
                         <div style={{display: 'inline-block'}}>
@@ -84,9 +84,9 @@ export default function ShippingOptionBox({ productSentOption, setSentPrice, set
                     <div className='sentActiveOptionButton' onClick={() => {
                         setSentOptionSelected('');
                         setSentPrice(0);
-                        setSentAmount(0);
+                        setSentQuantity(0);
                         setOptionActive({...defaultOptionActive, [e.optionName]: false});
-                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.amount.toLocaleString()} piece
+                    }}>{e.optionName} {e.price.toLocaleString()} ฿/{e.quantity.toLocaleString()} piece
                         {status === 'seller' &&
                         <>&nbsp;&nbsp;&nbsp;&nbsp;
                         <div style={{display: 'inline-block'}}>

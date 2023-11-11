@@ -14,6 +14,13 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true
             }
         },
+        acceptCod: {
+            type: DataTypes.ENUM('TRUE', 'FALSE'),
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
         productDetail: {
             type: DataTypes.TEXT
         },

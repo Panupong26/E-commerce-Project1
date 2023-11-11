@@ -24,7 +24,7 @@ function AdminBillPanel(props) {
     async function adminUpdateBill() {
         setIsLoading(true);
 
-        await axios.put(`/bill/adminupdatebill`, {billId: billData.id, ref: paymentRef})
+        await axios.patch(`/bill/adminupdatebill`, {billId: billData.id, ref: paymentRef})
         .then(res => {
             window.location.reload();
         })
@@ -76,7 +76,7 @@ function AdminBillPanel(props) {
                         <div className="adminOrderText">Product: {billData?.productName}</div>
                         <div className="adminOrderText">Option: {billData?.productOption}</div>
                         <div className="adminOrderText">Shipping Option: {billData?.shippingOption}</div>
-                        <div className="adminOrderText">Amount: {billData?.amount}</div>
+                        <div className="adminOrderText">Quantity: {billData?.quantity}</div>
                         <div className="adminOrderText">Invoice: {billData?.totalIncome.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
                         <div className="adminOrderText">Last Updated: {getLastUpdate()}</div>
                         {billData?.ref && 

@@ -47,7 +47,7 @@ const userValidator = (name, phoneNumber, bankAccountNumber) => {
     }
 }
 
-const productValidator = (optionPrice, sentPrice, sentAmount) => {
+const productValidator = (optionPrice, sentPrice, sentQuantity) => {
     const err = {};
 
     if(!optionPrice || `${+optionPrice}` === 'NaN') {
@@ -60,8 +60,8 @@ const productValidator = (optionPrice, sentPrice, sentAmount) => {
     }
 
 
-    if(!sentAmount || `${+sentAmount}` === 'NaN') {
-        err.sentAmount = 'Invalid value' ;
+    if(!sentQuantity || `${+sentQuantity}` === 'NaN') {
+        err.sentQuantity = 'Invalid value' ;
     }
 
     if(Object.keys(err).length === 0) {

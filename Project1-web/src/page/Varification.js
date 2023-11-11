@@ -35,12 +35,12 @@ function Verification() {
         const getStatus = async () => {
             setIsLoading(true);
 
-            await axios.post('/verify/getverifystatus', {ref: ref})
+            await axios.post(`/verify/getverifystatus`, {ref: ref})
             .then(res => {
                 setStatus(res.data);
             })
             .catch(err => {
-                handleErr(err)
+                handleErr(err);
             })
             .finally(() => {
                 setIsLoading(false);

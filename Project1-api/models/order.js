@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
                 notEmpty: true
             }
         },
-        amount: {
+        quantity: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
@@ -37,6 +37,13 @@ module.exports = (sequelize, DataTypes) => {
         },
         totalPrice: {
             type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        paymentOption: {
+            type: DataTypes.ENUM('COD', 'CARD', 'QR'),
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -64,13 +71,16 @@ module.exports = (sequelize, DataTypes) => {
             }
         },
         status: {
-            type: DataTypes.ENUM('PREPARE_SHIPPING', 'ON_DELIVERY', 'RECEIVED', 'CANCLE'),
+            type: DataTypes.ENUM('PREPARE_SHIPPING', 'ON_DELIVERY', 'RECEIVED', 'CANCLE', 'PENDING_REFUND', 'REFUNDED'),
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
         trackingNumber: {
+            type: DataTypes.STRING(255),
+        },
+        ref: {
             type: DataTypes.STRING(255),
         },
         date: {
@@ -121,6 +131,7 @@ module.exports = (sequelize, DataTypes) => {
         model.hasOne(models.review, {foreignKey : 'orderId'});
         model.belongsTo(models.seller,  {foreignKey : 'sellerId'});
         model.belongsTo(models.product,  {foreignKey : 'productId'});
+        model.belongsTo(models.admin,  {foreignKey : 'adminId'});
     };
 
     return model

@@ -67,7 +67,7 @@ function EditUserInfo({ userData }) {
         formData.append('input', input);
 
 
-        await axios.patch(`/user/updatedata`, formData, {headers: {'Content-Type': 'multipart/form-data'}})
+        await axios.put(`/user/updatedata`, formData, {headers: {'Content-Type': 'multipart/form-data'}})
         .then(() => {
             window.location.replace(`${FONTEND_URL}/profile/myprofile`);
         })

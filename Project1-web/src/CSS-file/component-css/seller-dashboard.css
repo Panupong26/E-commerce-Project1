@@ -148,6 +148,11 @@
     margin: 5px;
 }
 
+.productStickBox div .product {
+    margin: auto 100px auto 10px;
+}
+
+
 .productStickBox img {
     border-radius: 50%;
     width: 30px;

@@ -24,7 +24,7 @@ const getAllBill = async (req, res) => {
             
             return res.status(200).send(targetBill);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -46,7 +46,7 @@ const getBillBySellerId = async (req, res) => {
             
             return res.status(200).send(targetBill);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
     } catch (err) {
         console.log(err);
@@ -83,7 +83,7 @@ const adminUpdateBill = async (req, res) => {
             
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         };
 
     } catch (err) {
@@ -120,7 +120,7 @@ const sellerUpdateBill = async (req, res) => {
 
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
 
     } catch (err) {

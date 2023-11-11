@@ -24,9 +24,7 @@ router.use(express.json());
 router.use(express.urlencoded({extended: false}));
 
 router.post('/createproductoption', authentication, productOption.createProductOption);
-router.post('/getproductoptionbyoptionid', productOption.getProductOptionByOptionId);
-router.post('/getproductoptionbyproductid', productOption.getProductOptionByProductId);
-router.patch('/updateprice', authentication, productOption.updatePrice);
+router.patch('/updateoption', authentication, productOption.updateOption);
 router.delete('/deleteproductoption', authentication, productOption.deleteProductOption);
 router.post('/addpicture', authentication, upload.any('optionPicture'), productOption.addOptionPic);   
 router.post('/editpicture', authentication, upload.any('optionPicture'), productOption.editOptionPic);

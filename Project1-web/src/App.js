@@ -53,6 +53,7 @@ function App() {
           <Route path='/home' element={<Home />} />
           <Route path='/product/:id' element={<Product />}/>
           <Route path='/error/:code' element={<ErrorPage />}/>
+          <Route path='/error/:code/:msg' element={<ErrorPage />}/>
           <Route path='*' element = {<Navigate to={'/home'}/>}/>
         </Routes>
       </BrowserRouter>
@@ -71,6 +72,7 @@ function App() {
           <Route path='/profile/:page' element={<Profile/>} />
           <Route path='/login' element = {<Navigate to={'/home'}/>}/>
           <Route path='/error/:code' element={<ErrorPage />}/>
+          <Route path='/error/:code/:msg' element={<ErrorPage />}/>
           <Route path='*' element = {<Navigate to={'/home'}/>}/>
         </Routes>
       </BrowserRouter>
@@ -89,6 +91,7 @@ function App() {
           <Route path='/profile/:page' element={<Profile/>}/>
           <Route path='/addproduct' element={<SellerAddProduct/>}/>
           <Route path='/error/:code' element={<ErrorPage />}/>
+          <Route path='/error/:code/:msg' element={<ErrorPage />}/>
           <Route path='*' element = {<Navigate to={'/mystore'}/>}/>
         </Routes>
       </BrowserRouter>
@@ -108,6 +111,7 @@ function App() {
           <Route path='/shop/:shopName' element={<Shop />}/>
           <Route path='/product/:id/' element={<Product />}/>
           <Route path='/error/:code' element={<ErrorPage />}/>
+          <Route path='/error/:code/:msg' element={<ErrorPage />}/>
           <Route path='*' element = {<Navigate to={'/index'}/>}/>
         </Routes>
       </BrowserRouter>

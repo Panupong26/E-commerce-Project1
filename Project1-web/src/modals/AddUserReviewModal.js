@@ -42,7 +42,7 @@ function AddUserReviewModal(props) {
     async function userUpdateOrder() {
         setIsLoading(true);
         
-        await axios.put(`/order/userupdateorder`, {
+        await axios.patch(`/order/userupdateorder`, {
                 orderId: props.orderId
         })
         .then(() => {

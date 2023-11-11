@@ -25,7 +25,8 @@ function SellerAddProduct() {
     const [productOptionPrice, setProductOptionPrice] = useState();
     const [sentOption, setSentOption] = useState();
     const [sentOptionPrice, setSentOptionPrice] = useState();
-    const [sentAmount, setSentAmount] = useState();
+    const [sentQuantity, setSentQuantity] = useState();
+    const [acceptCod, setAcceptCod] = useState();
 
     const [sellerAddProductEditPicDis, setSellerAddProductEditPicDis] = useState();
     const [defaultDis, setDefaultDis] = useState();
@@ -90,7 +91,8 @@ function SellerAddProduct() {
             productOptionPrice: +(productOptionPrice.replaceAll(',', '')),
             sentOption: sentOption,
             sentOptionPrice: +(sentOptionPrice.replaceAll(',', '')),
-            sentAmount: +(sentAmount.replaceAll(',', ''))
+            sentQuantity: +(sentQuantity.replaceAll(',', '')),
+            acceptCod: acceptCod
         }
 
         const form = new FormData();
@@ -121,7 +123,7 @@ function SellerAddProduct() {
 
     useEffect(() => {
         async function getProductData() {
-            await axios.post(`/product/getproductbysellerid`, {sellerId: sellerData.id})
+            await axios.get(`/product/getproductbysellerid/${sellerData.id}`)
             .then(res => {
                 setProductData(res.data);
             })
@@ -171,12 +173,13 @@ function SellerAddProduct() {
           productOptionPrice[0] !== 0 &&
           sentOption && 
           isNaN(sentOption) &&
+          (acceptCod === 'TRUE' || acceptCod === 'FALSE') &&
           sentOptionPrice && 
           +(sentOptionPrice.replaceAll(',','')) >= 0 && 
           sentOptionPrice[0] !== 0 &&
-          sentAmount && 
-          +(sentAmount.replaceAll(',','')) > 0 && 
-          sentAmount[0] !== 0 && 
+          sentQuantity && 
+          +(sentQuantity.replaceAll(',','')) > 0 && 
+          sentQuantity[0] !== 0 && 
           file.length > 0 && 
           productType && 
           productDetail
@@ -185,7 +188,7 @@ function SellerAddProduct() {
         } else {
             setAddProductButtonDisable(true);
         }
-    }, [productName, productOption, productOptionPrice, sentOption, sentOptionPrice, sentAmount, file, productType, productDetail, productData]);
+    }, [productName, productOption, productOptionPrice, sentOption, sentOptionPrice, sentQuantity, file, productType, productDetail, productData, acceptCod]);
 
 
   
@@ -196,6 +199,7 @@ function SellerAddProduct() {
                     <div className = 'sellerAddProductPic'>
                         <ProductImageSlide productShowPic = {productShowPic} id = {sellerData?.id}/>
                     </div>
+
                     <div className='sellerAddProductMid'>
                         
                         <input 
@@ -258,22 +262,33 @@ function SellerAddProduct() {
                             
                             <input 
                                 className = 'sellerAddProductSentOption' 
-                                placeholder="Primary shipping's amount" 
-                                value={sentAmount || ''} 
+                                placeholder="Primary shipping's quantity" 
+                                value={sentQuantity || ''} 
                                 onChange = {(e) => {
                                     if((+e.target.value.replaceAll(',','')).toLocaleString() === 'NaN') {
-                                        setSentAmount('0');
+                                        setSentQuantity('0');
                                     } else {
-                                        setSentAmount((+e.target.value.replaceAll(',','')).toLocaleString());
+                                        setSentQuantity((+e.target.value.replaceAll(',','')).toLocaleString());
                                     }
                                 }}/>      
                         </div>  
+
+                        <div className='acceptCodBox'>
+                            <div>
+                                Cash on delivery
+                            </div>
+                            {acceptCod !== 'TRUE' && <button className='non-active-button' onClick={() => setAcceptCod('TRUE')}>Yes</button>}
+                            {acceptCod === 'TRUE' && <button className='active-button' onClick={() => setAcceptCod()}>Yes</button>}   
+                            {acceptCod !== 'FALSE' && <button className='non-active-button' onClick={() => setAcceptCod('FALSE')}>No</button>}
+                            {acceptCod === 'FALSE' && <button className='active-button' onClick={() => setAcceptCod()}>No</button>}
+                        </div>
+
                         <div className = 'sellerAddProductPicBox'>
                             <div className='sellerAddProductPicHeader'>Product's images</div>
                            
                             <div className='sellerAddProductPicFlex'>
                                 {productShowPic.map(e => 
-                                    <div>
+                                    <div key={e.id} className='imgBox'>
                                         <img src={e.picture} alt = 'product' onMouseOver={() => setSellerAddProductEditPicDis({...defaultDis, [e.id]: ''})}/>
                                         <div className='sellerAddProductEditPic' style={{display: sellerAddProductEditPicDis[e.id]}} onMouseLeave = {() => setSellerAddProductEditPicDis({...defaultDis, [e.id]: 'none'})}>
                                             <div className='sellerAddProductEditPicButton' onClick={() => document.getElementById('i' + e.id).click()}><FontAwesomeIcon icon={faPenToSquare}/></div>

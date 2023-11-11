@@ -9,7 +9,7 @@ const createCart = async (req, res) => {
         const productOption = req.body.productOption;
         const shippingOption = req.body.shippingOption;
         const cartPicture = req.body.cartPicture;
-        const amount = req.body.amount;
+        const quantity = req.body.quantity;
         const totalPrice = req.body.totalPrice;
     
         if(!productId || 
@@ -17,8 +17,8 @@ const createCart = async (req, res) => {
            !productOption || 
            !shippingOption || 
            !cartPicture || 
-           !amount || 
-           typeof amount !== 'number' || 
+           !quantity || 
+           typeof quantity !== 'number' || 
            !totalPrice || 
            typeof totalPrice !== 'number'
         ) {
@@ -33,13 +33,13 @@ const createCart = async (req, res) => {
                 productOption: productOption,
                 shippingOption: shippingOption,
                 cartPicture: cartPicture,
-                amount: amount,
+                quantity: quantity,
                 totalPrice: totalPrice
             });
             
             return res.status(200).send({message: 'Done'});
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -60,7 +60,7 @@ const getCart = async (req, res) => {
 
             return res.status(200).send(targetCart);
         } else {
-            return res.status(403).send({message: 'You are not allowed'});
+            return res.status(403).send({message: "You don't have permission to access"});
         }
     } catch (err) {
         console.log(err);
@@ -71,7 +71,7 @@ const getCart = async (req, res) => {
 const deleteCartByCartId = async (req, res) => {
     const userId = req.user.id;
     const status = req.user.status;
-    const cartId = req.body.cartId;
+    const { cartId } = req.params;
 
     const targetCart = await db.cart.findOne({where: {id: cartId}});
 
@@ -82,7 +82,7 @@ const deleteCartByCartId = async (req, res) => {
         
         return res.status(200).send({message: 'Done'});
     } else {
-        return res.status(403).send({message: 'You are not allowed'});
+        return res.status(403).send({message: "You don't have permission to access"});
     }
 }
 

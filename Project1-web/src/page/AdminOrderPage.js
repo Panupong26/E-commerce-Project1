@@ -249,9 +249,9 @@ function AdminOrderPage(props) {
                 let data = [...orderData];
                 data.sort((a, b) => b.totalPrice - a.totalPrice);
                 setOrderData([...data]);
-            } else if(sort === 'Amount') {
+            } else if(sort === 'Quantity') {
                 let data = [...orderData];
-                data.sort((a, b) => b.amount - a.amount);
+                data.sort((a, b) => b.quantity - a.quantity);
                 setOrderData([...data]);
             } else if(sort === 'Latest') {
                 let data = [...orderData];
@@ -317,8 +317,8 @@ function AdminOrderPage(props) {
                         resetButton();
                         setCancleButtonDis('none');
                         setCancleActiveButtonDis();
-                        setOrderData(allOrder.filter(e => e.status === 'CANCLE'));
-                        setFilteredOrder(allOrder.filter(e => e.status === 'CANCLE'));
+                        setOrderData(allOrder.filter(e => e.status === 'CANCLE' || e.status === 'PENDING_REFUND' || e.status === 'REFUNDED'));
+                        setFilteredOrder(allOrder.filter(e => e.status === 'CANCLE' || e.status === 'PENDING_REFUND' || e.status === 'REFUNDED'));
                     }} style = {{display: cancleButtonDis}} >Cancle</button>
                     <button className='adminOrderPageFilterActiveButton' onClick={() => {
                         resetButton();
@@ -327,15 +327,17 @@ function AdminOrderPage(props) {
                         setOrderData(allOrder);
                         setFilteredOrder(allOrder);
                     }} style = {{display: cancleActiveButtonDis}} >Cancle</button>
+                   
                     <input className='adminFilterOrderInput' placeholder='Find by Order Id' value={orderIdInput} onChange={e => setOrderIdInput(e.target.value)}/>
                     <input className='adminFilterOrderInput' type='date' value={minDate} onChange={e => setMinDate(e.target.value)}/>
                     <FontAwesomeIcon icon={faRightLong} />
                     <input className='adminFilterOrderInput' type='date' value={maxDate} onChange={e => setMaxDate(e.target.value)}/>
+                    
                     <div className='adminOrderSortButton' onClick={() => setSortMenuDis()}><FontAwesomeIcon icon={faArrowUpWideShort} /></div>
                     <div className='adminOrderSortMenuBox' style={{display: sortMenuDis}} onMouseLeave={() => setSortMenuDis('none')} >
                         <div onClick={() => setSort('Latest')}>Latest</div>
                         <div onClick={() => setSort('Price')}>Price</div>
-                        <div onClick={() => setSort('Amount')}>Amount</div>
+                        <div onClick={() => setSort('Quantity')}>Quantity</div>
                         <div onClick={() => setSort('Last Updated')}>Last Updated</div>
                     </div>
                 </div>
