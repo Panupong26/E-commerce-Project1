@@ -8,6 +8,8 @@
 
 Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type=design&node-id=0%3A1&mode=design&t=wOd8fwnGyZwkdhz1-1
 
+*เนื่องจากยังไม่มีประสบการณ์และเป็นโปรเจคส่วนตัวชิ้นแรก หากมีข้อผิดพลาด หรือไม่เรียบร้อยในส่วนไหนสามารถติชมและให้คำแนะนำได้เลยครับ ขอบคุณครับ
+
 # การติดตั้ง
 ### ส่วน API 
 -ทำการติดตั้งแพคเกจ โดย cd ไปที่โฟลเดอร์ project1-api และใช้คำสั่ง npm install </br>
@@ -26,5 +28,4 @@ Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type
 -เปิดไฟล์ env.js ในโฟลเดอร์ src ทำการใส่ค่า URL ของฝั่ง web และ ของฝั่ง api </br>
 -เริ่มการทำงานโดยคำสั่ง npm start </br>
 
-เนื่องจากยังไม่มีประสบการณ์และเป็นโปรเจคส่วนตัวชิ้นแรก หากมีข้อผิดพลาด หรือไม่เรียบร้อยในส่วนไหนสามารถติชมและให้คำแนะนำได้เลยครับ ขอบคุณครับ
  
