@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { authContext } from "../../context/AuthContextProvider";
+import "../../CSS-file/component-css/seller-bar.css"
 import { FONTEND_URL } from "../../env";
 import Orders from "../Orders";
 import ShopSetting from "./ShopSetting";

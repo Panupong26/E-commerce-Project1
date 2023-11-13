@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
         model.hasMany(models.review, {foreignKey : 'userId'});
         model.hasMany(models.cart, {foreignKey : 'userId'});
         model.hasOne(models.reset, {foreignKey : 'userId'});
+        model.hasOne(models.payment, {foreignKey : 'userId'});
     };
 
     return model

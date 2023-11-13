@@ -9,7 +9,7 @@ import HomeFilter from "../component/HomeFilter";
 import "../CSS-file/component-css/nav-bar.css"
 
 export default function NavBar(props) {
-    const { status, notification, cartData } = useContext(authContext);
+    const { status, notification, setNotification, cartData } = useContext(authContext);
     const [open, setOpen] = useState({
         homeFilter: false,
         sortMenu: false,
@@ -96,7 +96,7 @@ export default function NavBar(props) {
                 
                 
                 {open.alertBox && (status === 'user' || status === 'seller') && 
-                    <div><AlertBox setOpen = {setOpen} open = {open} notification = {notification}/></div>
+                    <div><AlertBox setOpen = {setOpen} open = {open} notification = {notification} setNotification = {setNotification}/></div>
                 }
             
                

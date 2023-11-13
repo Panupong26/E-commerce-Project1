@@ -15,7 +15,7 @@ root.render(
     <AuthContextProvider>
       <LoadingContextProvider>
         <App />
-        <ToastContainer/>
+        <ToastContainer style={{width: 'max-content'}}/>
       </LoadingContextProvider>
     </AuthContextProvider>
   </React.StrictMode>

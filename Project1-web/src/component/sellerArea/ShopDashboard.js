@@ -364,7 +364,7 @@ function ShopDashboard() {
         while (i <= +(`${dateMax}`.slice(0, 4))) {
             data[i] = {
                 quantity: 0,
-                quantity: 0
+                income: 0
             };
 
             let date = new Date(+(`${i}`.slice(0, 4)), +(`${dateMin}`.slice(4, 6)) - 1, +(`${dateMin}`.slice(6, 8)));

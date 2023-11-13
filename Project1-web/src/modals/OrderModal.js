@@ -4,7 +4,7 @@ import { API_URL, FONTEND_URL } from "../env";
 import { authContext } from "../context/AuthContextProvider";
 import { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faUser, faTruckFast, faLocationDot, faPhone, faCreditCard, faPenToSquare, faCheck } from '@fortawesome/free-solid-svg-icons';
+import {  faUser, faTruckFast, faLocationDot, faPhone, faCreditCard, faPenToSquare, faCheck, faQrcode, faTruckRampBox } from '@fortawesome/free-solid-svg-icons';
 import { loadingContext } from "../context/LoadingContextProvider";
 import { handleErr } from "../handle-err/HandleErr";
 import "../CSS-file/modal-css/order-modal.css";
@@ -58,6 +58,45 @@ export default function OrderModal({ productShowPic, productData, optionSelected
         })
     };
 
+    async function createPayment() {
+        setIsLoading(true);
+
+        const orderPic =  (productShowPic[0].productId)? `${API_URL}/productpic/${productShowPic[0].picture}` : `${API_URL}/optionpic/${productShowPic[0].picture}` ;                                     
+        await axios.post(`/payment/create-checkout-session`, {
+            item: JSON.stringify([{
+                productName: productData.productName,
+                orderPicture: orderPic,
+                productOption: optionSelected,
+                shippingOption: sentOptionSelected,
+                quantity: quantity,
+                totalPrice: totalOrderPrice,
+                productId: productData.id
+            }]),
+            paymentOption: paymentOptionSelected,
+            destination: destination,
+            receiver: receiveName,
+            phoneNumber: phoneNumber,    
+        })
+        .then(res => {
+            window.location.href = res.data.url;
+        })
+        .catch(err => {
+            handleErr(err);
+        })
+        .finally(() => {
+            setIsLoading(false);
+        })
+    };
+
+    function handleClick() {
+        if(paymentOptionSelected === 'COD') {
+            createOrders();
+        } else {
+            createPayment();
+        }
+    }
+
+
 
 
     return <>
@@ -105,7 +144,7 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                     </div>
 
                     <div className='buyNowPayment'>
-                        <div className='buyNowInputHeader'><FontAwesomeIcon icon={faCreditCard} /> Payment Option</div>
+                        <div className='buyNowInputHeader'> Payment Option</div>
                             <div className = 'buyNowPaymentOptionBox'>
                                 
                                 {productData.acceptCod === 'TRUE' &&
@@ -114,14 +153,14 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                                         <div className='buyNowPaymentOption' onClick = {() => {
                                         setPaymentOptionSelected('COD');
                                         setActivePaymentButton({...defaultActivePaymentButton, cod: true});
-                                    }}>Cash on delivery</div>
+                                    }}><FontAwesomeIcon icon={faTruckRampBox} /> Cash on delivery</div>
                                     }
                                     
                                     {activePaymentButton.cod && 
                                     <div className='buyNowPaymentActiveOption' onClick = {() => {
                                         setPaymentOptionSelected();
                                         setActivePaymentButton({...defaultActivePaymentButton});
-                                    }}>Cash on delivery</div>
+                                    }}><FontAwesomeIcon icon={faTruckRampBox} /> Cash on delivery</div>
                                     }
                                 </div>
                                 }
@@ -131,14 +170,14 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                                         <div className='buyNowPaymentOption' onClick = {() => {
                                         setPaymentOptionSelected('CARD');
                                         setActivePaymentButton({...defaultActivePaymentButton, card: true});
-                                    }}>Card</div>
+                                    }}><FontAwesomeIcon icon={faCreditCard} /> Card</div>
                                     }
                                     
                                     {activePaymentButton.card && 
                                     <div className='buyNowPaymentActiveOption' onClick = {() => {
                                         setPaymentOptionSelected();
                                         setActivePaymentButton({...defaultActivePaymentButton});
-                                    }}>Card</div>
+                                    }}><FontAwesomeIcon icon={faCreditCard} /> Card</div>
                                     }
                                 </div>
                                
@@ -147,21 +186,21 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                                         <div className='buyNowPaymentOption' onClick = {() => {
                                         setPaymentOptionSelected('QR');
                                         setActivePaymentButton({...defaultActivePaymentButton, qr: true});
-                                    }}>OR code</div>
+                                    }}><FontAwesomeIcon icon={faQrcode} /> OR code</div>
                                     }
                                     
                                     {activePaymentButton.qr && 
                                     <div className='buyNowPaymentActiveOption' onClick = {() => {
                                         setPaymentOptionSelected();
                                         setActivePaymentButton({...defaultActivePaymentButton});
-                                    }}>OR code</div>
+                                    }}><FontAwesomeIcon icon={faQrcode} /> OR code</div>
                                     }
                                 </div>
                             </div>
                         </div>
                     </div>
                 <div className='buyNowButtonBox'>
-                    <button className='buyNowCheckOutButton' disabled = {!receiveName || !destination || !phoneNumber || !paymentOptionSelected || isEdit} onClick={() => createOrders()}>Check Out</button>
+                    <button className='buyNowCheckOutButton' disabled = {!receiveName || !destination || !phoneNumber || !paymentOptionSelected || isEdit} onClick={() => handleClick()}>Check Out</button>
                     <button className='buyNowCancleButton' onClick={() => {setOpenModal(false)}}>Cancle</button>
                 </div>
             </div> 

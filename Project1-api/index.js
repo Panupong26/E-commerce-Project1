@@ -19,6 +19,7 @@ const adminRouter = require('./Router/adminRouter');
 const resetRouter = require('./Router/resetRouter');
 const verifyRouter = require('./Router/verifyRouter');
 const findFileByName = require('./findFile/findFileByName');
+const paymentRouter = require('./Router/paymentRouter');
 
 require('dotenv').config();
 
@@ -82,7 +83,7 @@ app.use('/review', reviewRouter);
 app.use('/admin', adminRouter);
 app.use('/reset', resetRouter);
 app.use('/verify', verifyRouter);
-
+app.use('/payment', paymentRouter);
 
 
 db.sequelize.sync().then(() => {

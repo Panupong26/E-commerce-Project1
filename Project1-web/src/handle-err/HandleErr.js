@@ -27,7 +27,7 @@ export const handleErr = (err) => {
         } else if(err.response.status === 400) {
             toast.error(err.response.data.message, {
                 position: 'top-center',
-                autoClose: 2000
+                autoClose: 2000,
             });
 
         } else if(err.response.status === 404) {

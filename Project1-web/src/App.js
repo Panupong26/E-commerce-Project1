@@ -20,6 +20,7 @@ import { authContext } from './context/AuthContextProvider';
 import { useContext } from 'react';
 import NavBar from './component/NavBar';
 import Loading from './page/Loading';
+import PaymentPage from './page/paymentPage';
 import ErrorPage from './page/ErrorPage';
 import { loadingContext } from './context/LoadingContextProvider';
 
@@ -73,6 +74,7 @@ function App() {
           <Route path='/login' element = {<Navigate to={'/home'}/>}/>
           <Route path='/error/:code' element={<ErrorPage />}/>
           <Route path='/error/:code/:msg' element={<ErrorPage />}/>
+          <Route path='/paymentsuccess' element={<PaymentPage />}/>
           <Route path='*' element = {<Navigate to={'/home'}/>}/>
         </Routes>
       </BrowserRouter>

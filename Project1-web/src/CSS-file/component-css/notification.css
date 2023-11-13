@@ -1,18 +1,27 @@
-.alertBox {
+.alert-container {
     position: fixed;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0px 0px 2px 1px rgb(200, 200, 200);
+    border-radius: 5px;
+    margin: 0;
+    padding: 0px;
+    width: 300px;
+    height: max-content;
+    right: 35px;
+    top: 10px;
+    z-index: 1;
+}
+
+.alertBox {
     box-sizing: border-box;
     margin: 0;
     padding: 5px;
-    width: 250px;
+    width: 100%;
     height: max-content;
-    max-height: 300px;
-    right: 35px;
-    top: 10px;
+    max-height: 320px;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-color: white;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
-    z-index: 1;
 }
 
 .alertBox::-webkit-scrollbar {
@@ -58,4 +67,19 @@
     right: 5px;
     font-size: 10px;
     color: rgb(108, 108, 108);
+}
+
+.accept-all-button {
+    color: rgb(170, 170, 170);
+    background-color: rgb(240, 240, 240);
+    font-size: 16px;
+    text-align: center;
+    margin: auto;
+    padding: 8px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.accept-all-button:hover {
+    cursor: pointer;
+    color: black;
 }

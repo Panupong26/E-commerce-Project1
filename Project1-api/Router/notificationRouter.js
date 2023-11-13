@@ -12,7 +12,8 @@ router.use(express.urlencoded({extended: false}));
 
 router.get('/getnotificationbyuserid', authentication, notification.getNotificationByUserId);
 router.get('/getnotificationbysellerid', authentication, notification.getNotificationBySellerId);
-router.delete('/deletenotification/:notificationId', notification.deleteNotification);
+router.delete('/deletenotification/:notificationId', authentication, notification.deleteNotification);
+router.delete('/deleteallnotification', authentication, notification.deleteAllNotification);
 
 
 module.exports = router;

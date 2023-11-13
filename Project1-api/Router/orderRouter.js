@@ -11,7 +11,6 @@ router.use(express.json());
 router.use(express.urlencoded({extended: false}));
 
 router.post('/createorder', authentication, order.createOrder);
-router.post('/createmultiorders', authentication, order.createMultiOrders);
 router.get('/getallorder', authentication, order.getAllOrder);
 router.get('/getorderbysellerid', authentication, order.getOrderBySellerId);
 router.get('/getorderbyuserid', authentication, order.getOrderByUserId);

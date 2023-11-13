@@ -128,7 +128,7 @@ function Verification() {
                         } else if(status && status === 'seller') {
                             window.location.replace(`${FONTEND_URL}/seller`);
                         }
-                    }}>Ok</div>
+                    }}>OK</div>
                 </div>
                 }       
             </div>

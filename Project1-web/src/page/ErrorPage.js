@@ -11,6 +11,8 @@ import "../CSS-file/page-css/error.css";
 export default function ErrorPage() {
     const { code, msg } = useParams();
 
+    document.title = `Error ${code}`
+
     return <>
         <div className='error-page'>
             <div className="error-content">

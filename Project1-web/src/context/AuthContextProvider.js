@@ -105,5 +105,5 @@ export default function AuthContextProvider({ children }) {
 
 
 
-    return <authContext.Provider value={{authUser, status, cartData, setCartData, notification}}>{children}</authContext.Provider>
+    return <authContext.Provider value={{authUser, status, cartData, setCartData, notification, setNotification}}>{children}</authContext.Provider>
 }

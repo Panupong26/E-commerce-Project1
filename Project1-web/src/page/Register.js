@@ -85,7 +85,16 @@ function Register() {
         
     }
 
-    useEffect(() => {document.title = 'User Register'},[])
+    useEffect(() => {
+        document.title = 'User Register'
+        if(window.location.pathname.includes('admin')) {
+            document.title = 'Create Admin' ;
+        } else if(window.location.pathname.includes('seller')) {
+            document.title = 'Seller Register' ;
+        } else  {
+            document.title = 'User Register' ;
+        }
+    },[])
 
 
     return (

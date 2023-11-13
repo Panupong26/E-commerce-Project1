@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react";
 import { authContext } from "../../context/AuthContextProvider";
+import "../../CSS-file/component-css/user-bar.css"
 import Orders from "../Orders";
 import Cart from "./Cart";
 import EditUserInfo from "./EditUserInfo";

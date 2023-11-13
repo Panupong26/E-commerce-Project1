@@ -1,7 +1,7 @@
 
 import '../../CSS-file/component-css/user-cart.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faLocationDot, faPhone, faPenToSquare, faCreditCard, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faLocationDot, faPhone, faPenToSquare, faCreditCard, faUser, faQrcode } from '@fortawesome/free-solid-svg-icons';
 import { useContext, useEffect, useState } from 'react';
 import axios from '../../config/Axios';
 import CartCard from '../../component/CartCard';
@@ -50,18 +50,15 @@ export default function Cart({ userData, cartData, setCartData }) {
 
     async function createOrderFromCart() {
         setIsLoading(true);
-        await axios.post(`/order/createmultiorders`, {
-            cartArr: cartSelected,
+        await axios.post(`/payment/create-checkout-session`, {
+            item: JSON.stringify(cartSelected),
             destination: address,
             phoneNumber: phoneNumber,
             receiver: receiveName,
             paymentOption: paymentOption
         })
-        .then(() => {
-            const newCartData = [...cartData];
-            cartSelected.forEach(e => newCartData.splice(newCartData.findIndex(i => i.id === e.id), 1));
-            setCartData([...newCartData]);
-            setCartSelected([]);
+        .then(res => {
+            window.location.href = res.data.url;
         })
         .catch(err => {
            handleErr(err);
@@ -143,7 +140,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                         </div>
                     </div>  
                     <div className='paymentOptionBox'>
-                        <div className='paymentOptionHeader'><FontAwesomeIcon icon={faCreditCard} /> Payment Option </div>
+                        <div className='paymentOptionHeader'> Payment Option </div>
                         <div className='paymentOptionButtonBox'>
                            
                             <div>
@@ -152,7 +149,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                                     onClick={() => {
                                         setPaymentOption('CARD'); 
                                         setActivePaymentOption({...defaultPaymentOptionButton, card: true}); 
-                                }}>Card</div>
+                                }}><FontAwesomeIcon icon={faCreditCard} /> Card</div>
                                 } 
 
                                 {activePaymentOption.card &&
@@ -160,7 +157,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                                     onClick={() => {
                                         setPaymentOption();
                                         setActivePaymentOption({...defaultPaymentOptionButton}); 
-                                }}>Card</div>
+                                }}><FontAwesomeIcon icon={faCreditCard} /> Card</div>
                                 }
                             </div> 
 
@@ -170,7 +167,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                                     onClick={() => {
                                         setPaymentOption('QR'); 
                                         setActivePaymentOption({...defaultPaymentOptionButton, qr: true}); 
-                                }}>QR code</div>
+                                }}><FontAwesomeIcon icon={faQrcode} /> QR code</div>
                                 } 
 
                                 {activePaymentOption.qr &&
@@ -178,7 +175,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                                     onClick={() => {
                                         setPaymentOption();
                                         setActivePaymentOption({...defaultPaymentOptionButton}); 
-                                }}>QR code</div>
+                                }}><FontAwesomeIcon icon={faQrcode} /> QR code</div>
                                 }
                             </div> 
                         </div> 

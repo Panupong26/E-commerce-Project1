@@ -1,10 +1,10 @@
 const db = require('../models');
 const fs = require('fs');
-const Sequelize = require('sequelize');const { resolve } = require('path');
+const sequelize = require('sequelize');
 const { productValidator } = require('../validator/validator');
 const findFileByName = require("../findFile/findFileByName");
 
-const Op = Sequelize.Op;
+const Op = sequelize.Op;
 
 
 const createProduct = async (req,res) => {

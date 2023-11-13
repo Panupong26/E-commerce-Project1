@@ -18,7 +18,6 @@ const createOrder = async (req, res) => {
         const sellerId = req.body.sellerId;
         const productId = req.body.productId;
 
-        console.log(paymentOption);
     
         if(!productId || 
             !productName || 
@@ -80,89 +79,6 @@ const createOrder = async (req, res) => {
         } else {
             return res.status(403).send({message: "You don't have permission to access"})
         }
-    } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal server error');
-    }
-}
-
-const createMultiOrders = async (req, res) => {
-    try {
-        const userId = req.user.id;
-        const cartArr = req.body.cartArr;
-        const receiver = req.body.receiver;
-        const phoneNumber = req.body.phoneNumber;
-        const destination = req.body.destination;
-        const paymentOption = req.body.paymentOption;
-        const time = new Date();
-
-        if( !destination ||
-            !receiver ||
-            !phoneNumber ||
-            !paymentOption ||
-            !cartArr 
-         ) {
-             return res.status(400).send({message: 'Invalid request value'});
-         }
-
-
-        for(let el of cartArr) {
-            const targetProduct = await db.product.findOne({where: {id: el.productId}})
-
-
-            if( !el.productId || 
-                !el.productName || 
-                !el.cartPicture ||
-                !el.productOption || 
-                !el.shippingOption || 
-                !el.quantity || 
-                typeof el.quantity !== 'number' || 
-                !el.totalPrice || 
-                typeof el.totalPrice !== 'number' 
-            ) {
-                return res.status(400).send({message: 'Invalid request value'});
-            }
-
-            await db.order.create({
-                productName: el.productName,
-                orderPicture: el.cartPicture,
-                productOption: el.productOption,
-                shippingOption: el.shippingOption,
-                quantity: el.quantity,
-                trackingNumber: '',
-                totalPrice: el.totalPrice,
-                paymentOption: paymentOption,
-                destination: destination,
-                receiver: receiver,
-                phoneNumber: phoneNumber,
-                date: time.getDate(),
-                month: time.getMonth() + 1,
-                year: time.getFullYear(),
-                hour: time.getHours(),
-                minute: time.getMinutes(),
-                status: 'PREPARE_SHIPPING',
-                userId: userId,
-                sellerId: targetProduct.sellerId,
-                productId: el.productId
-            }).then(async (x) => {
-                await db.notification.create({
-                    message: `(order: ${x.id}) ${x.productName} has been ordered`,
-                    notificationPicture: x.orderPicture,
-                    notificationType: 'TO_SELLER_ORDER',
-                    status: 'UNREAD',
-                    date: time.getDate(),
-                    month: time.getMonth() + 1,
-                    year: time.getFullYear(),
-                    hour: time.getHours(),
-                    minute: time.getMinutes(),
-                    sellerId: x.sellerId,
-                });
-                await db.cart.destroy({where: {id: el.id}})
-                
-            })   
-        }
-        return res.status(200).send('Done!');
-    
     } catch (err) {
         console.log(err);
         return res.status(500).send('Internal server error');
@@ -594,7 +510,6 @@ const refundOrder = async (req, res) => {
 
 module.exports = {
     createOrder,
-    createMultiOrders,
     getOrderByUserId,
     getOrderBySellerId,
     getAllOrder,

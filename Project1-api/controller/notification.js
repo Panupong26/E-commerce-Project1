@@ -1,4 +1,6 @@
 const db = require('../models');
+const sequelize = require("sequelize")
+const Op = sequelize.Op;
 
 const getNotificationByUserId = async (req, res) => {
     try {
@@ -60,8 +62,31 @@ const deleteNotification = async (req, res) => {
     } 
 }
 
+const deleteAllNotification = async (req, res) => {
+    try {
+        const userId = req.user.id;
+
+    
+        await db.notification.destroy({
+            where: {
+                [Op.or]: [
+                    {userId: userId},
+                    {sellerId: userId}
+                ]
+            }
+        })
+        
+        return res.status(200).send({message: 'Done'});
+
+    } catch (err) {
+        console.log(err);
+        return res.status(500).send('Internal sever error');
+    } 
+}
+
 module.exports = {
     getNotificationByUserId,
     getNotificationBySellerId,
-    deleteNotification
+    deleteNotification,
+    deleteAllNotification
 }
