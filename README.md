@@ -16,7 +16,7 @@ Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type
   &nbsp;&nbsp;&nbsp;-password สำหรับ MySql </br>
   &nbsp;&nbsp;&nbsp;-Secret key และ เวลาหมดอายุของ token </br>
   &nbsp;&nbsp;&nbsp;-Email address สำหรับใช้ส่งในระบบยืนยัน โดยหากใช้ Gmail password ที่ใช้ จะต้องได้จากการ generate application password </br>
-   &nbsp;&nbsp;&nbsp;-Stripe private key (สมัคร Stripe โดยยังไม่ต้องยืนยันธุรกิจ และเขาไปคัดลอกในส่วน API secret key มาใช้สำหรับทดสอบระบบชำระเงิน (Test mode))
+  &nbsp;&nbsp;&nbsp;-Stripe private key (สมัคร Stripe โดยยังไม่ต้องยืนยันธุรกิจ และเขาไปคัดลอกในส่วน API secret key มาใช้สำหรับทดสอบระบบชำระเงิน (Test mode)) </br>
   &nbsp;&nbsp;&nbsp;-URL ของฝั่ง web </br>
 -ทำการสร้าง schema MySql โดยชื่อจะต้องตรงกับชื่อที่ตั้งไว้ใน .env (DB_NAME) </br>
 -เริ่มการทำงาน sever โดยคำสั่ง npx nodemon </br>
