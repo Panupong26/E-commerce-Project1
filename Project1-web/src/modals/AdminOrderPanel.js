@@ -96,8 +96,12 @@ function AdminOrderPanel(props) {
                         <div className="adminOrderText">Quantity: {orderData?.quantity}</div>
                         <div className="adminOrderText">Total Price: {orderData?.totalPrice.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>
                         <div className="adminOrderText">Payment Option: {orderData?.paymentOption}</div>
-                        {orderData?.ref && <>
+                        {orderData?.ref && orderData?.admin &&<>
                         <div className="adminOrderText">Refund Ref.: {orderData?.ref}</div>
+                        <div className="adminOrderText">Admin: {orderData?.admin? orderData.admin.username : `[Delete Accoumt]`}</div>
+                        </>
+                        }
+                        {orderData?.admin && !orderData?.ref && <>
                         <div className="adminOrderText">Admin: {orderData?.admin? orderData.admin.username : `[Delete Accoumt]`}</div>
                         </>
                         }

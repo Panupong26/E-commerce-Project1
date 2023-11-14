@@ -65,14 +65,12 @@ const deleteNotification = async (req, res) => {
 const deleteAllNotification = async (req, res) => {
     try {
         const userId = req.user.id;
+        const status = req.user.status
 
-    
+        
         await db.notification.destroy({
-            where: {
-                [Op.or]: [
-                    {userId: userId},
-                    {sellerId: userId}
-                ]
+            where : {
+                [`${status}Id`]: userId
             }
         })
         
