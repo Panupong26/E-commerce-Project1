@@ -16,7 +16,7 @@
     margin: 0;
     padding: 10px 0px 10px 0px;
     padding-bottom: 0px;
-    width: 100%;
+    width: 400px;
     text-align: left;
     height: 100%;
 }
@@ -41,7 +41,7 @@
     overflow-x: hidden;
     overflow-y: scroll;
     height: 240px;
-    width: 475px;
+    width: 100%;
     word-wrap: break-word;
     border-style: none;
     font-size: 15px;
@@ -89,19 +89,37 @@
 .storeContactPlatform {
     box-sizing: border-box;
     margin: 10px;
-    width: max-content;
-}
-
-.storeAddress {
-    margin-top: 5px;
     width: 250px;
 }
 
-@media (max-width: 860px) {
+.storeAddressPlatform {
+    box-sizing: border-box;
+    display: flex;
+    height: max-content;
+    margin: 10px;
+    width: 250px;
+}
+
+.shopAddress {
+    margin: 1px;
+    width: 250px;
+    word-break: keep-all
+}
+
+@media (max-width: 1055px) {
     .storeDetail {
         flex-direction: column;
         width: 400px;
         height: max-content;
+    }
+
+    .storeDescription {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 10px 0px 10px 0px;
+        padding-bottom: 0px;
+        text-align: left;
+        height: 100%;
     }
 
     .storeContact {

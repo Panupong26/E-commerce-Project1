@@ -64,12 +64,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     model.associate = models => {
-        model.hasMany(models.notification, {foreignKey : 'sellerId'});
-        model.hasMany(models.favorite, {foreignKey : 'sellerId'});
-        model.hasMany(models.bill, {foreignKey : 'sellerId'});
-        model.hasMany(models.order, {foreignKey : 'sellerId'});
-        model.hasMany(models.product, {foreignKey : 'sellerId'});
-        model.hasOne(models.reset, {foreignKey : 'sellerId'});
+        model.hasMany(models.notification, {foreignKey : 'sellerId', onDelete: 'CASCADE'});
+        model.hasMany(models.favorite, {foreignKey : 'sellerId', onDelete: 'CASCADE'});
+        model.hasMany(models.bill, {foreignKey : 'sellerId', onDelete: 'SET NULL'});
+        model.hasMany(models.order, {foreignKey : 'sellerId', onDelete: 'SET NULL'});
+        model.hasMany(models.product, {foreignKey : 'sellerId', onDelete: 'CASCADE'});
+        model.hasOne(models.reset, {foreignKey : 'sellerId', onDelete: 'CASCADE'});
     };
 
     return model

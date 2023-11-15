@@ -47,13 +47,13 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     model.associate = models => {
-        model.hasMany(models.notification, {foreignKey : 'userId'});
-        model.hasMany(models.favorite, {foreignKey : 'userId'});
-        model.hasMany(models.order, {foreignKey : 'userId'});
-        model.hasMany(models.review, {foreignKey : 'userId'});
-        model.hasMany(models.cart, {foreignKey : 'userId'});
-        model.hasOne(models.reset, {foreignKey : 'userId'});
-        model.hasOne(models.payment, {foreignKey : 'userId'});
+        model.hasMany(models.notification, {foreignKey : 'userId', onDelete: 'CASCADE'});
+        model.hasMany(models.favorite, {foreignKey : 'userId', onDelete: 'CASCADE'});
+        model.hasMany(models.order, {foreignKey : 'userId', onDelete: 'SET NULL'});
+        model.hasMany(models.review, {foreignKey : 'userId', onDelete: 'SET NULL'});
+        model.hasMany(models.cart, {foreignKey : 'userId', onDelete: 'CASCADE'});
+        model.hasOne(models.reset, {foreignKey : 'userId', onDelete: 'CASCADE'});
+        model.hasOne(models.payment, {foreignKey : 'userId', onDelete: 'CASCADE'});
     };
 
     return model

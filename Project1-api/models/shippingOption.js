@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     model.associate = models => {
-        model.belongsTo(models.product,  {foreignKey : 'productId'});
+        model.belongsTo(models.product,  {foreignKey : 'productId', onDelete: 'CASCADE'});
     };
 
     return model

@@ -126,12 +126,12 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     model.associate = models => {
-        model.belongsTo(models.user,  {foreignKey : 'userId'});
-        model.hasOne(models.bill, {foreignKey : 'orderId'});
-        model.hasOne(models.review, {foreignKey : 'orderId'});
-        model.belongsTo(models.seller,  {foreignKey : 'sellerId'});
-        model.belongsTo(models.product,  {foreignKey : 'productId'});
-        model.belongsTo(models.admin,  {foreignKey : 'adminId'});
+        model.belongsTo(models.user,  {foreignKey : 'userId', onDelete: 'SET NULL'});
+        model.hasOne(models.bill, {foreignKey : 'orderId', onDelete: 'SET NULL'});
+        model.hasOne(models.review, {foreignKey : 'orderId', onDelete: 'SET NULL'});
+        model.belongsTo(models.seller,  {foreignKey : 'sellerId', onDelete: 'SET NULL'});
+        model.belongsTo(models.product,  {foreignKey : 'productId', onDelete: 'SET NULL'});
+        model.belongsTo(models.admin,  {foreignKey : 'adminId', onDelete: 'SET NULL'});
     };
 
     return model

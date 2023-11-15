@@ -286,7 +286,7 @@ const deleteProduct = async (req,res) => {
                             fs.unlinkSync(`Upload/optionpic/${p.picture}`);
                         }
                         
-                        await db.optionPicture.destroy({where: {id: e.id}}); 
+                        await db.optionPicture.destroy({where: {id: p.id}}); 
                     };
 
                     await db.productOption.destroy({where: {id: e.id}});
@@ -322,7 +322,7 @@ const deleteProduct = async (req,res) => {
 
 const adminDeleteProduct = async (req,res) => {
     try {
-        const productId = req.body.productId
+        const { productId } = req.params;
         const status = req.user.status;
     
     
@@ -361,7 +361,7 @@ const adminDeleteProduct = async (req,res) => {
                         fs.unlinkSync(`Upload/optionpic/${p.picture}`);
                     }
                    
-                    await db.optionPicture.destroy({where: {id: e.id}}); 
+                    await db.optionPicture.destroy({where: {id: p.id}}); 
                 };
     
                 await db.productOption.destroy({where: {id: e.id}});

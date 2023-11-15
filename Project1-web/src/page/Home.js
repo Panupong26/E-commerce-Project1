@@ -74,7 +74,7 @@ function Home() {
                 if(query && query !== 'null' && query !== 'undefined') {
                     let newestSearchData = newSearchData.filter(e => e.productName.toLowerCase().includes(query.toLowerCase()) || e.seller.storeName.toLowerCase().includes(query.toLowerCase()));
                     if(max && max !== 'null' && max !== 'undefined'){
-                        let priceMaxFiltered = newestSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => b.price - a.price)[0].price <= max);
+                        let priceMaxFiltered = newestSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => a.price - b.price)[0].price <= max);
                         setProductData([...priceMaxFiltered]);
                         setSearchParams({type: type, query: query, max: max});
                         if(min && min !== 'null' && min !== 'undefined') {
@@ -92,7 +92,7 @@ function Home() {
                     }
                 } else {
                     if(max && max !== 'null' && max !== 'undefined'){
-                        let priceMaxFiltered =  newSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => b.price - a.price)[0].price <= max);
+                        let priceMaxFiltered =  newSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => a.price - b.price)[0].price <= max);
                         setProductData([...priceMaxFiltered]);
                         setSearchParams({type: type, max: max});
                         if(min && min !== 'null' && min !== 'undefined') {
@@ -113,7 +113,7 @@ function Home() {
                 if(query && query !== 'null' && query !== 'undefined') {
                     let newestSearchData = allProductType.filter(e => e.productName.toLowerCase().includes(query.toLowerCase()) || (e.seller.storeName.toLowerCase().includes(query.toLowerCase())));
                     if(max && max !== 'null' && max !== 'undefined'){
-                        let priceMaxFiltered =  newestSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => b.price - a.price)[0].price <= max);
+                        let priceMaxFiltered =  newestSearchData.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => a.price - b.price)[0].price <= max);
                         setProductData([...priceMaxFiltered]);
                         setSearchParams({query: query, max: max});
                         if(min && min !== 'null' && min !== 'undefined') {
@@ -132,7 +132,7 @@ function Home() {
 
                 } else {
                     if(max && max !== 'null' && max !== 'undefined'){
-                        let priceMaxFiltered =  allProductType.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => b.price - a.price)[0].price <= max);
+                        let priceMaxFiltered =  allProductType.filter(e => (e.productOptions.length === 1)? e.productOptions[0].price <= max : e.productOptions.sort((a,b) => a.price - b.price)[0].price <= max);
                         setProductData([...priceMaxFiltered]);
                         setSearchParams({max: max});
                         if(min && min !== 'null'&& min !== 'undefined') {

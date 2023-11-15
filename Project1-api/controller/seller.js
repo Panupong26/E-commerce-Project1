@@ -447,8 +447,6 @@ const deleteSeller = async (req,res) => {
                 const targetOption = await db.productOption.findAll({where: {productId: e.id}});
     
                 for (let o of targetOption) {
-                    await db.productOption.destroy({where: {id: o.id}});    
-    
                     const targetOptionPic = await db.optionPicture.findAll({where: {optionId: o.id}});
                     
                     if(targetOptionPic.length !== 0) {
@@ -461,6 +459,8 @@ const deleteSeller = async (req,res) => {
                             await db.optionPicture.destroy({where: {id: p.id}});
                         };
                     };
+
+                    await db.productOption.destroy({where: {id: o.id}}); 
     
                 };
     
@@ -482,7 +482,6 @@ const deleteSeller = async (req,res) => {
      
             await db.notification.destroy({where: {sellerId: sellerId}});
             await db.favorite.destroy({where: {sellerId: sellerId}});
-            await db.bill.destroy({where: {sellerId: sellerId}});
             await db.seller.destroy({where: {id: sellerId}});
             
             return res.status(200).send({message: 'Done'});   

@@ -19,7 +19,12 @@ export default function StoreDropdown({ shopData, setOpen }) {
                     {shopData?.phoneNumber && <div className='storeContactPlatform'><div className='icon'><FontAwesomeIcon icon={faPhone} /></div>{shopData?.phoneNumber}</div>}
                     {shopData?.facebook && <div className='storeContactPlatform'><div className='icon'><FontAwesomeIcon icon={faFacebookF} /></div>{shopData?.facebook}</div>}
                     {shopData?.instagram && <div className='storeContactPlatform'><div className='icon'><FontAwesomeIcon icon={faInstagram} /></div>{shopData?.instagram}</div>}
-                    {shopData?.address && <div className='storeContactPlatform'><div className='icon'><FontAwesomeIcon icon={faLocationDot} /></div>{shopData?.address}</div>}
+                    {
+                    shopData?.address && <div className='storeAddressPlatform'>
+                        <div className='icon'><FontAwesomeIcon icon={faLocationDot} /></div>
+                        <div className='shopAddress'>{shopData?.address}</div>
+                    </div>
+                    }
                 </div>
             </div>
         </div>

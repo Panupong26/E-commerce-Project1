@@ -79,72 +79,6 @@
     padding: 10px;
     font-size: 14px;
 }
-.storeDetail {
-    background-color: white;
-    position: fixed;
-    left: 255px;
-    top: 55px;
-    width: 700px;
-    height: 300px;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
-    z-index: 1;
-}
-
-.storeDescription {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px 0px 10px 0px;
-    padding-bottom: 0px;
-    width: 100%;
-    text-align: left;
-    height: 100%;
-}
-
-.storeDescriptionHead {
-    box-sizing: border-box;
-    margin: 0;
-    margin-bottom: 0px;
-    padding-left: 10px;
-    width: 100%;
-    height: 30px;
-    color: rgb(127, 171, 41);
-    text-shadow: 1px 1px 2px rgb(200, 200, 200);
-    font-weight: 600;
-}
-
-.storeDescriptionMessage {
-    color: black;
-    font-size: 14px;
-    padding: 10px;
-    padding-top: 0px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 240px;
-    width: 95%;
-    border-style: none;
-    font-size: 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    resize: none;
-}
-
-.storeContact {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 10px;
-    padding-bottom: 0px;
-    width: 40%;
-    height: 100%;
-    text-align: left;
-    background-color: rgb(240, 240, 240);
-}
-
-.icon {
-    width: 30px;
-}
 
 .storeCloseStoreDetail {
     position: absolute;
@@ -156,29 +90,6 @@
 
 .storeCloseStoreDetail:hover {
     cursor: pointer;
-}
-
-.storeContactHead {
-    box-sizing: border-box;
-    margin: 0;
-    margin-bottom: 10px;
-    padding: 0;
-    width: 100%;
-    height: 30px;
-    color: rgb(127, 171, 41);
-    text-shadow: 1px 1px 2px rgb(200, 200, 200);
-    font-weight: 600;
-}
-
-.storeContactPlatform {
-    box-sizing: border-box;
-    margin: 10px;
-    width: max-content;
-}
-
-.storeAddress {
-    margin-top: 5px;
-    width: 250px;
 }
 
 .storeCategory {

@@ -86,8 +86,8 @@ module.exports = (sequelize, DataTypes) => {
 
     model.associate = models => {
         model.belongsTo(models.order,  {foreignKey : 'orderId'});
-        model.belongsTo(models.seller,  {foreignKey : 'sellerId'});
-        model.belongsTo(models.admin,  {foreignKey : 'adminId'});
+        model.belongsTo(models.seller,  {foreignKey : 'sellerId', onDelete: 'SET NULL'});
+        model.belongsTo(models.admin,  {foreignKey : 'adminId', onDelete: 'SET NULL'});
     };
 
     return model

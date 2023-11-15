@@ -57,7 +57,7 @@ function Product(props) {
     async function adminDeleteProduct() {
         setIsLoading(true);
 
-        await axios.delete(`/product/admindeleteproduct`, {productId: productData.id})
+        await axios.delete(`/product/admindeleteproduct/${productData.id}`)
         .then(() => {
             window.location.replace(`${FONTEND_URL}/index`);
         })
@@ -376,9 +376,7 @@ function Product(props) {
                 {status !== 'seller' &&
                 <div className = 'productDetailBox'>
                     <div className='productDetailHeader'>Product Detail</div>
-                    <div className='productDetail'>
-                        {productData?.productDetail}
-                    </div>    
+                    <textarea className='productDetail'  value = {productData?.productDetail || ''}/>
                 </div>
                 }
 

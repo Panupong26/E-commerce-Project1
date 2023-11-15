@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     });
     
     model.associate = models => {
-        model.belongsTo(models.productOption,  {foreignKey : 'optionId'});
+        model.belongsTo(models.productOption,  {foreignKey : 'optionId', onDelete: 'CASCADE'});
     };
 
     return model

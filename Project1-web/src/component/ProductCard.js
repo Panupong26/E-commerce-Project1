@@ -40,7 +40,7 @@ function ProductCard({ data }) {
                     src={(data?.productPictures &&  !!data?.productPictures[0])? `${API_URL}/productpic/${data.productPictures[0].picture}` : NOTFOUND_PICTURE} alt='Product' />
             
                 <div className='productNameOnCard'> 
-                    {data?.productName.length > 16 ? data.productName.slice(0,15) + '...' : data.productName}
+                    {data?.productName.length > 15 ? data.productName.slice(0,14) + '...' : data.productName}
                 </div>
                 
                 <div className='productDetailOnCard'> 

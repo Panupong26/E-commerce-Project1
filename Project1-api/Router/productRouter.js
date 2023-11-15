@@ -28,6 +28,6 @@ router.get('/getproductbysellerid/:sellerId', product.getProductBySellerId);
 router.get('/getproductbyproductid/:productId', product.getProductByProductId);
 router.patch('/updateproduct', authentication, product.editProduct);
 router.delete('/deleteproduct/:productId', authentication, product.deleteProduct);
-router.delete('/admindeleteproduct', authentication, product.adminDeleteProduct);
+router.delete('/admindeleteproduct/:productId', authentication, product.adminDeleteProduct);
 
 module.exports = router;

@@ -30,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     model.associate = models => {
-        model.hasMany(models.bill,  {foreignKey : 'adminId'});
-        model.hasMany(models.order,  {foreignKey : 'adminId'});
-        model.hasOne(models.reset, {foreignKey : 'adminId'});
+        model.hasMany(models.bill,  {foreignKey : 'adminId', onDelete: 'SET NULL'});
+        model.hasMany(models.order,  {foreignKey : 'adminId', onDelete: 'SET NULL'});
+        model.hasOne(models.reset, {foreignKey : 'adminId', onDelete: 'CASCADE'});
     };
 
     return model
