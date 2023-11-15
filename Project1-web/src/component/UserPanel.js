@@ -132,7 +132,7 @@ function UserPanel() {
                 <h3>Hi, {authUser?.storeName?.length > 10 ? authUser?.storeName.slice(0, 9) + '...' : authUser?.storeName} </h3>
                 </div>
                 <ul className='userPanelList'>
-                    <li onClick={() => window.location.href = `${FONTEND_URL}/profile/dashboard`}><FontAwesomeIcon icon={faChartLine} /> Dashbord</li>
+                    <li onClick={() => window.location.href = `${FONTEND_URL}/profile/dashboard`}><FontAwesomeIcon icon={faChartLine} /> Dashboard</li>
                     <li onClick={() => window.location.href = `${FONTEND_URL}/mystore`}><FontAwesomeIcon icon={faStore} /> My Store</li>
                     <li onClick={() => sellerResetPassword()}><FontAwesomeIcon icon={faKey} /> Reset Password</li>
                 </ul>

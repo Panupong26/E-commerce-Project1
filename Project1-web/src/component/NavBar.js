@@ -20,7 +20,7 @@ export default function NavBar(props) {
     const changeHomeSearchParams = () => {
         props.setSearchParams(() => {
             if(props.searchQuery) {
-                if(props.filterParams) {
+                if(props.filterParams !== undefined) {
                     props.setSideBarParams({type: undefined});
                     return {type: props.filterParams, query: props.searchQuery, min: props.priceFilterParams.min, max: props.priceFilterParams.max}
                 } else {
@@ -31,7 +31,7 @@ export default function NavBar(props) {
                     }
                 }
             } else {
-                if(props.filterParams) {
+                if(props.filterParams !== undefined) {
                     props.setSideBarParams({type: undefined});
                     return {type: props.filterParams, min: props.priceFilterParams.min, max: props.priceFilterParams.max}
                 } else {

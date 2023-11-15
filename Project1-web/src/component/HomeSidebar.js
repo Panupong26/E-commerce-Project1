@@ -33,7 +33,7 @@ function HomeSidebar(props) {
         if(searchSidebarQuery === '') {
             setTypeArr(allTypeArr);
         } else if(typeArr) {
-            let newTypeArr = typeArr.filter(e => e.toUpperCase().includes(searchSidebarQuery.toUpperCase()));
+            let newTypeArr = allTypeArr.filter(e => e.toUpperCase().includes(searchSidebarQuery.toUpperCase()));
             setTypeArr(newTypeArr);
         }
         

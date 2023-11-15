@@ -19,7 +19,7 @@ function Home() {
     //searchParams
     const [searchParams, setSearchParams] = useSearchParams();
     const [searchQuery,setSearchQuery] = useState(''); //value from search input
-    const [filterParams,setFilterParams]  = useState(''); //value from filter box
+    const [filterParams,setFilterParams]  = useState(); //value from filter box
     const [priceFilterParams,setPriceFilterParams] = useState({}); //min-max price value
     const [sideBarParams,setSideBarParams] = useState({}); //value from sidebar
     const [sort, setSort] = useState();
@@ -33,9 +33,11 @@ function Home() {
        } else {
             if(data.type === 'all') { //Immediately clear and set searchParams when click button on sidebar
                 setSearchParams({type: '', query: searchParams.get('query'), min: searchParams.get('min'), max: searchParams.get('max')});
+                setFilterParams();
             } else {
                 setSearchParams({type: data.type, query: searchParams.get('query'), min: searchParams.get('min'), max: searchParams.get('max')});
                 setSideBarParams(data); // Prepare value for set searchParams when mouse leave from filter box without clicking any button
+                setFilterParams();
             }
        };
     };

@@ -22,7 +22,7 @@ function HomeFilter(props) {
     // eslint-disable-next-line
     const [searchParams,setSearchParams] = useSearchParams();
     const [searchFilterQuery, setSearchFilterQuery] = useState(''); //Query for finding button on filter box
-    const [searchTypeArr,setSearchTypeArr] = useState([]); //Type value that will convert to string and sent to set serachParams
+    const [searchTypeArr,setSearchTypeArr] = useState(searchParams.get('type')?.split('+') || []); //Type value that will convert to string and sent to set serachParams
     const [priceFilter,setPriceFilter] = useState({min: '', max: ''});
 
    

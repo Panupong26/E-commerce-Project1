@@ -124,6 +124,7 @@ function ShopDashboard() {
             };
         };
 
+
         let dataFiltered = staticData.filter(e => {
             if(`${e.date}`.length > 1) {
                 if(`${e.month}`.length > 1) {
@@ -466,8 +467,22 @@ function ShopDashboard() {
         setProductShow([...product]);
     };
 
-    function call(func) {
-        return func();
+    function handleHoverStick(e) {
+        setQuantity(e.quantity);
+        setIncome(e.income);
+        if(chartFilter === 'day') {
+            setDate(`${e.date}`.slice(6, 8) + '/' + `${e.date}`.slice(4, 6) + '/' + `${e.date}`.slice(0, 4));
+        } else if(chartFilter === 'month') {
+            setDate(`${e.date}`.slice(4, 6) + '/' + `${e.date}`.slice(0, 4));
+        } else if(chartFilter === 'year') {
+            setDate(`${e.date}`.slice(0, 4));
+        };
+    }
+
+    function handleLeaveStick() {
+        setDate(defaultDate);
+        setQuantity(totalQuantity);
+        setIncome(totalIncome);
     }
 
     useEffect(() => {
@@ -600,23 +615,9 @@ function ShopDashboard() {
             <div className="chartBox">
                 <div>
                     <div className="totalStaticBox">
-                        {staticShow?.map(e => <div key={new Date().getTime() + Math.random()} className="stick" style={{height: call(() => {return e.quantity === 0 ? '1px' : `${((e.quantity/totalStaticBoxMaxHeight)*100)}%` })}} 
-                        onMouseOver = {() => {
-                            setQuantity(e.quantity);
-                            setIncome(e.income);
-                            if(chartFilter === 'day') {
-                                setDate(`${e.date}`.slice(6, 8) + '/' + `${e.date}`.slice(4, 6) + '/' + `${e.date}`.slice(0, 4));
-                            } else if(chartFilter === 'month') {
-                                setDate(`${e.date}`.slice(4, 6) + '/' + `${e.date}`.slice(0, 4));
-                            } else if(chartFilter === 'year') {
-                                setDate(`${e.date}`.slice(0, 4));
-                            };
-                        }}
-                        onMouseLeave = {() => {
-                            setDate(defaultDate);
-                            setQuantity(totalQuantity);
-                            setIncome(totalIncome);
-                        }}></div>)}
+                        {staticShow?.map(e => <div key={e.date} className="stick" style={{height: e.quantity === 0 ? '1px' : `${((e.quantity/totalStaticBoxMaxHeight)*100)}%` }} 
+                        onMouseOver = {() => handleHoverStick(e)}
+                        onMouseLeave = {handleLeaveStick}></div>)}
                     </div>
                     <div className="totalValueBox">
                         <div><FontAwesomeIcon icon={faCalendar} /> &nbsp;{date}</div>
