@@ -87,6 +87,6 @@ app.use('/payment', paymentRouter);
 
 
 db.sequelize.sync().then(() => {
-    app.listen(process.env.PORT, '127.0.0.1', () => {console.log(`sever is running at port ${process.env.PORT}`)});
+    app.listen(process.env.PORT || 8000, () => {console.log(`sever is running at port ${process.env.PORT}`)});
 })
 
