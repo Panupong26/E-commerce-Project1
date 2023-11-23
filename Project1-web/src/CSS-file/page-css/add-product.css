@@ -19,8 +19,7 @@
     object-fit: contain;
     width: 500px;
     height: 500px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
 }
 
 .sellerAddProductSeller {
@@ -65,7 +64,6 @@
     width: 265px;
     height: 25px;
     font-size: 15px;
-    border-radius: 5px;
     outline: none;
     border-style: none;
     background-color: rgb(240, 240, 240);
@@ -78,7 +76,6 @@
     width: 267px;
     height: 27px;
     font-size: 15px;
-    border-radius: 5px;
     outline: none;
     border-style: none;
     background-color: rgb(240, 240, 240);
@@ -86,13 +83,12 @@
 }
 
 .sellerAddProductDetailBox {
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     height: 432px;
     width: 430px;
     margin: 0px;
     padding: 0;
     font-size: 15px;
-    border-radius: 5px;
     flex-shrink: 0;
     overflow: hidden;
 }
@@ -124,12 +120,11 @@
 }
 
 .sellerAddProductOptionBox {
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     height: 110px;
     margin: 20px;
     padding: 0px;
     font-size: 15px;
-    border-radius: 5px 5px 5px 5px;
     overflow: hidden;
     background-color: white;
     text-align: center;
@@ -150,20 +145,18 @@
     width: 250px;
     height: 25px;
     font-size: 15px;
-    border-radius: 5px;
     outline: none;
     border-style: none;
     background-color: rgb(240, 240, 240);
 }
 
 .sellerAddSentOptionBox {
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     height: 147px;
     margin: 20px;
     margin-bottom: 10px;
     padding: 0px;
     font-size: 15px;
-    border-radius: 5px 5px 5px 5px;
     overflow: hidden;
     background-color: white;
     text-align: center;
@@ -184,7 +177,6 @@
     width: 250px;
     height: 25px;
     font-size: 15px;
-    border-radius: 5px;
     outline: none;
     border-style: none;
     background-color: rgb(240, 240, 240);
@@ -209,7 +201,6 @@
     border: none;
     height: 30px;
     width: 50px;
-    border-radius: 5px;
 }
 
 .non-active-button {
@@ -227,12 +218,11 @@
 }
 
 .sellerAddProductPicBox {
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     height: max-content;
     margin: 10px 20px;
     padding: 0px;
     font-size: 15px;
-    border-radius: 5px 5px 5px 5px;
     overflow: hidden;
     overflow-y: auto;
     background-color: white;
@@ -270,9 +260,9 @@
     object-fit: cover;
     width: 50px;
     height: 50px;
-    border-radius: 5px;
     margin: 0;
     flex-shrink: 0;
+    border-radius: 0px;
 }
 
 .sellerAddProductEditPic {
@@ -283,7 +273,6 @@
     height: 50px;
     top: 0px;
     left: 0px;
-    border-radius: 5px;
     font-size: 18px;
     color: white;
     flex-shrink: 0;
@@ -304,7 +293,6 @@
     background-color: rgb(220, 220, 220);
     width: 50px;
     height: 50px;
-    border-radius: 5px;
     padding-top: 13px;
     font-size: 20px;
     color: rgb(180, 180, 180);
@@ -330,16 +318,16 @@ button:hover {
 }
 
 .sellerAddProductButtonBox button:hover {
-   box-shadow: 0px 0px 10px yellowgreen;
+   background-color: rgb(187, 223, 114);
+   color: black;
 }
 
 .sellerAddProductButton {
     border-style: none;
     background-color: rgba(255, 255, 255, 0);
     padding: 16px;
-    border-radius: 5px;
     font-size: 15px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     width: 200px;
     margin: 5px;
 }
@@ -348,10 +336,9 @@ button:hover {
     border-style: none;
     background-color: rgba(255, 255, 255, 0);
     padding: 16px;
-    border-radius: 5px;
     width: 200px;
     font-size: 15px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     margin: 5px;
 }
 

@@ -25,86 +25,6 @@
     width: 5px;
 }
 
-.cartCard {
-    box-sizing: border-box;
-    margin: 15px auto;
-    padding: 10px;
-    width: 510px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
-}
-
-.cartActiveCard {
-    box-sizing: border-box;
-    margin: 15px auto;
-    padding: 10px;
-    width: 510px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px yellowgreen;
-}
-
-.cartCard:hover {
-    cursor: pointer;
-}
-
-.cartActiveCard:hover {
-    cursor: pointer;
-}
-
-.cartPic {
-    border-radius: 0;
-    border-radius: 5px;
-}
-
-.cartPic:hover {
-   cursor: pointer;
-}
-
-.cartContentBox {
-    margin: auto 20px;
-    width: max-content;
-}
-
-.cartProductName {
-    font-size: 20px;
-}
-
-.cartOption {
-    color: rgb(100, 100, 100);
-}
-
-.cartQuantity {
-    color: rgb(100, 100, 100);
-}
-
-.cartSentOption {
-    color: rgb(100, 100, 100);
-    font-size: 12px;
-}
-
-.cartPrice {
-    margin: auto;
-    height: max-content;
-    width: max-content;
-}
-
-.removeButton {
-    margin-top: -5px;
-    margin-right: -5px;
-    margin-left: -20px;
-    color: rgb(200, 200, 200);
-}
-
-.removeButton:hover {
-    color: black;
-}
-
 .orderArea {
     box-sizing: border-box;
     margin: 0;
@@ -138,8 +58,7 @@
     box-sizing: border-box;
     margin: 10px;
     padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
     display: flex;
     height: 90px;
 }
@@ -214,8 +133,7 @@
     box-sizing: border-box;
     margin: 10px;
     padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
     flex-shrink: 0;
 }
 
@@ -231,13 +149,11 @@
 }
 
 .paymentOption {
-    background-color: white;
+    background-color: rgb(240, 240, 240);
     font-size: 12px;
     padding: 4px;
     margin: 4px;
     text-align: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
     color: rgb(100,100,100);
 }
 
@@ -247,7 +163,6 @@
     padding: 4px;
     margin: 4px;
     text-align: center;
-    border-radius: 5px;
     color: black;
 }
 
@@ -258,19 +173,20 @@
 .checkOutButton {
     background-color: white;
     box-sizing: border-box;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
+    background-color: rgb(240,240,240);
     margin: auto 15px auto 10px;
     padding: 5px;
     height: 40px;
     width: 120px;
-    border-radius: 5px;
     border-style: none;
     text-align: center;
     font-size: 12px;
 }
 
 .checkOutButton:hover {
-    box-shadow: 0px 0px 10px yellowgreen;
+    background-color: rgb(194, 232, 117);
+    color: black;
 }
 
 @media (max-width: 950px) {
@@ -289,25 +205,9 @@
     .cartBox {
         height: calc(100% - 240px);
     }
-
-    .cartCard {
-        width: 400px;
-    }
-
-    .cartActiveCard {
-        width: 400px;
-    }
 }
 
 @media (max-width: 440px) {
-    .cartCard {
-        width: 330px;
-    }
-
-    .cartActiveCard {
-        width: 330px;
-    }
-
     .cartProductName {
         font-size: 12px;
     }

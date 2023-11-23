@@ -24,8 +24,8 @@ function AdminIndex() {
             <div className='adminIndexPage'>
                 <div className="adminButtonBox">
                     <div className="adminButton" onClick={() => window.location.href = `${FONTEND_URL}/orders`}> <FontAwesomeIcon icon={faNewspaper} style = {{color: '#50c9f2', fontSize: '80px'}}/> <br/><br/> Orders</div>
-                    <div className="adminButton" onClick={() => window.location.href = `${FONTEND_URL}/bills`}> <FontAwesomeIcon icon={faReceipt} style = {{color: '#50c9f2', fontSize: '80px'}}/> <br/><br/> Bills</div>
-                    <div className="adminButton" onClick={() => window.location.href = `${FONTEND_URL}/manageproduct`}> <FontAwesomeIcon icon={faBox} style = {{color: '#50c9f2', fontSize: '80px'}}/> <br/><br/> Product</div>
+                    <div className="adminButton" onClick={() => window.location.href = `${FONTEND_URL}/bills`}> <FontAwesomeIcon icon={faReceipt} style = {{color: '#50c9f2', fontSize: '80px'}}/> <br/><br/> Invoices</div>
+                    <div className="adminButton" onClick={() => window.location.href = `${FONTEND_URL}/manageproduct`}> <FontAwesomeIcon icon={faBox} style = {{color: '#50c9f2', fontSize: '80px'}}/> <br/><br/> Products</div>
                 </div>
             </div>
         </div>

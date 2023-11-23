@@ -35,8 +35,7 @@
 }
 
 .veMsgBox .button {
-    background-color: rgb(178, 215, 106);
-    border-radius: 10px;
+    background-color: rgb(208, 238, 147);
     box-sizing: border-box;
     width: 50px;
     height: 30px;
@@ -48,5 +47,5 @@
 
 .veMsgBox .button:hover {
     cursor: pointer;
-    background-color: rgb(156, 196, 76);
+    background-color: yellowgreen;
 }

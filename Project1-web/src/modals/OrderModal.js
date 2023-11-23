@@ -117,7 +117,7 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                 <div className='buyNowProduct'>
                     <img src={ productShowPic[0].productId? `${API_URL}/productpic/${productShowPic[0].picture}` : `${API_URL}/optionpic/${productShowPic[0].picture}`} alt = 'product'/>
                     <div className='buyNowOrderDetail'>
-                        <div className='buyNowProductName'>{productData.productName}</div>
+                        <div className='buyNowProductName'>{productData.productName.length > 35 ? productData.productName.slice(0,34) + '...' : productData.productName}</div>
                         <div className='buyNowProductOption'>{optionSelected}</div>
                         <div className='buyNowProductQuantity'>quantity: {quantity}</div>
                         <div className='buyNowSentOption'><FontAwesomeIcon icon={faTruckFast} /> {sentOptionSelected}</div>
@@ -129,7 +129,7 @@ export default function OrderModal({ productShowPic, productData, optionSelected
                 <div className='buyNowRecieveInfo'>
 
                     <div className='buyNowRecieveName'>
-                        <div className='buyNowInputHeader'><FontAwesomeIcon icon={faUser} /> Receive Name</div>
+                        <div className='buyNowInputHeader'><FontAwesomeIcon icon={faUser} /> Receiver </div>
                         <input disabled = {buyNowInputDisable} value = {receiveName || ''} onChange = {(e) => setReceiveName(e.target.value)}/>
                     </div>
 

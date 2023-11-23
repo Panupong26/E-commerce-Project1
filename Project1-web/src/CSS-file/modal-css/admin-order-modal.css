@@ -9,7 +9,6 @@
     padding: 20px;
     padding-bottom: 30px;
     background-color: white;
-    border-radius: 10px;
 }
 
 .adminOrderStatus {
@@ -26,9 +25,9 @@
 .orderPanel img {
     width: 210px;
     height: 210px;
-    border-radius: 10px;
     object-fit: contain;
-    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
+    border-radius: 0;
 }
 
 .textHeader {
@@ -42,15 +41,14 @@
 .textBox {
     padding: 10px;
     padding-top: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     color: rgb(60, 60, 60);
     font-weight: 200;
 }
 
 .link:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 10px yellowgreen;
+    box-shadow: 0px 0px 2px yellowgreen;
 }
 
 .textBox div{
@@ -69,16 +67,16 @@
     align-content: center;
 }
 
-.paymentRefInput {
+.orderPaymentRefInput {
     box-sizing: border-box;
     margin: 10px;
     height: 30px;
     width: 200px;
     margin-top: 15px;
-    border-radius: 10px;
     border-style: none;
     text-align: center;
     box-shadow: none;
+    border-radius: 0;
     background-color: rgb(230, 230, 230);
 }
 
@@ -87,12 +85,11 @@
 }
 
 .adminOrderButton {
-    background-color: rgb(181, 210, 122);
+    background-color: rgb(191, 220, 132);
     width: 130px;
     height: 25px;
     text-align: center;
     padding-top: 5px;
-    border-radius: 10px;
     margin: 10px;
     margin-top: 15px;
     color: black;

@@ -26,7 +26,6 @@
     padding: 20px;
     padding-bottom: 30px;
     background-color: white;
-    border-radius: 10px;
 }
 
 .adminBillStatus {
@@ -43,9 +42,8 @@
 .billPanel img {
     width: 210px;
     height: 210px;
-    border-radius: 10px;
     object-fit: contain;
-    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
 }
 
 .billTextHeader {
@@ -59,8 +57,7 @@
 .billTextBox {
     padding: 10px;
     padding-top: 5px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     color: rgb(60, 60, 60);
     font-weight: 200;
 }
@@ -92,23 +89,18 @@
     height: 30px;
     width: 200px;
     margin-top: 15px;
-    border-radius: 10px;
     border-style: none;
-    box-shadow: 0px 0px 10px rgb(150, 150, 150);
+    background-color: rgb(240, 240, 240);
     text-align: center;
 }
 
-.paymentRefInput:hover {
-    box-shadow: 0px 0px 10px yellowgreen;
-}
 
 .adminBillButton {
-    background-color: rgb(181, 210, 122);
+    background-color: rgb(209, 238, 149);
     width: 130px;
     height: 25px;
     text-align: center;
     padding-top: 5px;
-    border-radius: 10px;
     margin: 10px;
     margin-top: 15px;
     color: black;
@@ -148,10 +140,8 @@
     margin: 10px;
     width: 150px;
     height: 30px;
-    border-radius: 10px;
     border-style: none;
     color: rgb(100, 100, 100);
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
 }
 
 .adminBillPageFilterButton:hover {
@@ -163,7 +153,6 @@
     margin: 10px;
     width: 150px;
     height: 30px;
-    border-radius: 10px;
     border-style: none;
     color: black;
     box-shadow: 0px 0px 5px rgb(200, 200, 200);
@@ -174,26 +163,24 @@
     margin: 10px;
     width: 150px;
     height: 28px;
-    border-radius: 10px;
     border-style: none;
     color: rgb(100, 100, 100);
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     text-align: center;
 }
 
 .adminBillSortButton {
     box-sizing: border-box;
-    border-radius: 10px;
     height: 28px;
     width: 28px;
     text-align: center;
     padding-top: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    background-color: rgb(240, 240, 240);
 }
 
 .adminBillSortButton:hover {
     cursor: pointer;
-    box-shadow: 0px 0px 5px yellowgreen;
+    background-color: rgb(200, 200, 200);
 }
 
 .adminBillSortMenuBox {
@@ -228,8 +215,7 @@
     left: 50%;
     top: 110px;
     transform: translate(-50%);
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(100, 100, 100);
+    box-shadow: 0px 0px 2px rgb(100, 100, 100);
     padding: 5px 0px;
     text-align: center;
 }
@@ -239,7 +225,6 @@
     box-sizing: border-box;
     width: 100%;
     height: 30px;
-    border-radius: 10px;
     margin-bottom: 5px;
     padding: 5px;
     padding-right: 14px;
@@ -266,8 +251,7 @@
     min-width: 880px;
     height: 380px;
     background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     overflow-y: auto;
     padding: 5px;
     margin: auto 0px;
@@ -278,13 +262,12 @@
     box-sizing: border-box;
     width: 100%;
     height: 30px;
-    border-radius: 10px;
     margin-bottom: 5px;
     padding: 5px;
     padding-right: 15px;
     padding-left: 2px;
     justify-content: space-around;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
 }
 
 .billRow:hover {

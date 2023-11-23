@@ -17,7 +17,7 @@ export default function CartCard({ data, setCartSelected, cartSelected, deleteCa
             <img className='cartPic' src = {data.cartPicture} onClick = {() => window.location.href = `${FONTEND_URL}/product/${data.productId}`} alt='product'/>
             <div className='cartContentBox'>
                 <div className='cartProductName'>
-                    {data.productName}
+                    {data?.productName.length > 16 ? data.productName.slice(0,15) + '...' : data.productName}
                 </div>
                 <div className='cartOption'>
                     {data.productOption}
@@ -47,7 +47,7 @@ export default function CartCard({ data, setCartSelected, cartSelected, deleteCa
             <img className='cartPic' src = {data.cartPicture} onClick = {() => window.location.href = `${FONTEND_URL}/product/${data.productId}`} alt='product'/>
             <div className='cartContentBox'>
                 <div className='cartProductName'>
-                    {data.productName}
+                    {data?.productName.length > 16 ? data.productName.slice(0,15) + '...' : data.productName}
                 </div>
                 <div className='cartOption'>
                     {data.productOption}

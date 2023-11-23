@@ -33,6 +33,7 @@ function Home() {
        } else {
             if(data.type === 'all') { //Immediately clear and set searchParams when click button on sidebar
                 setSearchParams({type: '', query: searchParams.get('query'), min: searchParams.get('min'), max: searchParams.get('max')});
+                setSideBarParams();
                 setFilterParams();
             } else {
                 setSearchParams({type: data.type, query: searchParams.get('query'), min: searchParams.get('min'), max: searchParams.get('max')});
@@ -243,7 +244,7 @@ function Home() {
                 getParams = {getParams}
                 getPrice = {getPrice}
                 setSort = {setSort}
-            />
+            /> 
             <div className='homePage'>
                 <div className='homeSidebar'>
                     <HomeSidebar productData = {allProductType} sentSideParams = {getParams} searchParams={searchParams} />

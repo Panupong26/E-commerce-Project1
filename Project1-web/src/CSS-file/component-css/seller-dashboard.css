@@ -6,11 +6,9 @@
 
 .filterButton {
     margin: 5px;
-    border-radius: 5px;
     width: 80px;
     height: 20px;
     text-align: center;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
     color: gray;
     font-size: 14px;
     font-weight: 500;
@@ -18,11 +16,8 @@
 
 .filterActiveButton {
     margin: 5px;
-    border-radius: 5px;
     width: 80px;
     text-align: center;
-    background-color: rgb(176, 216, 95);
-    box-shadow: 0px 0px 5px  rgb(176, 216, 95);
     color: black;
     font-size: 14px;
     font-weight: 500;
@@ -31,7 +26,6 @@
 .filterButton:hover {
     cursor: pointer;
     color: black;
-    box-shadow: 0px 0px 5px yellowgreen;
 }
 
 .filterActiveButton:hover {
@@ -47,9 +41,7 @@
 
 .dateFilterBox input {
     margin: -2px 5px;
-    border: 1px solid rgb(200, 200, 200);
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    border: 1px solid rgb(240, 240, 240);
     color: rgb(100, 100, 100);
     padding: 2px;
     font-weight: 500;
@@ -65,8 +57,7 @@
     width: 495px;
     height: 270px;
     margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     display: flex;
     align-items: flex-end;
     padding: 2px;
@@ -75,7 +66,7 @@
 }
 
 .totalStaticBox::-webkit-scrollbar {
-    height: 5px;
+    height: 2px;
 }
 
 
@@ -85,7 +76,6 @@
     width: 10px;
     margin: 1px auto;
     min-width: 1px;
-    border-radius: 5px 5px 0px 0px;
 }
 
 .stick:hover {
@@ -97,8 +87,7 @@
     width: 495px;
     height: 105px;
     margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     padding: 2px;
     padding-top: 10px;
     text-align: center;
@@ -110,8 +99,7 @@
     color: rgb(100, 100, 100);
     height: max-content;
     padding: 5px;
-    font-weight: 500;
-    border-radius: 10px;
+    font-weight: 300;
 }
 
 
@@ -119,8 +107,7 @@
     width: 495px;
     height: 405px;
     margin: 5px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     padding: 5px;
     overflow-y: auto;
 }
@@ -129,7 +116,6 @@
     display: flex;
     background-color: rgb(208, 236, 153);
     padding: 2px;
-    border-radius: 5px 20px 20px 5px;
     justify-content: space-between;
     margin-top: 3px;
 }

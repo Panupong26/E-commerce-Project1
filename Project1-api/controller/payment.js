@@ -102,7 +102,7 @@ const createOreder = async (req, res) => {
                 hour: time.getHours(),
                 minute: time.getMinutes(),
                 tackingNumber: '',
-                status: 'PREPARE_SHIPPING',
+                status: 'PREPARING',
                 productId: order.productId,
                 sellerId: targetProduct.sellerId,
                 userId: targetRef.userId

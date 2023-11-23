@@ -29,12 +29,15 @@
     border-radius: 0 5px 5px 0;
     text-align: center;
     font-size: 12px;
-    box-shadow: 4px 0px 5px yellowgreen;
-    
+    box-shadow: 1px 0px 2px rgb(188, 188, 188);   
+}
+
+.homeSidebarShow div:hover {
+    background-color: rgb(240, 240, 240);
 }
 
 .homeSidebarShow:hover {
-    cursor: pointer;
+    cursor: pointer;   
 }
 
 
@@ -46,20 +49,19 @@
 }
 
 .homeTypeSearch {
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(240, 240, 240);
     box-sizing: border-box;
     margin: 5px auto;
     padding: 10px;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 2px;
-    border-radius: 10px;
     width: max-content;
 }
 
 
 .homeTypeSearch input{
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(240, 240, 240);
     border-style: none;
     text-align: center;
 }
@@ -69,13 +71,13 @@
 }
 
 .homeTypeSearch button{
-    background-color: rgb(230, 230, 230);
     border-style: none;
-    color: gray;
+    color: rgb(200, 200, 200);
 }
 
 .homeTypeSearch button:hover{
    cursor: pointer;
+   color: rgb(100, 100, 100);
 }
 
 .homeTypeList {
@@ -104,6 +106,7 @@
     padding: 5px;
     color: rgb(100, 100, 100);
     margin-bottom: 5px;
+    font-size: 14px;
 }
 
 .homeTypeButton:hover {

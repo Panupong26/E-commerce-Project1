@@ -136,7 +136,7 @@ function ShopWithdraw() {
                         <div key={e.id} className='billCard'>
                             <div className='billId'>{e.id}</div>
                             <div className='billOrderId'>{e.orderId}</div>
-                            <div className='billProductName'>{e.productName}</div>
+                            <div className='billProductName'>{e?.productName.length > 20 ? e.productName.slice(0,19) + '...' : e.productName}</div>
                             <div className='billOption'>{e.productOption}</div>
                             <div className='billQuantity'>{e.quantity}</div>
                             <div className='billIncome'>{e.totalIncome.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})}</div>

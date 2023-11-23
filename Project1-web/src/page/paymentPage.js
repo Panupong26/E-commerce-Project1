@@ -45,7 +45,7 @@ export default function PaymentPage() {
         <div className='paymentPage'>
             <div className='paymentPageMsgBox'>
                 <div className='paymentPageIcon'><FontAwesomeIcon icon={faCircleCheck} style={{color: "#b3e548"}}/></div>
-                <div className='paymentPageMsg'>PAYMENT SUCCESSFUL</div>
+                <div className='paymentPageMsg'>Payment successful!</div>
                 <div className='paymentPageButton' onClick={() => createorder()}>OK</div>
             </div>       
         </div>

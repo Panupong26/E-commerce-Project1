@@ -378,7 +378,7 @@ function AdminProductPage() {
                                 window.open(`${FONTEND_URL}/product/${e.id}`);
                             }}>
                                 <div className='adminProductRowId'> {e.id} </div>
-                                <div className='adminProductName'> {e.productName} </div>
+                                <div className='adminProductName'> {e?.productName.length > 12 ? e.productName.slice(0,11) + '...' : e.productName} </div>
                                 <div className='adminProductOption'> {e.productOptions.length} </div>
                                 <div className='adminProductPrice'> {getPrice(e)} </div>
                                 <div className='productTotalSold'>{e.productSellCount}</div>

@@ -85,6 +85,12 @@ app.use('/reset', resetRouter);
 app.use('/verify', verifyRouter);
 app.use('/payment', paymentRouter);
 
+app.use((err, req, res, next) => {
+    if(err) {
+        return res.status(err.status).send(err.message);
+    }
+})
+
 
 db.sequelize.sync().then(() => {
     app.listen(process.env.PORT || 8000, () => {console.log(`sever is running at port ${process.env.PORT}`)});

@@ -116,7 +116,7 @@
 
 .adminForgottenButtonBox button:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 5px yellowgreen;
+    background-color:  rgb(185, 225, 106);
 }
 
 .adminForgottenPageButton {

@@ -8,6 +8,8 @@ const { Op } = require('sequelize');
 const { registerValidator, userValidator } = require("../validator/validator");
 const htmlCreator = require('../create-email/htmlCreator');
 const findFileByName = require('../findFile/findFileByName');
+const createErr = require("../handleerr/createErr");
+
 
 const createVerification = async (req, res) => {
     try {
@@ -105,7 +107,7 @@ const createUser = async (req,res) => {
     }
 };
 
-const login = async (req,res) => {
+const login = async (req,res, next) => {
     try {
         const email = req.body.email.toLowerCase();
         const password = req.body.password;
@@ -139,8 +141,10 @@ const login = async (req,res) => {
         }
     
     } catch (err) {
-        console.log(err);
-        return res.status(500).send('Internal sever error')
+        const error = createErr(500, err, 'User login');
+        next(error);
+        //console.log(err);
+        //return res.status(500).send('Internal sever error')
     }
 };
 
@@ -383,7 +387,7 @@ const deleteUser = async (req,res) => {
         const status = req.user.status;
         const targetOrder = await db.order.findAll({where: {
             userId: userId,
-            status: ['PREPARE_SHIPPING', 'ON_DELIVERY']
+            status: ['PREPARING', 'IN_TRANSIT']
         }});
     
         if(status === 'user' && targetOrder.length === 0) {

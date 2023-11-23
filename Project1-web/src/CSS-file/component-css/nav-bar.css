@@ -27,7 +27,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    box-shadow: 0px 1px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     z-index: 1;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .pageLink:hover {
-    box-shadow: 0px 0px 5px var(--navBarHover);
+    background-color: rgb(240, 240, 240);
     cursor: pointer;
 }
 
@@ -90,10 +90,6 @@
     background-color: white;
     display: flex;
     justify-content: center;
-} 
-
-.searchBox:hover {
-   box-shadow: 0px 0px 5px yellowgreen;
 } 
 
 .searchBox input {
@@ -150,20 +146,22 @@
     left: 50%;
     top: 60px;
     transform: translate(-50%, 0%);
-    box-shadow: 0px 0px 5px 2px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
     z-index: 1;
+    text-align: center;
 }
 
 .productSortMenuBox div:hover {
     cursor: pointer;
-    text-decoration-line: underline;
+    color: rgb(100, 100, 100);
 }
 
 .productSortMenuBox div {
+    margin: auto;
     font-size: 14px;
     margin-bottom: 5px;
-    text-align: start;
-    color: rgb(80, 80, 80);
+    text-align: center;
+    color: rgb(120, 120, 120);
 }
 
 /* --------------------------------------------------------------*/

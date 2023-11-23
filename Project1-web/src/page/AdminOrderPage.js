@@ -275,30 +275,30 @@ function AdminOrderPage(props) {
                         resetButton();
                         setPrepareShippingButtonDis('none');
                         setPrepareShippingActiveButtonDis();
-                        setOrderData(allOrder.filter(e => e.status === 'PREPARE_SHIPPING'));
-                        setFilteredOrder(allOrder.filter(e => e.status === 'PREPARE_SHIPPING'));
-                    }} style = {{display: prepareShippingButtonDis}} >Prepare shipping</button>
+                        setOrderData(allOrder.filter(e => e.status === 'PREPARING'));
+                        setFilteredOrder(allOrder.filter(e => e.status === 'PREPARING'));
+                    }} style = {{display: prepareShippingButtonDis}} >Preparing</button>
                     <button className='adminOrderPageFilterActiveButton'  onClick={() => {
                         resetButton();
                         setPrepareShippingButtonDis();
                         setPrepareShippingActiveButtonDis('none');
                         setOrderData(allOrder);
                         setFilteredOrder(allOrder);
-                    }} style = {{display: prepareShippingActiveButtonDis}} >Prepare shipping</button>
+                    }} style = {{display: prepareShippingActiveButtonDis}} >Preparing</button>
                     <button className='adminOrderPageFilterButton'  onClick={() => {
                         resetButton();
                         setOnDeliveryButtonDis('none');
                         setOnDeliveryActiveButtonDis();
-                        setOrderData(allOrder.filter(e => e.status === 'ON_DELIVERY'));
-                        setFilteredOrder(allOrder.filter(e => e.status === 'ON_DELIVERY'));
-                    }} style = {{display: onDeliveryButtonDis}} >On delivery</button>
+                        setOrderData(allOrder.filter(e => e.status === 'IN_TRANSIT'));
+                        setFilteredOrder(allOrder.filter(e => e.status === 'IN_TRANSIT'));
+                    }} style = {{display: onDeliveryButtonDis}} >In transit</button>
                     <button className='adminOrderPageFilterActiveButton' onClick={() => {
                         resetButton();
                         setOnDeliveryButtonDis();
                         setOnDeliveryActiveButtonDis('none');
                         setOrderData(allOrder);
                         setFilteredOrder(allOrder);
-                    }} style = {{display: onDeliveryActiveButtonDis}} >On delivery</button>
+                    }} style = {{display: onDeliveryActiveButtonDis}} >In transit</button>
                     <button className='adminOrderPageFilterButton' onClick={() => {
                         resetButton();
                         setReceivedButtonDis('none');
@@ -344,24 +344,24 @@ function AdminOrderPage(props) {
                 <div className='orderBoxHeader'>
                     <div className='headerOrderRow'>
                             <div className='orderRowId'> Id </div>
-                            <div className='orderProduct'> Product </div>
-                            <div className='orderOption'> Option </div>
-                            <div className='orderShippingOption'> Shipping Option </div>
-                            <div className='orderTotalPrice'> Total Price </div>
-                            <div className='orderStatus'> Status </div>
+                            <div className='orderRowProduct'> Product </div>
+                            <div className='orderRowOption'> Option </div>
+                            <div className='orderRowShippingOption'> Shipping Option </div>
+                            <div className='orderRowTotalPrice'> Total Price </div>
+                            <div className='orderRowStatus'> Status </div>
                         </div>
                         
                         <div className='orderBox'>
                         {orderData?.map((e) => 
                             <div key = {e.id} className='orderRow' onClick={() => {
-                                setOrderPanel(<AdminOrderPanel orderData = {e} setStatus = {props.setStatus} setOrderPanel = {setOrderPanel}/>);
+                                setOrderPanel(<AdminOrderPanel orderData = {e} setStatus = {props.setStatus} setOrderPanel = {setOrderPanel} allOrder = {allOrder} setAllOrder = {setAllOrder}/>);
                                 }}>
                                 <div className='orderRowId'> {e.id} </div>
-                                <div className='orderProduct'> {e.productName} </div>
-                                <div className='orderOption'> {e.productOption} </div>
-                                <div className='orderShippingOption'> {e.shippingOption} </div>
-                                <div className='orderTotalPrice'> {e.totalPrice.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})} </div>
-                                <div className='orderStatus'> {e.status} </div>
+                                <div className='orderRowProduct'> {e?.productName.length > 12 ? e.productName.slice(0,11) + '...' : e.productName} </div>
+                                <div className='orderRowOption'> {e.productOption} </div>
+                                <div className='orderRowShippingOption'> {e.shippingOption} </div>
+                                <div className='orderRowTotalPrice'> {e.totalPrice.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})} </div>
+                                <div className='orderRowStatus'> {e.status} </div>
                             </div>
                         )}
                     </div>

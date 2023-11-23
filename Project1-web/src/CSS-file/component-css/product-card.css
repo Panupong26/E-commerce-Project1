@@ -15,12 +15,11 @@
     height: 275px;
     background-color: white;
     border-style: none;
-    box-shadow: 0px 0px 5px rgba(128, 128, 128, 0.501);
-    border-radius: 5px;
+    box-shadow: 0px 0px 3px rgba(128, 128, 128, 0.501);
 }
 
 .card:hover {
-    box-shadow: 0px 0px 10px yellowgreen;
+    box-shadow: 0px 0px 10px rgb(200, 200, 200);
 }
 
 
@@ -72,6 +71,7 @@
     font-size: 10px;
     padding: 4px 10px;
     height: 23px;
+    color: rgb(100, 100, 100);
     overflow: hidden;
 }
 

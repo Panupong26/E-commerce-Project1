@@ -8,8 +8,8 @@ import { handleErr } from "../handle-err/HandleErr";
 
 
 const defaultActive = {
-    prepareShipping: false,
-    onDelivery: false,
+    preparing: false,
+    inTransit: false,
     received: false,
     cancle: false
 }
@@ -65,30 +65,30 @@ function Orders() {
         return(
             <div>
                 <div className='orderPageFilterBox'>
-                    {!activeFilterButton.prepareShipping &&
+                    {!activeFilterButton.preparing &&
                     <button className='orderPageFilterButton' onClick={() => {
-                        setActiveFilterButton({...defaultActive, prepareShipping: true});
-                        setOrderData(allOrder.filter(e => e.status === 'PREPARE_SHIPPING'));
-                    }}>Prepare shipping</button>
+                        setActiveFilterButton({...defaultActive, preparing: true});
+                        setOrderData(allOrder.filter(e => e.status === 'PREPARING'));
+                    }}>Preparing for shipment</button>
                     }
-                    {activeFilterButton.prepareShipping &&
+                    {activeFilterButton.preparing &&
                     <button className='orderPageFilterActiveButton'  onClick={() => {
-                        setActiveFilterButton({...defaultActive, prepareShipping: false});
+                        setActiveFilterButton({...defaultActive, preparing: false});
                         setOrderData(allOrder);
-                    }}>Prepare shipping</button>
+                    }}>Preparing for shipment</button>
                     }
 
-                    {!activeFilterButton.onDelivery &&
+                    {!activeFilterButton.inTransit &&
                     <button className='orderPageFilterButton'  onClick={() => {
-                        setActiveFilterButton({...defaultActive, onDelivery: true});
-                        setOrderData(allOrder.filter(e => e.status === 'ON_DELIVERY'));
-                    }}>On delivery</button>
+                        setActiveFilterButton({...defaultActive, inTransit: true});
+                        setOrderData(allOrder.filter(e => e.status === 'IN_TRANSIT'));
+                    }}>In transit</button>
                     }
-                    {activeFilterButton.onDelivery &&
+                    {activeFilterButton.inTransit &&
                     <button className='orderPageFilterActiveButton' onClick={() => {
-                        setActiveFilterButton({...defaultActive, onDelivery: false});
+                        setActiveFilterButton({...defaultActive, inTransit: false});
                         setOrderData(allOrder);
-                    }}>On delivery</button>
+                    }}>In transit</button>
                     }
 
                     {!activeFilterButton.received &&

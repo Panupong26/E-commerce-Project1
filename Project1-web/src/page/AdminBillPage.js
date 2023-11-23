@@ -329,11 +329,11 @@ function AdminBillPage(props) {
                     <div className='adminBillBox'>
                         {billData?.map((e) => 
                             <div key = {e.id} className='billRow' onClick={() => {
-                                setBillPanel(<AdminBillPanel billData = {e} setBillPanel = {setBillPanel}/>);
+                                setBillPanel(<AdminBillPanel billData = {e} setBillPanel = {setBillPanel} allBill = {allBill} setAllBill = {setAllBill}/>);
                             }}>
                                 <div className='adminBillRowId'> {e.id} </div>
                                 <div className='adminBillOrderId'> {e.orderId} </div>
-                                <div className='adminBillProduct'> {e.productName} </div>
+                                <div className='adminBillProduct'> {e?.productName.length > 12 ? e.productName.slice(0,11) + '...' : e.productName} </div>
                                 <div className='billadminBillOption'> {e.productOption} </div>
                                 <div className='adminBillInvoice'> {e.totalIncome.toLocaleString('th-TH', {style: 'currency', currency: 'THB'})} </div>
                                 <div className='adminBillStatus'> {e.status} </div>

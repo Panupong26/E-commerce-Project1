@@ -56,7 +56,7 @@ const createOrder = async (req, res) => {
                 year: time.getFullYear(),
                 hour: time.getHours(),
                 minute: time.getMinutes(),
-                status: 'PREPARE_SHIPPING',
+                status: 'PREPARING',
                 userId: userId,
                 sellerId: sellerId,
                 productId: productId
@@ -181,7 +181,7 @@ const userCancleOrder = async (req, res) => {
 
         const targetOrder = await db.order.findOne({where: {id: orderId}});
 
-        if(status === 'user' && targetOrder.status === 'PREPARE_SHIPPING' && targetOrder.userId === userId) {
+        if(status === 'user' && targetOrder.status === 'PREPARING' && targetOrder.userId === userId) {
             await db.order.update({
                 status: targetOrder.paymentOption === 'COD'? 'CANCLE' : 'PENDING_REFUND'
             },
@@ -225,7 +225,7 @@ const sellerCancleOrder = async (req, res) => {
 
         const targetOrder = await db.order.findOne({where: {id: orderId}});
 
-        if(status === 'seller' && targetOrder.status === 'PREPARE_SHIPPING' && targetOrder.sellerId === sellerId) {
+        if(status === 'seller' && targetOrder.status === 'PREPARING' && targetOrder.sellerId === sellerId) {
             await db.order.update({
                 status: targetOrder.paymentOption === 'COD'? 'CANCLE' : 'PENDING_REFUND'
             },
@@ -270,9 +270,9 @@ const sellerUpdateOrder = async (req, res) => {
 
         const targetOrder = await db.order.findOne({where: {id: orderId}});
 
-        if(status === 'seller' && targetOrder.status === 'PREPARE_SHIPPING' && targetOrder.sellerId === sellerId) {
+        if(status === 'seller' && targetOrder.status === 'PREPARING' && targetOrder.sellerId === sellerId) {
             await db.order.update({
-                status: 'ON_DELIVERY',
+                status: 'IN_TRANSIT',
                 trackingNumber: trackingNumber,
                 date: time.getDate(),
                 month: time.getMonth() + 1,
@@ -324,7 +324,7 @@ const userUpdateOrder = async (req, res) => {
         const targetProduct = await db.product.findOne({where: {id: targetOrder.productId}});
         const targetSeller = await db.seller.findOne({where: {id: targetProduct.sellerId}});
     
-        if(status === 'user' && targetOrder.status === 'ON_DELIVERY' && targetOrder.userId === userId) {
+        if(status === 'user' && targetOrder.status === 'IN_TRANSIT' && targetOrder.userId === userId) {
             await db.order.update({
                 status: 'RECEIVED',
                 date: time.getDate(),
@@ -407,7 +407,7 @@ const adminUpdateOrder = async (req, res) => {
         const targetProduct = await db.product.findOne({where: {id: targetOrder.productId}});
         const targetSeller = await db.seller.findOne({where: {id: targetProduct.sellerId}});
     
-        if(status === 'admin' && targetOrder.status === 'ON_DELIVERY') {
+        if(status === 'admin' && targetOrder.status === 'IN_TRANSIT') {
             await db.order.update({
                 status: 'RECEIVED',
                 adminId: adminId,

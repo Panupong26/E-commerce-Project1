@@ -7,12 +7,14 @@ import { faFacebookF, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { FONTEND_URL } from "../env";
 import { handleErr } from "../handle-err/HandleErr";
 import { loadingContext } from "../context/LoadingContextProvider";
+import { authContext } from "../context/AuthContextProvider";
 
 
 
 
 
 function AdminOrderPanel(props) {
+    const { authUser } = useContext(authContext);
     // eslint-disable-next-line
     const [orderData, setOrderData] = useState(props.orderData);
     const [userData, setUserData] =  useState();
@@ -26,12 +28,18 @@ function AdminOrderPanel(props) {
 
         await axios.patch(`/order/refundorder`, {orderId: orderData.id, ref: paymentRef})
         .then(() => {
-            window.location.reload();
+            const allOrder = [...props.allOrder];
+            const index = allOrder.findIndex(e => e.id === orderData.id);
+            allOrder[index].status = 'REFUNDED' ;
+            allOrder[index].ref = paymentRef ;
+            allOrder[index].admin = {username: authUser.username} ;
+            props.setAllOrder([...allOrder]) ;
         })
         .catch(err => {
             handleErr(err);
         })
         .finally(() => {
+            props.setOrderPanel();
             setIsLoading(false);
         })
     };
@@ -127,11 +135,11 @@ function AdminOrderPanel(props) {
                 </div>
                 { orderData?.status === 'PENDING_REFUND' &&
                 <div className="adminSubmitRefundBox">
-                    <input className="paymentRefInput" placeholder="Payment's Ref" value={paymentRef} onChange = {e => setPaymentRef(e.target.value)}/>
+                    <input className="orderPaymentRefInput" placeholder="Payment's Ref" value={paymentRef} onChange = {e => setPaymentRef(e.target.value)}/>
                     <div className="adminOrderButton" style={{pointerEvents: paymentRef? '' : 'none'}} onClick = {() => refundOrder()} > Submit </div>
                 </div>
                 }
-                { orderData?.status === 'ON_DELIVERY' &&
+                { orderData?.status === 'IN_TRANSIT' &&
                 <div className="adminSubmitRefundBox">
                     <div className="adminOrderButton" onClick = {() => updateOrder()} > Force Receive ! </div>
                 </div>

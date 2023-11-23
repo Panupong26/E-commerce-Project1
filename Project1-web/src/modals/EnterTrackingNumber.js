@@ -19,7 +19,7 @@ function EnterTrackingNumber({ orderId, setOpenTrackingInput, orderData, setOrde
         .then(() => {
             const updatedOrder = [...orderData].find(el => el.id === orderId);
             updatedOrder.trackingNumber = trackingNumber;
-            updatedOrder.status = 'ON_DELIVERY';
+            updatedOrder.status = 'IN_TRANSIT';
             const newArr = [...orderData];
             const index = [...orderData].findIndex(el => el.id === orderId);
             newArr[index] = updatedOrder; 

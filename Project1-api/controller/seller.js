@@ -428,7 +428,7 @@ const deleteSeller = async (req,res) => {
     
         const targetOrder = await db.order.findAll({where: {
             sellerId: sellerId,
-            status: ['PREPARE_SHIPPING', 'ON_DELIVERY']
+            status: ['PREPARING', 'IN_TRANSIT']
         }});
     
         if(status === 'seller' && targetOrder.length === 0) {

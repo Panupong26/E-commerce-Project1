@@ -116,7 +116,7 @@
 
 .forgottenButtonBox button:hover{
     cursor: pointer;
-    box-shadow: 0px 0px 5px yellowgreen;
+    background-color:  rgb(192, 229, 118);
 }
 
 .forgottenPageButton {

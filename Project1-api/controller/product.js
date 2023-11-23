@@ -270,7 +270,7 @@ const deleteProduct = async (req,res) => {
         const targetProduct = await db.product.findOne({where: {id: productId}});
         const targetOrder = await db.order.findAll({where: {
             productId: productId,
-            status: 'PREPARE_SHIPPING'
+            status: 'PREPARING'
         }});
         
         if(targetOrder.length === 0) {
@@ -337,12 +337,12 @@ const adminDeleteProduct = async (req,res) => {
             [Op.or]: [
                 {status: 
                     {
-                        [Op.eq]: 'PREPARE_SHIPPING'
+                        [Op.eq]: 'PREPARING'
                     }
                 },
                 {status:
                     {
-                        [Op.eq]: 'ON_DELIVERY'
+                        [Op.eq]: 'IN_TRANSIT'
                     }
                 }
             ]
@@ -384,14 +384,14 @@ const adminDeleteProduct = async (req,res) => {
     
             if(targetOrder.length !== 0) {
                 for (let e of targetOrder) {
-                    if(e.status === 'PREPARE_SHIPPING') {
+                    if(e.status === 'PREPARING') {
                         await db.order.update({
                             status: 'CANCLE'
                         },
                         {   
                             where: {id: e.id}
                         });
-                    } else if(e.status === 'ON_DELIVERY') {
+                    } else if(e.status === 'IN_TRANSIT') {
                         await db.order.destroy({where: {id: e.id}});
                     }
                 };

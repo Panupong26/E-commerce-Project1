@@ -7,7 +7,6 @@
     top: 52%;
     margin: auto;
     transform: translate(-50%,-50%);
-    border-radius: 5px;
     padding: 20px;
     background-color: white; 
     text-align: center;  
@@ -18,21 +17,20 @@
     font-size: 18px;
     border-style: none;
     background-color: rgb(220,220,220);
-    border-radius: 5px;
     width: 250px;
 }
 
 .addOptionHeader {
     margin: 10px;
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
 }
 
 .addOptionPriceHeader {
     margin: 10px;
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
 }
 
@@ -43,7 +41,6 @@
 .addOptionButtonBox button {
     margin: 0px 5px; 
     font-size: 20px;
-    border-radius: 5px;
     padding: 10px;
     width: 150px;
     border-style: none;
@@ -73,7 +70,6 @@
     top: 52%;
     margin: auto;
     transform: translate(-50%,-50%);
-    border-radius: 5px;
     padding: 5px;
     background-color: white;
 }
@@ -82,8 +78,7 @@
     width: 500px;
     height: 500px;
     margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgb(200, 200, 200);
+    box-shadow: 0px 0px 2px rgb(200, 200, 200);
 }
 
 .productOptionEditArea {
@@ -92,8 +87,7 @@
     margin: 10px;
     padding: 5px;
     width: 500px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
     text-align: center;
 }
 
@@ -109,13 +103,12 @@
     margin: 10px auto;
     padding: 5px;
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
 }
 
 .optionPriceHeader {
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
     margin: 5px;
 }
@@ -145,13 +138,12 @@
     margin: 10px auto;
     padding: 5px;
     width: 100%;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
 }
 
 .optionOutOfStockHeader {
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
     margin: 5px;
 }
@@ -161,7 +153,6 @@
     border: none;
     height: 30px;
     width: 50px;
-    border-radius: 5px;
 }
 
 .non-active-button {
@@ -180,8 +171,7 @@
 
 .productEditPicCardBox {
     box-sizing: border-box;
-    border-radius: 5px;
-    box-shadow: 0px 0px 5px rgb(200,200,200);
+    box-shadow: 0px 0px 2px rgb(200,200,200);
     width: 450px;
     height: 120px;
     margin: 10px 10px;
@@ -199,18 +189,17 @@
 
 .productEditPicCardBox img {
     position: relative;
-    border-radius: 5px;
     margin: 5px;
     width: 100px;
     height: 100px;
-    box-shadow: 0px 0px 10px rgb(150,150,150);
+    box-shadow: 0px 0px 2px rgb(150,150,150);
     flex-shrink: 0;
+    border-radius: 0px;
 }
 
 .productEditPicCover {
     position: relative;
     box-sizing: border-box;
-    border-radius: 5px;
     margin: 5px;
     margin-top: -108px;
     width: 100px;
@@ -247,7 +236,6 @@
 
 .productAddPicButton {
     box-sizing: border-box;
-    border-radius: 5px;
     margin: 3px 5px;
     width: 100px;
     height: 102px;
@@ -270,7 +258,6 @@
 
 .productEditDoneButton {
     font-size: 30px;
-    border-radius: 5px;
     padding: 10px;
     width: 150px;
     margin: 5px;
@@ -281,7 +268,6 @@
 
 .productEditCancleButton {
     font-size: 30px;
-    border-radius: 5px;
     padding: 10px;
     width: 150px;
     margin: 5px;
@@ -366,7 +352,6 @@
     top: 52%;
     margin: auto;
     transform: translate(-50%,-50%);
-    border-radius: 5px;
     padding: 20px;
     background-color: white; 
     text-align: center;  
@@ -377,21 +362,20 @@
     font-size: 18px;
     border-style: none;
     background-color: rgb(220,220,220);
-    border-radius: 5px;
     width: 250px;
 }
 
 .editSentOptionHeader {
     margin: 10px;
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
 }
 
 .editSentOptionPriceHeader {
     margin: 10px;
     color: rgb(130, 174, 43);
-    text-shadow: 0px 0px 5px rgb(200,200,200);
+    text-shadow: 0px 0px 2px rgb(200,200,200);
     font-size: 20px;
 }
 
@@ -402,7 +386,6 @@
 .editSentOptionButtonBox button {
     margin: 0px 5px; 
     font-size: 20px;
-    border-radius: 5px;
     padding: 10px;
     width: 150px;
     border-style: none;

@@ -7,12 +7,15 @@ import { faFacebookF, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { handleErr } from "../handle-err/HandleErr";
 import { loadingContext } from "../context/LoadingContextProvider";
 import { FONTEND_URL } from "../env";
+import { authContext } from "../context/AuthContextProvider";
+
 
 
 
 
 
 function AdminBillPanel(props) {
+    const { authUser } = useContext(authContext);
     // eslint-disable-next-line
     const [billData, setBillData] = useState(props.billData);
     const [paymentRef, setPaymentRef] = useState();
@@ -26,11 +29,20 @@ function AdminBillPanel(props) {
 
         await axios.patch(`/bill/adminupdatebill`, {billId: billData.id, ref: paymentRef})
         .then(res => {
-            window.location.reload();
+            const allBill = [...props.allBill];
+            const index = allBill.findIndex(e => e.id === billData.id);
+            allBill[index].status = 'PAID' ;
+            allBill[index].ref = paymentRef ;
+            allBill[index].admin = {username: authUser.username} ;
+            props.setAllBill([...allBill]);
         })
         .catch(err => {
-          handleErr(err);
-        });
+            handleErr(err);
+        })
+        .finally(() => {
+            props.setBillPanel();
+            setIsLoading(false);
+        })
     };
 
     function goToStorePage() {

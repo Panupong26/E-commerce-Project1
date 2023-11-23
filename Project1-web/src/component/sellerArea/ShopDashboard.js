@@ -630,7 +630,7 @@ function ShopDashboard() {
                         <div key={new Date().getTime() + Math.random()} className="productStickBox" style={{width: `${((e.quantity/productStickMaxWidth)*100) - 10}%`}} onClick = {() => window.location.href = `${FONTEND_URL}/product/${e.productId}`}>
                             <div>
                                 <img src = {e.picture} alt = 'productPic'/>
-                                <div className="product">{e.product}</div>
+                                <div className="product">{e?.product.length > 30 ? e.product.slice(0,29) + '...' : e.product}</div>
                             </div>
                             <div>
                                 <div className="stickQuantity">quantity {e.quantity.toLocaleString()}</div>

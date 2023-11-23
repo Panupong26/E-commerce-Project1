@@ -6,7 +6,6 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    border-radius: 5px;
     box-shadow: 0px 0px 5px rgb(200, 200, 200);
 }
 
@@ -18,8 +17,7 @@
     display: flex;
     justify-content: space-between;
     align-content: center;
-    border-radius: 5px;
-    box-shadow: 0px 0px 20px yellowgreen;
+    box-shadow: 0px 0px 10px yellowgreen;
 }
 
 .cartCard:hover {
@@ -32,7 +30,6 @@
 
 .cartPic {
     border-radius: 0;
-    border-radius: 5px;
 }
 
 .cartPic:hover {
@@ -45,15 +42,19 @@
 }
 
 .cartProductName {
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .cartOption {
-    color: rgb(100, 100, 100);
+    background-color: rgb(255, 235, 106);
+    color: black;
+    width: fit-content;
+    padding: 2px;
 }
 
 .cartQuantity {
     color: rgb(100, 100, 100);
+    font-size: 12px;
 }
 
 .cartSentOption {

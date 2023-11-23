@@ -376,7 +376,7 @@ function Product(props) {
                 {status !== 'seller' &&
                 <div className = 'productDetailBox'>
                     <div className='productDetailHeader'>Product Detail</div>
-                    <textarea className='productDetail'  value = {productData?.productDetail || ''}/>
+                    <textarea className='productDetail'  value = {productData?.productDetail || ''} readOnly={true}/>
                 </div>
                 }
 

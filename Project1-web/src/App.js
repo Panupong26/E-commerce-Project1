@@ -15,7 +15,7 @@ import CheckEmail from './page/CheckEmail';
 import Reset from './page/Reset';
 import AdminForgotten from './page/AdminForgotten';
 import Forgotten from './page/Forgotten';
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { authContext } from './context/AuthContextProvider';
 import { useContext } from 'react';
 import NavBar from './component/NavBar';

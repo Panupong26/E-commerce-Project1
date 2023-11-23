@@ -109,7 +109,7 @@ export default function Cart({ userData, cartData, setCartData }) {
                 <div className='orderOptionBox'>
                     <div className='locationInputBox'>
                         <div>
-                            <div className='locationInputHeader'><FontAwesomeIcon icon={faUser} /> Receive Name </div>
+                            <div className='locationInputHeader'><FontAwesomeIcon icon={faUser} /> Receiver </div>
                             <input className='cartReceiveNameInput' disabled={!isEdit} value={receiveName} onChange={(e) => setReceiveName(e.target.value)} />
                         </div>
                         <div>

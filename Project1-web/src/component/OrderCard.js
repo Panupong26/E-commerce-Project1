@@ -11,8 +11,8 @@ import '../CSS-file/component-css/order-card.css';
 import { handleErr } from "../handle-err/HandleErr";
 
 const orderStatus = {
-    PREPARE_SHIPPING: 'Prepare Shipping',
-    ON_DELIVERY: 'On Delivery',
+    PREPARING: 'Preparing for shipment',
+    IN_TRANSIT: 'In transit',
     RECEIVED: 'Received',
     CANCLE: 'Cancle',
     PENDING_REFUND: 'Pending Refund',
@@ -20,12 +20,12 @@ const orderStatus = {
 }
 
 const sellerOrderStatus = {
-    PREPARE_SHIPPING: 'Prepare Shipping',
-    ON_DELIVERY: 'On Delivery',
+    PREPARING: 'Preparing for shipment',
+    IN_TRANSIT: 'In transit',
     RECEIVED: 'Received',
     CANCLE: 'Cancle',
     PENDING_REFUND: 'Cancle',
-    REFUNDED: 'Cancle'
+    REFUNDED: 'Cancle',
 }
 
 const paymentOption = {
@@ -97,7 +97,7 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
                 order number: {data.id}
             </div>
             <div className='orderProductName'>
-                {data.productName}
+                {data?.productName.length > 20 ? data.productName.slice(0,19) + '...' : data.productName}
             </div>
             <div className='orderOption'>
                 {data.productOption}
@@ -128,8 +128,9 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
         </div>
         <div className='orderContentBox'>  
             <div className='orderStatus'>
-                {data.status === 'PREPARE_SHIPPING' && <FontAwesomeIcon icon={faCircle} style={{color: "#eacf1f", fontSize: '10px'}}/>}
-                {data.status === 'ON_DELIVERY' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fddea", fontSize: '10px'}} />}
+                {console.log(data.status)}
+                {data.status === 'PREPARING' && <FontAwesomeIcon icon={faCircle} style={{color: "#eacf1f", fontSize: '10px'}}/>}
+                {data.status === 'IN_TRANSIT' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fddea", fontSize: '10px'}} />}
                 {data.status === 'RECEIVED' && <FontAwesomeIcon icon={faCircle} style={{color: "#1fea2d", fontSize: '10px'}} />}
                 {data.status === 'CANCLE' && <FontAwesomeIcon icon={faCircle} style={{color: "#EC0D0D", fontSize: '10px'}} />}  
                 {data.status === 'PENDING_REFUND' && <FontAwesomeIcon icon={faCircle} style={{color: "#EC0D0D", fontSize: '10px'}} />} 
@@ -142,21 +143,21 @@ export default function OrderCard ({ data, setOrderData, orderData }) {
             </div>
 
 
-            {data.status === 'ON_DELIVERY' && status === 'user' &&
+            {data.status === 'IN_TRANSIT' && status === 'user' &&
             <div className='receivedButton' onClick={() => {
                 setIsOpen(true)
             }}><FontAwesomeIcon icon={faCheck} /> Received</div>
             }
 
 
-            {data.status === 'PREPARE_SHIPPING' && status === 'seller' &&
+            {data.status === 'PREPARING' && status === 'seller' &&
              <div className='sellerEnterTrackingNumberButton' onClick={() => {
                 setOpenTrackingInput(true);
             }}> Enter tracking number</div>
             }
 
 
-            {data.status === 'PREPARE_SHIPPING' && 
+            {data.status === 'PREPARING' && 
             <div className='cancleButton' onClick={() => status === 'user' ? cancleOrder() : sellerCancleOrder()}><FontAwesomeIcon icon={faXmark} /> Cancle </div>
             }
         </div>
