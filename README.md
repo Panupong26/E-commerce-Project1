@@ -26,11 +26,21 @@ npm install
   &nbsp;&nbsp;&nbsp;-Stripe private key (สมัคร Stripe โดยยังไม่ต้องยืนยันธุรกิจ และเขาไปคัดลอกในส่วน API secret key มาใช้สำหรับทดสอบระบบชำระเงิน (Test mode)) </br>
   &nbsp;&nbsp;&nbsp;-URL ของฝั่ง web </br>
 -ทำการสร้าง schema MySql โดยชื่อจะต้องตรงกับชื่อที่ตั้งไว้ใน .env (DB_NAME) </br>
--เริ่มการทำงาน sever โดยคำสั่ง npx nodemon </br>
+-เริ่มการทำงาน sever โดยคำสั่ง 
+```
+npx nodemon
+``` 
+
 
 ### ส่วน WEB 
--ทำการติดตั้งแพคเกจ โดย cd ไปที่โฟลเดอร์ project1-web และใช้คำสั่ง npm install </br>
+-ทำการติดตั้งแพคเกจ โดย cd ไปที่โฟลเดอร์ project1-web และใช้คำสั่ง
+```
+npm install
+```
 -เปิดไฟล์ env.js ในโฟลเดอร์ src ทำการใส่ค่า URL ของฝั่ง web และ ของฝั่ง api </br>
--เริ่มการทำงานโดยคำสั่ง npm start </br>
+-เริ่มการทำงานโดยคำสั่ง
+```
+npm start
+```
 
  
