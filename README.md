@@ -14,7 +14,10 @@ Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type
 
 # การติดตั้ง
 ### ส่วน API 
--ทำการติดตั้งแพคเกจ โดย cd ไปที่โฟลเดอร์ project1-api และใช้คำสั่ง npm install </br>
+-ทำการติดตั้งแพคเกจ โดย cd ไปที่โฟลเดอร์ project1-api และใช้คำสั่ง 
+```
+npm install 
+```
 -เปิดไฟล์ .env ในเพื่อทำการใส่ค่า </br>
   &nbsp;&nbsp;&nbsp;-Port </br> 
   &nbsp;&nbsp;&nbsp;-password สำหรับ MySql </br>
