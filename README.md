@@ -8,7 +8,7 @@
 
 Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type=design&node-id=0%3A1&mode=design&t=wOd8fwnGyZwkdhz1-1 </br>
 
-วิดีโอตัวอย่าง https://www.youtube.com/watch?v=CbvIDMLnk3Y </br>
+วิดีโอตัวอย่าง https://drive.google.com/file/d/1uwFpk9kOlfB2p0BFhT5ifcGQT8kb5gH1/view?usp=sharing </br>
 
 *เนื่องจากยังไม่มีประสบการณ์และเป็นโปรเจคส่วนตัวชิ้นแรก หากมีข้อผิดพลาด หรือไม่เรียบร้อยในส่วนไหน ต้องขออภัยไว้ ณ ที่นี้ด้วยครับ ขอบคุณครับ
 
