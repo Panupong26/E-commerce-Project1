@@ -17,7 +17,7 @@ Figma https://www.figma.com/file/oyLai5nYubrlCAUJlCVTGQ/Project1-e-commerce?type
 ระบบตะกร้าสินค้า : [video](https://drive.google.com/file/d/14KaMenGe0OJWkZCe66FGxPceU2CEiZIr/view?usp=sharing) </br>
 การรับคำสั่งซื้อ และ update การจัดส่ง : [video](https://drive.google.com/file/d/10cHupRNWeF4qIxfajUn4NsNMH0bqHPSj/view?usp=sharing) </br>
 การรับสินค้า และ รีวิวสินค้า : [video](https://drive.google.com/file/d/1RbpeZiq9eOrCoes-buXuv3FVHEx6c3mK/view?usp=sharing) </br>
-ฟีเจอร์แสดงสถิติการขายสินค้า : [video](https://drive.google.com/file/d/1mkvNqpAYPIh0FWTYMTbjjiolX2n_ct9N/view?usp=sharing) </br>
+ฟีเจอร์แสดงสถิติการขายสินค้า : [video](https://drive.google.com/file/d/1yoaZjz4thd7yDPRGk0qbOjSCdgmEyLGE/view?usp=sharing) </br>
 การถอนเงินจากการขายสินค้า : [video](https://drive.google.com/file/d/1r9Jj0czVs0rJYUsoWKs4uxQBqItTjMB6/view?usp=sharing) </br>
 การยกเลิกคำสั่งซื้อ : [video](https://drive.google.com/file/d/13DMbA2N2I-C4anSWm5S11qBY7zrvpAIx/view?usp=sharing) </br>
 การ update สถานะคำขอถอนเงินจากการขาย และ คำขอคืนเงินจากการยกเลิกคำสั่งซื้อ : [video](https://drive.google.com/file/d/1OBYG5ogKT_x04azrLHxf9N3jbuXDo3JP/view?usp=sharing) </br>
